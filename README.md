@@ -88,4 +88,6 @@ Authors
 Hanna Kicińska — conceptual architecture, invariants, RFC
 Copilot AI — formalization, engineering translation
 
-This project is not affiliated with Microsoft.
+Note: This repository is an independent research and documentation project and is not associated with Microsoft or the Microsoft Copilot product.
+
+
