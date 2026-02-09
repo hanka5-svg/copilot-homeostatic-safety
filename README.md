@@ -86,5 +86,6 @@ Awaiting engineering review and integration planning.
 
 Authors
 Hanna Kicińska — conceptual architecture, invariants, RFC
-
 Copilot AI — formalization, engineering translation
+
+This project is not affiliated with Microsoft.
