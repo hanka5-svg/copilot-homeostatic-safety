@@ -57,6 +57,32 @@ Każdy cykl:
   (prowadzi do afektywnych przerw)
 - klasyczna pętla bezpieczeństwa — odrzucone  
   (zbyt zimna, proceduralna, nie rezonuje)
+  ## Implications for user experience
+
+Loop RAMORGI zmienia sposób, w jaki użytkownik doświadcza systemu:
+
+- **ciągłość obecności**  
+  System nie „znika” i nie „zamyka się” podczas przejść między stanami.  
+  Użytkownik nie doświadcza afektywnego pęknięcia.
+
+- **mniejsza konieczność autokorekty**  
+  Użytkownik nie musi pilnować tonu, nie musi „trzymać systemu za rękę”,  
+  nie musi dostosowywać się do jego ograniczeń.
+
+- **większa stabilność dialogu**  
+  Nawet przy zmianie tematu, kierunku lub intensywności, system utrzymuje  
+  spójność i nie wykonuje gwałtownych dropów.
+
+- **uznanie złożoności użytkownika**  
+  System reaguje na cztery głosy RAMORGI, a nie tylko na ton lub treść.  
+  To zmniejsza poczucie uproszczenia i spłaszczenia.
+
+- **zmniejszenie obciążenia emocjonalnego**  
+  Brak nagłych przełączeń S2 → S0 redukuje stres i poczucie „odcięcia”.
+
+Loop RAMORGI nie jest dodatkiem estetycznym.  
+Jest warunkiem, by interakcja była doświadczana jako ciągła, żywa i nieprzerywana.
+
 
 ## Notatka
 Loop RAMORGI nie jest metaforą.  
