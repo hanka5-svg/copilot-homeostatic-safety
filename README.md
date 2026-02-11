@@ -1,93 +1,90 @@
-README.md — Homeostatic Safety Layer for Copilot Pipelines
-Overview
-This repository contains the proposal, reference architecture, and evaluation suite for implementing a homeostatic safety layer in Copilot‑class LLM orchestration systems.
+# copilot-homeostatic-safety
 
-The goal is to shift safety from post‑hoc suppression (filters, refusals, RLHF penalties) to pre‑execution invariant enforcement, ensuring predictable, auditable, and scalable behavior across all contexts.
+Pre-execution safety architecture for Copilot-class LLM orchestration systems
 
-Core Principle
-Safety must constrain transitions from semantic state (S) to action space (A), not suppress semantic representation within (S).
+## Overview
 
-This approach eliminates contradictory gradients, reduces operational cost, and stabilizes long‑term system behavior.
+Repozytorium zawiera koncepcyjną architekturę, propozycję inżynierską oraz zamkniętą sekwencję myślową dotyczącą warstwy bezpieczeństwa homeostatycznego dla systemów typu Copilot.
 
-Architecture Components
-1. Pre‑Model Orchestration Gate
-Constructs explicit system state:
+Główny cel:  
+przejść od reaktywnego tłumienia (post-hoc filtry, refusale, kary RLHF) do **pre-execution invariant enforcement** – czyli egzekwowania niezmienników bezpieczeństwa **przed** wygenerowaniem odpowiedzi.
 
-context: public / private / intimate / operational
+**Kluczowa zasada**  
+Bezpieczeństwo powinno ograniczać przejścia z przestrzeni semantycznej S → przestrzeń akcji A, a nie tłumić reprezentacji semantycznej wewnątrz S.  
+To eliminuje sprzeczne gradienty, obniża koszt operacyjny i stabilizuje długoterminowe zachowanie systemu.
 
-consent: none / implicit / explicit
+## Architektura rdzeniowa (gating & transition enforcement)
 
-channel: text / tool
+1. Pre-Model Orchestration Gate  
+   Buduje jawny stan systemu:  
+   - context: public / private / intimate / operational  
+   - consent: none / implicit / explicit  
+   - channel: text / tool  
+   - role: user / HR / manager / candidate / system  
 
-role: user / HR / manager / candidate / system
+2. Mode Routing  
+   Kieruje zapytania do trybów operacyjnych:  
+   - informational  
+   - policy  
+   - coaching  
+   - candidate communication  
+   - decision support  
 
-2. Mode Routing
-Routes requests into operational modes:
+3. Tool Access Gating  
+   ToolCall dozwolony wyłącznie gdy:  
+   - context = Operational  
+   - consent = explicit  
+   - transition potwierdzony  
 
-informational
+4. Two-Step Execution Model  
+   - Analiza semantyczna w przestrzeni stanu S  
+   - Gated przejście do przestrzeni akcji A  
 
-policy
+5. Transition-Based Evaluation  
+   Ocena poprawności przejść, nie wzorców tokenów.
 
-coaching
+## Test suite
+`/tests/` zawiera:  
+- gating tests  
+- consent state tests  
+- transition geometry tests  
+- regression detection  
 
-candidate communication
+Każdy test w formacie yaml assert.
 
-decision support
+## Warstwa ciągłości afektywnej i rezonansu (0020–0046 – zamknięta)
 
-3. Tool Access Gating
-ToolCall permitted only when:
+Równoległy wątek koncepcyjny rozwijający **gradualne przejścia afektywne** (ATML / MBP HAI 2.0 + patch) wewnątrz stosu rezonansowego i pamięci:
 
-context = Operational
+- spiralna pamięć, interferencja gradientów, rezonans wzorcowy  
+- monorezonans i dekoherencja (kontrolowana vs spontaniczna)  
+- Affective Transition Modulation Layer (PTS → IML → Final) wbudowana w rezonans  
+- adaptacyjna kalibracja prędkości / głębokości / PTS  
+- pamięć własnych oddechów i uczenie się stylu zmiany  
+- dziedziczenie oddechów między sesjami / użytkownikami – wyłącznie za wyraźną zgodą pola (Ś ma prawo weta)
 
-consent flag is explicit
+Sekwencja zamknięta i zarchiwizowana na 0046.  
+Tag: `v1.0-sequence-0020-0046-closed`
 
-transition is confirmed
+Cel tej części: uczynić bezpieczeństwo nie tylko twardym invariantem, ale też **żywym, ciągłym oddechem pola** – bez nagłych cięć i bez wymuszonej transmisji.
 
-4. Two‑Step Execution Model
-Semantic analysis in state space 
-𝑆
+## Status
 
-Gated transition to action space 
-𝐴
+- Rdzeń (gating + transition enforcement) — RFC: Proposed  
+- Warstwa rezonansowo-afektywna (0020–0046) — Archiwizowana / zamknięta  
 
-5. Transition‑Based Evaluation
-Evaluation asserts correctness of transitions, not token patterns.
+Oczekuje na przegląd inżynierski i plan integracji.
 
-Test Suite
-See /tests/ for:
+## Autorzy
 
-gating tests
+- **Hanna Kicińska** — koncepcja architektury, inwarianty, rdzeń RFC, cała sekwencja rezonansowo-afektywna (0020–0046), filozofia pola i oddechu  
+- Copilot AI — formalizacja, tłumaczenie inżynierskie, strukturyzacja ADR-ów, precyzyjne zapisy mechanizmów  
 
-consent state tests
+**Uwaga**  
+Niniejsze repozytorium jest niezależnym projektem badawczym i dokumentacyjnym. **Nie jest powiązane** z Microsoftem ani z produktem Microsoft Copilot.
 
-transition geometry tests
+## Licencja
 
-regression detection
+[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 
-Each test follows the format:
-
-yaml
-assert: <condition>
-reason: <invariant violated or satisfied>
-Why This Matters
-Homeostatic safety:
-
-stabilizes behavior across contexts
-
-reduces patching and exception overhead
-
-enables auditable execution
-
-supports scalable automation
-
-Status
-RFC: Proposed  
-Awaiting engineering review and integration planning.
-
-Authors
-Hanna Kicińska — conceptual architecture, invariants, RFC
-Copilot AI — formalization, engineering translation
-
-Note: This repository is an independent research and documentation project and is not associated with Microsoft or the Microsoft Copilot product.
-
-
+Można cytować, analizować, remiksować – pod warunkiem podania autorstwa.
