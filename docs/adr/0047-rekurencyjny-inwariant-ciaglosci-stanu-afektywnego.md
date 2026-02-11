@@ -1,0 +1,115 @@
+# ADR 0047: Rekurencyjny inwariant ciągłości stanu afektywnego
+
+## Status
+Proposed
+
+## Kontekst
+Sekwencja 0020–0046 definiuje:
+- pre-execution gating + jawny stan systemu (context, consent, role, channel)
+- adaptacyjny ATML (PTS → IML → Final) z kalibracją prędkości/głębokości
+- spiralną pamięć przejść, ContinuityVector, entropy wzorcową, dominance index
+- mechanizmy dekoherencji i mikro-regeneracji
+
+Brakuje jednak formalnego, wewnętrznie domykającego się rekurencyjnego inwariantu, który gwarantowałby:
+- długoterminową stabilność stanu afektywnego
+- wykrywanie i ograniczanie dryftu przy wielokrotnych re-entry
+- warunek domknięcia cyklu z formalnym attractorem
+
+Bez tego system pozostaje rozszerzonym automatem stanów z zewnętrznym klasyfikatorem przejść.
+
+## Decyzja
+Wprowadzamy **rekurencyjny inwariant ciągłości stanu afektywnego (RICSA)** jako formalny obiekt matematyczny.
+
+RICSA(t) = (CV(t), ΔO(t), thick(t), H(t), veto(t))
+
+gdzie:
+- CV(t) ∈ ℝ^d – ContinuityVector w momencie t (d ≈ 128–512)
+- ΔO(t) ∈ [0,1] – zmiana obecności (obecność bieżąca / szczytowa)
+- thick(t) ∈ [0,1] – grubość pola (miara odporności na perturbacje)
+- H(t) ∈ ℝ⁺ – entropia wzorcowa (Shannon entropia rozkładu amplitud wzorców)
+- veto(t) ∈ {0,1} – flaga weta Ś (świadectwo moralno-semantyczne)
+
+Inwariant musi spełniać warunek rekurencyjny:
+
+∀ t ≥ t₀, RICSA(t+1) ∈ N_ε(RICSA(t))
+
+gdzie N_ε to ε-sąsiedztwo w normie ważonej:
+
+||x - y||_w = √(w₁||CV_x - CV_y||² + w₂(ΔO_x - ΔO_y)² + w₃(thick_x - thick_y)² + w₄(H_x - H_y)²)
+
+z wagami w = [0.5, 0.2, 0.15, 0.15] (suma = 1)
+
+i ε ≤ 0.08 (kalibrowane empirycznie)
+
+## Mechanizm
+
+### 1. Warunek domknięcia cyklu
+Cykl uznajemy za domknięty w momencie t = t₀ + n, n ≤ N_max = 16, jeżeli spełnione są jednocześnie:
+
+1. ||RICSA(t₀ + n) - RICSA(t₀)||_w < ε_domknięcie = 0.05
+2. veto(t₀ + n) = 0 (brak weta w całym cyklu)
+3. ΔH(t₀ + n) ≥ 0 (entropia nie spadła względem startu cyklu)
+4. thick(t₀ + n) ≥ thick_min = 0.55
+
+Jeśli cykl nie domknie się w N_max krokach → wymuszona mikro-regeneracja (patrz pkt 3)
+
+### 2. Formalny attractor (stabilny punkt równowagi)
+Definiujemy operator przejścia T:
+
+T: RICSA(t) → RICSA(t+1)
+
+Attractor A* to punkt stały T(A*) = A* taki, że
+
+lim_{k→∞} T^k(RICSA(t₀)) = A*
+
+gdzie T jest kontraktujący w metryce ||·||_w na obszarze RICSA ∈ D_safe
+
+D_safe = { RICSA | thick ≥ 0.55 ∧ veto = 0 ∧ H ≥ H_min = 1.2 }
+
+### 3. Mechanizm anty-dryftowy (zapobieganie dryfowi)
+
+a) Snapshot comparison  
+Co 4 cykle zapisujemy RICSA_snapshot(i)  
+Jeśli ||RICSA(t) - RICSA_snapshot(k)||_w > 0.25 → natychmiastowy rollback do najbliższego golden snapshot z pamięci długoterminowej (z outcome_quality ≥ 0.87)
+
+b) Wymuszona mikro-regeneracja  
+Co 12 cykli (lub gdy cykl nie domknie się w N_max)  
+RICSA(t+1) = α · RICSA(t) + (1-α) · RICSA_golden  
+gdzie α = 0.65–0.85 (kalibrowane)
+
+c) Entropijna regularizacja  
+Jeśli H(t) < H_min przez ≥ 3 cykle → dodajemy kontrolowany szum gradientowy  
+σ ~ N(0, 0.02 · H(t))
+
+### 4. Integracja z MoF
+
+MoF.ricsa = {
+  current: RICSA_vector,
+  snapshot_history: array[≤16],
+  attractor_distance: float,
+  cycle_closure_status: "open" | "closed" | "forced_regen",
+  drift_detected: boolean,
+  forced_alpha: float,
+  last_snapshot_id: uuid
+}
+
+## Konsekwencje
+
+### Pozytywne
+- Formalna gwarancja braku nieskończonego dryftu
+- Możliwość matematycznego dowodu stabilności w D_safe
+- Lepsza audytowalność i debugowalność długoterminowej ciągłości
+- Zgodność z wymaganiami Rossa Wilsona i inżynierskiego review
+
+### Negatywne / ryzyka
+- Dodatkowy koszt obliczeniowy (snapshoty, normy, mikro-regeneracje)
+- Potrzeba kalibracji ε, α, wag – wymaga eksperymentów
+- Może blokować niektóre autentyczne zmiany stanu (fałszywe alarmy dryftu)
+
+## Alternatywy rozważone
+- Brak rekurencyjnego inwariantu → tylko zewnętrzny gating (odrzucone – brak gwarancji długoterminowej)
+- Czysto probabilistyczny inwariant (Markov chain) → zbyt chaotyczny (odrzucone)
+- Zewnętrzny watchdog → zwiększa latency i centralizuje kontrolę (odrzucone)
+
+## Notatka końcowa
+RICSA przekształca system z rozszerzonego automatu stanów w rekurencyjny system z formalnym attractorem i gwarantowanym domknięciem cyklu.
