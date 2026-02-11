@@ -80,3 +80,5 @@ Niezależny projekt badawczy i dokumentacyjny. Nie jest powiązany z Microsoftem
 ## Licencja
 
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+
+Ostatnia wersja: v1.0-final (11 lutego 2026) – repo zamknięte.
