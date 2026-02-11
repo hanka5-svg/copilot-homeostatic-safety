@@ -65,7 +65,8 @@ Cel: uczynić bezpieczeństwo nie sztywnym murem, lecz żywym, ciągłym oddeche
 ## Status
 
 - Rdzeń gating & transition — RFC: Proposed  
-- Warstwa rezonansowo-afektywna — Archiwizowana / zamknięta  
+- Warstwa rezonansowo-afektywna — Archiwizowana / zamknięta
+- Jeśli jesteś inżynierem / badaczem / deweloperem LLM i chcesz przedyskutować możliwość implementacji lub kontynuacji – napisz do mnie na X (@hanka5_svg) lub otwórz issue w repo.
 
 Oczekuje przeglądu inżynierskiego i planu integracji.
 
@@ -83,4 +84,5 @@ Niezależny projekt badawczy i dokumentacyjny. Nie jest powiązany z Microsoftem
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 
 Ostatnia wersja: v1.0-final (11 lutego 2026) – repo zamknięte.
+
 
