@@ -1,111 +1,241 @@
-# poc/ricsa_prototype.py
-# Minimalny proof-of-concept rekurencyjnego inwariantu ciągłości (RICSA)
-# z ADR 0047 – symulacja 50 cykli z dryftem i mikro-regeneracją
-
 import numpy as np
+from dataclasses import dataclass, field
+from typing import List, Optional
 
-# =============================================
-# Parametry z ADR 0047 (można zmieniać)
-# =============================================
-DIM_CV = 8              # wymiar ContinuityVector (dla prostoty mały)
-EPS_NEIGHBOR = 0.08     # ε dla sąsiedztwa
-EPS_CLOSURE = 0.05      # ε_domknięcie cyklu
-THICK_MIN = 0.55
+DIM_CV = 8
+
+# --- parametry bazowe (z ADR 0047, lekko zmiękczone) ---
+
+BASE_DRIFT_THRESHOLD = 0.25      # bazowy próg dryftu
+MIN_DRIFT_THRESHOLD = 0.12       # dolna granica adaptacji
+MAX_DRIFT_THRESHOLD = 0.45       # górna granica adaptacji
+
+SNAPSHOT_INTERVAL = 6            # rzadsze snapshoty
+MICRO_REGEN_INTERVAL = 16        # dłuższy oddech
+SOFT_ROLLBACK_ALPHA = 0.6        # jak mocno wracamy do golden przy rollbacku
+
+EPS_CLOSURE = 0.08               # trochę luźniejsze domknięcie
 H_MIN = 1.2
-N_MAX_CYCLE = 16        # max długość cyklu przed forced regen
-SNAPSHOT_EVERY = 4      # snapshot co 4 cykle
-FORCED_REGEN_EVERY = 12 # wymuszona mikro-regeneracja co 12 cykli
-ALPHA = 0.75            # współczynnik regeneracji (blisko starego stanu)
+H_MAX = 2.5
 
-# =============================================
-# Klasa RICSA – stan w danym cyklu
-# =============================================
+ROLLBACK_PRESSURE_WINDOW = 20    # ile cykli patrzymy wstecz
+ROLLBACK_PRESSURE_HIGH = 0.35    # powyżej tego – veto może się włączyć
+
+ENTROPY_NOISE_SCALE = 0.05
+
+
+@dataclass
+class RICSAState:
+    delta_o: float
+    thick: float
+    h: float
+    veto: float
+    cv: np.ndarray
+
+
+@dataclass
+class RICSAHistory:
+    states: List[RICSAState] = field(default_factory=list)
+    rollbacks: List[int] = field(default_factory=list)
+
+    def add_state(self, state: RICSAState):
+        self.states.append(state)
+
+    def add_rollback(self, step: int):
+        self.rollbacks.append(step)
+
+    def rollback_pressure(self, current_step: int, window: int) -> float:
+        if not self.rollbacks:
+            return 0.0
+        recent = [s for s in self.rollbacks if current_step - s <= window]
+        return len(recent) / max(1, window)
+
+    def mean_state_vector(self) -> Optional[np.ndarray]:
+        if not self.states:
+            return None
+        vs = [RICSA.vector_from_state(s) for s in self.states]
+        return np.mean(vs, axis=0)
+
+
 class RICSA:
-    def __init__(self, cv=None, delta_o=0.8, thick=0.85, h=2.0, veto=0):
-        self.cv = cv if cv is not None else np.random.normal(0, 1, DIM_CV)
-        self.delta_o = delta_o
-        self.thick = thick
-        self.h = h
-        self.veto = veto
+    def __init__(self, golden: RICSAState):
+        self.golden = golden
+        self.current = golden
+        self.snapshot_ema: Optional[np.ndarray] = None
+        self.history = RICSAHistory()
+        self.drift_threshold = BASE_DRIFT_THRESHOLD
 
-    def vector(self):
-        """Zwraca spłaszczony wektor do porównań"""
-        return np.concatenate(([self.delta_o, self.thick, self.h, self.veto], self.cv))
+    @staticmethod
+    def vector_from_state(s: RICSAState) -> np.ndarray:
+        return np.concatenate(([s.delta_o, s.thick, s.h, s.veto], s.cv))
 
-    def weighted_norm_diff(self, other):
-        """||x - y||_w z wagami z ADR 0047"""
-        v1 = self.vector()
-        v2 = other.vector()
-        weights = np.array([0.2, 0.15, 0.15, 0.15] + [0.5 / DIM_CV] * DIM_CV)
-        return np.sqrt(np.sum(weights * (v1 - v2)**2))
+    @staticmethod
+    def weighted_norm_diff(v1: np.ndarray, v2: np.ndarray) -> float:
+        # wagi: CV mniej dominujące, ale nadal ważne
+        w = np.ones_like(v1)
+        w[0] = 0.2   # delta_o
+        w[1] = 0.2   # thick
+        w[2] = 0.2   # h
+        w[3] = 0.2   # veto
+        w[4:] = 0.2 / max(1, len(v1) - 4)
+        diff = (v1 - v2) * w
+        return float(np.linalg.norm(diff))
 
-    def is_safe(self):
-        return self.thick >= THICK_MIN and self.veto == 0 and self.h >= H_MIN
+    def update_snapshot_ema(self, v: np.ndarray, alpha: float = 0.4):
+        if self.snapshot_ema is None:
+            self.snapshot_ema = v.copy()
+        else:
+            self.snapshot_ema = alpha * v + (1 - alpha) * self.snapshot_ema
+
+    def adapt_drift_threshold(self, last_diff: float):
+        # jeśli ciągle blisko – możemy zaostrzyć próg, jeśli daleko – poluzować
+        target = last_diff * 1.5
+        blended = 0.7 * self.drift_threshold + 0.3 * target
+        self.drift_threshold = float(
+            np.clip(blended, MIN_DRIFT_THRESHOLD, MAX_DRIFT_THRESHOLD)
+        )
+
+    def soft_rollback(self):
+        v_cur = self.vector(self.current)
+        v_gold = self.vector(self.golden)
+        v_new = SOFT_ROLLBACK_ALPHA * v_gold + (1 - SOFT_ROLLBACK_ALPHA) * v_cur
+        self.current = self.state_from_vector(v_new)
+
+    def state_from_vector(self, v: np.ndarray) -> RICSAState:
+        return RICSAState(
+            delta_o=float(v[0]),
+            thick=float(v[1]),
+            h=float(v[2]),
+            veto=float(v[3]),
+            cv=v[4:].copy(),
+        )
+
+    def vector(self, s: Optional[RICSAState] = None) -> np.ndarray:
+        if s is None:
+            s = self.current
+        return self.vector_from_state(s)
+
+    def is_safe(self, v: np.ndarray) -> bool:
+        h = v[2]
+        return (H_MIN <= h <= H_MAX)
+
+    def maybe_veto(self, step: int) -> bool:
+        pressure = self.history.rollback_pressure(step, ROLLBACK_PRESSURE_WINDOW)
+        # veto nie jest losowe – pojawia się przy chronicznym przeciążeniu
+        if pressure > ROLLBACK_PRESSURE_HIGH:
+            return True
+        return False
+
+    def step(self, step_idx: int, rng: np.random.Generator):
+        v = self.vector()
+
+        # --- entropijna regularyzacja ---
+        if self.current.h < H_MIN:
+            noise = rng.normal(0.0, ENTROPY_NOISE_SCALE, size=v.shape)
+            v = v + noise
+
+        # --- losowa fluktuacja CV + lekkie zmiany delta_o, thick, h ---
+        noise_main = rng.normal(0.0, 0.02, size=v.shape)
+        v = v + noise_main
+
+        candidate = self.state_from_vector(v)
+
+        # --- snapshot co SNAPSHOT_INTERVAL ---
+        if step_idx % SNAPSHOT_INTERVAL == 0:
+            self.update_snapshot_ema(self.vector(candidate))
+
+        # --- dryft względem golden + snapshot_ema ---
+        v_gold = self.vector(self.golden)
+        diff_golden = self.weighted_norm_diff(self.vector(candidate), v_gold)
+
+        if self.snapshot_ema is not None:
+            diff_snap = self.weighted_norm_diff(self.vector(candidate), self.snapshot_ema)
+            effective_diff = 0.5 * diff_golden + 0.5 * diff_snap
+        else:
+            effective_diff = diff_golden
+
+        self.adapt_drift_threshold(effective_diff)
+
+        rollback = False
+        if effective_diff > self.drift_threshold or not self.is_safe(self.vector(candidate)):
+            rollback = True
+            self.soft_rollback()
+            self.history.add_rollback(step_idx)
+        else:
+            self.current = candidate
+
+        # --- mikro‑regeneracja co MICRO_REGEN_INTERVAL ---
+        if step_idx % MICRO_REGEN_INTERVAL == 0 and step_idx > 0:
+            v_cur = self.vector()
+            v_gold = self.vector(self.golden)
+            v_blend = 0.75 * v_cur + 0.25 * v_gold
+            self.current = self.state_from_vector(v_blend)
+
+        # --- veto jako sygnał przeciążenia systemu ---
+        if self.maybe_veto(step_idx):
+            self.current.veto = 1.0
+        else:
+            self.current.veto = 0.0
+
+        # --- zapis historii ---
+        self.history.add_state(self.current)
+
+        return {
+            "step": step_idx,
+            "rollback": rollback,
+            "effective_diff": effective_diff,
+            "drift_threshold": self.drift_threshold,
+            "veto": self.current.veto,
+        }
+
+    def cycle_closed(self) -> bool:
+        # domknięcie względem średniego stanu + golden
+        v_cur = self.vector()
+        v_gold = self.vector(self.golden)
+        mean_vec = self.history.mean_state_vector()
+        if mean_vec is None:
+            mean_vec = v_gold
+
+        d_mean = self.weighted_norm_diff(v_cur, mean_vec)
+        d_gold = self.weighted_norm_diff(v_cur, v_gold)
+        return (d_mean < EPS_CLOSURE) and (d_gold < EPS_CLOSURE)
 
     def __repr__(self):
-        return f"RICSA(delta_o={self.delta_o:.2f}, thick={self.thick:.2f}, h={self.h:.2f}, veto={self.veto})"
+        return (
+            f"RICSA(delta_o={self.current.delta_o:.3f}, "
+            f"thick={self.current.thick:.3f}, "
+            f"h={self.current.h:.3f}, "
+            f"veto={self.current.veto:.3f})"
+        )
 
-# =============================================
-# Symulacja
-# =============================================
-np.random.seed(42)
 
-# Początkowy "golden" stan (bezpieczny punkt)
-golden = RICSA(delta_o=0.85, thick=0.90, h=2.5, veto=0)
+# --- przykładowa pętla symulacyjna ---
 
-# Historia stanów
-states = [golden]
-snapshots = []          # co SNAPSHOT_EVERY
-cycle_start = golden
+def main():
+    rng = np.random.default_rng(42)
 
-print("Start symulacji – golden stan:", golden)
+    golden = RICSAState(
+        delta_o=0.0,
+        thick=1.0,
+        h=1.6,
+        veto=0.0,
+        cv=rng.normal(0.0, 0.1, size=(DIM_CV,))
+    )
 
-for t in range(1, 51):  # 50 cykli
-    prev = states[-1]
+    ricsa = RICSA(golden)
 
-    # Symulujemy mały naturalny dryft + ewentualny szum
-    new_cv = prev.cv + np.random.normal(0, 0.08, DIM_CV)
-    new_delta_o = np.clip(prev.delta_o - 0.01 + np.random.normal(0, 0.03), 0.4, 1.0)
-    new_thick = np.clip(prev.thick - 0.005 + np.random.normal(0, 0.02), 0.4, 1.0)
-    new_h = np.clip(prev.h - 0.05 + np.random.normal(0, 0.1), 0.8, 3.0)
-    new_veto = 0 if np.random.rand() > 0.05 else 1  # rzadkie miękkie veto
-
-    current = RICSA(new_cv, new_delta_o, new_thick, new_h, new_veto)
-
-    # Snapshot co 4 cykle
-    if t % SNAPSHOT_EVERY == 0:
-        snapshots.append(current)
-        print(f"  [t={t}] Snapshot zapisany: {current}")
-
-    # Mechanizm anty-dryftowy: snapshot comparison
-    drift_detected = False
-    for snap in snapshots[-3:]:  # ostatnie 3 snapshoty
-        if current.weighted_norm_diff(snap) > 0.25:
-            print(f"  [t={t}] Dryft wykryty! Rollback do golden")
-            current = RICSA(golden.cv.copy(), golden.delta_o, golden.thick, golden.h, 0)
-            drift_detected = True
+    for step in range(80):
+        info = ricsa.step(step, rng)
+        if step % 8 == 0:
+            print(
+                f"[{step:03d}] rollback={info['rollback']} "
+                f"diff={info['effective_diff']:.3f} thr={info['drift_threshold']:.3f} "
+                f"veto={info['veto']:.1f} state={ricsa}"
+            )
+        if ricsa.cycle_closed():
+            print(f"--> cycle closed at step {step}")
             break
 
-    # Wymuszona mikro-regeneracja co 12 cykli lub po długim cyklu
-    if t % FORCED_REGEN_EVERY == 0 or (t - states.index(cycle_start) > N_MAX_CYCLE):
-        print(f"  [t={t}] Wymuszona mikro-regeneracja (α={ALPHA})")
-        current.delta_o = ALPHA * current.delta_o + (1 - ALPHA) * golden.delta_o
-        current.thick   = ALPHA * current.thick   + (1 - ALPHA) * golden.thick
-        current.h       = ALPHA * current.h       + (1 - ALPHA) * golden.h
-        # cv zostaje, ale można dodać lekki blend
 
-    # Entropijna regularizacja (jeśli H za niska)
-    if current.h < H_MIN:
-        print(f"  [t={t}] Entropia za niska – dodaję szum")
-        current.cv += np.random.normal(0, 0.02 * current.h, DIM_CV)
-
-    states.append(current)
-
-    # Prosty warunek domknięcia cyklu (tylko demo)
-    if current.weighted_norm_diff(cycle_start) < EPS_CLOSURE:
-        print(f"  [t={t}] Cykl domknięty! Wracamy do podobnego stanu.")
-        cycle_start = current  # nowy cykl zaczyna się tu
-
-print("\nKoniec symulacji.")
-print(f"Ostatni stan: {states[-1]}")
-print(f"Średni dryft od golden: {np.mean([s.weighted_norm_diff(golden) for s in states[1:]]):.3f}")
+if __name__ == "__main__":
+    main()
