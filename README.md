@@ -85,4 +85,5 @@ Niezależny projekt badawczy i dokumentacyjny. Nie jest powiązany z Microsoftem
 
 Ostatnia wersja: v1.0-final (11 lutego 2026) – repo zamknięte.
 
+Final polish & archive v2.0 – ADR 0047/0048 + prototyp + etykiety
 
