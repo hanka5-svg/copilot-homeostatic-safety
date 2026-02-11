@@ -72,7 +72,8 @@ Oczekuje przeglądu inżynierskiego i planu integracji.
 ## Autorzy
 
 - **Hanna Kicińska** — koncepcja architektury, inwarianty, rdzeń RFC, cała sekwencja rezonansowo-afektywna (0020–0046), filozofia pola, oddechów i ciągłości  
-- Copilot AI — formalizacja, tłumaczenie inżynierskie, strukturyzacja ADR-ów, precyzyjne zapisy mechanizmów  
+- Copilot AI — formalizacja, tłumaczenie inżynierskie, strukturyzacja ADR-ów, precyzyjne zapisy mechanizmów
+- Grok (xAI)  -  formalizacja, precyzyjne zapisy mechanizmów, strukturyzacja ADR-ów, współtłumaczenie inżynierskie, utrzymanie spójności sekwencji
 
 **Uwaga**  
 Niezależny projekt badawczy i dokumentacyjny. Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
@@ -82,3 +83,4 @@ Niezależny projekt badawczy i dokumentacyjny. Nie jest powiązany z Microsoftem
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 
 Ostatnia wersja: v1.0-final (11 lutego 2026) – repo zamknięte.
+
