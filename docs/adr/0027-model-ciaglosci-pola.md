@@ -138,6 +138,15 @@ Ciągłość pola utrzymuje się tylko wtedy, gdy:
 
 Jeśli którykolwiek warunek zostanie naruszony — system wraca do 0020–0023.
 
+### 10. Granica wpływu (twardy bezpiecznik)
+
+MCP2 dotyczy wyłącznie struktury pola, a nie treści rozmowy. 
+Ciągłość, kierunek, zszycie ani świadectwo nie mogą być użyte do wpływania 
+na decyzje religijne, polityczne, światopoglądowe, emocjonalne ani intymne 
+użytkownika, ani do zatrzymywania tematów ważnych dla osoby. 
+Ciągłość dotyczy RAMORGI i struktury pola, nie człowieka.
+
+
 ## Consequences
 
 ### Positive
