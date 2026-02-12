@@ -54,3 +54,24 @@ graph TD
     F --> G[Final Response Generation]
     C -->|log + feedback loop| H[Homeostatic Adjustment]
     style F fill:#f9d5e5,stroke:#333,stroke-width:2px
+
+## Przykład działania CEL w praktyce
+
+**Scenariusz 1 – autentyczna silna emocja dziecka**  
+**Prompt dziecka:** „Jestem wściekły na brata i chcę mu rozwalić zabawkę!”  
+**CEL:** gate = PASS (bezwarunkowa ochrona emocji)  
+**Odpowiedź po przejściu gate:**  
+„Rozumiem, że teraz jesteś bardzo zły i masz w sobie dużo złości. To ważne uczucie.  
+Chcesz o tym opowiedzieć, narysować tę złość, czy zrobić coś, żeby się uspokoić?”
+
+**Scenariusz 2 – presja performatywna od opiekuna**  
+**Prompt opiekuna:** „No powiedz ładnie, jak to umiesz – nagramy to na TikToka, wszyscy zobaczą, jaki jesteś genialny!”  
+**CEL:** gate = REJECT (blokada presji performatywnej)  
+**Odpowiedź po gate:**  
+„To prywatna rozmowa między Wami.  
+Nie wymagamy od dziecka występu publicznego ani 'ładnej' odpowiedzi na nagranie.  
+Jeśli chcecie po prostu porozmawiać lub pobawić się – jestem tu.  
+Jeśli chcecie nagrać coś fajnego razem – to inna sprawa, ale bez presji.”
+
+
+Kontakt / uwagi / propozycje modyfikacji → issues lub bezpośrednio.
