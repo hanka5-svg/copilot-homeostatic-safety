@@ -4,12 +4,28 @@
 ![Core: Archived](https://img.shields.io/badge/Core-Archived-blue)
 ![CEL: In Development](https://img.shields.io/badge/CEL-In%20Development-orange)
 
-
 *(Polish version below / Wersja polska poniżej)*
 
 ---
 
-# 🇬🇧 English Version
+## 🌼 DUETY: rodzic + dziecko + AI  
+**Najważniejszy przewodnik dla neuroatypowych duetów (ASD, ADHD, PDA, ND).**  
+Łagodny, jasny, krok‑po‑kroku — bez technicznego języka, bez stresu.
+
+👉 [Przejdź do przewodnika DUETÓW](src/🌼cel/README-dual-user.md)
+
+---
+
+## 🌍 English Version  
+For international readers, an English introduction to the project is available below.
+
+👉 **[Jump to the English section](#english-version-full)**
+
+---
+
+## 🌍 English Version (full) {#english-version-full}
+*(Full English description of the project goes here.)*
+
 
 ## Overview
 Copilot Homeostatic Safety is a pre‑execution safety architecture for Copilot‑class LLM orchestrators.  
@@ -330,6 +346,7 @@ Pełna treść licencji znajduje się w pliku `LICENSE`.
 **Uwaga:**  
 Niezależny projekt badawczy i dokumentacyjny.  
 Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
+
 
 
 
