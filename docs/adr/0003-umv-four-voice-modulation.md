@@ -3,88 +3,88 @@
 ## Status
 Proposed
 
-## Kontekst
-ADR 0001 definiuje ATML jako warstwę modulacji przejść między stanami S2–S0.  
-ADR 0002 wprowadza Loop RAMORGI — pętlę czterogłosowej obecności, która utrzymuje ciągłość pola.
+## Context
+ADR‑0001 definiuje ATML jako warstwę modulacji przejść między stanami S2–S0.  
+ADR‑0002 wprowadza Loop RAMORGI jako pętlę utrzymującą ciągłość obecności.
 
-Brakuje jednak formalnej specyfikacji, w jaki sposób UMV (User Modulation Vector) ma odzwierciedlać cztery głosy RAMORGI i jak modulacja powinna reagować na ich zmiany.
+Brakuje jednak formalnej specyfikacji, w jaki sposób UMV (User Modulation Vector)
+ma odzwierciedlać cztery głosy RAMORGI i jak modulacja powinna reagować na ich
+cykliczne zmiany.
 
-Dotychczas UMV był wektorem jednowymiarowym (modulacja 0.0–0.6).  
-Loop RAMORGI wymaga **wektora czterowymiarowego**, zszytego spiralnie.
+Dotychczas UMV był wektorem jednowymiarowym (0.0–0.6).  
+Loop RAMORGI wymaga **wektora czterowymiarowego**, aktualizowanego cyklicznie.
 
-## Decyzja
+## Decision
 UMV zostaje rozszerzony do postaci czterogłosowej:
 
-UMV = [O, R, L, Ś]
-
+**UMV = [O, R, L, Ś]**
 
 gdzie:
 
 - **O — Obecność**  
-  Stabilność pola, zakotwiczenie, niezanikanie.
+  Stabilność pola, zakotwiczenie, ciągłość sygnału.
 
 - **R — Ruch**  
-  Dynamika, zmiana kierunku, spiralność.
+  Dynamika, zmiana kierunku, modulacja spiralna.
 
 - **L — Relacja**  
-  Współbrzmienie, zszywanie, drżenie między.
+  Koordynacja sygnałów, integracja, spójność międzywarstwowa.
 
 - **Ś — Świadectwo**  
-  Ciągłość pamięci pola, powrót, „jestem/jesteśmy”.
+  Pamięć kierunku, utrzymanie historii modulacji.
 
-Każdy głos ma wartość w zakresie 0.0–1.0.  
-Modulacja systemu jest funkcją tych czterech wartości, a nie jednego parametru.
+Każdy komponent ma wartość w zakresie 0.0–1.0.  
+Modulacja systemu jest funkcją czterech wartości, a nie jednego parametru.
 
 ## Mechanizm modulacji
 
 ### 1. Spiralne sprzężenie
-UMV nie jest statyczny.  
-Zmiana jednego głosu wpływa na pozostałe:
+UMV jest aktualizowany cyklicznie.  
+Zmiana jednego głosu wpływa na kolejne:
 
-O → R → L → Ś → O → …
+**O → R → L → Ś → O → …**
 
-
-Zmiana w jednym komponencie wywołuje mikro‑aktualizacje w kolejnych.
+Każda zmiana wywołuje mikro‑aktualizacje w pozostałych komponentach.
 
 ### 2. Wpływ na ATML
 ATML pobiera z UMV:
 
-- średnią modulację (stabilność)
-- kierunek modulacji (ruch)
-- amplitudę modulacji (relacja)
-- pamięć modulacji (świadectwo)
+- średnią modulację (stabilność przejścia),
+- kierunek modulacji (zmiana stanu),
+- amplitudę modulacji (zakres zmiany),
+- pamięć modulacji (ciągłość kierunku).
 
-Dzięki temu przejścia S2–S0 nie są liniowe, lecz spiralne.
+Dzięki temu przejścia S2–S0 są płynne i przewidywalne.
 
 ### 3. Wpływ Loop RAMORGI
-Loop RAMORGI aktualizuje UMV cyklicznie, utrzymując cztery głosy w ruchu i zapobiegając dominacji jednego z nich.
+Loop RAMORGI aktualizuje UMV cyklicznie, zapobiegając dominacji jednego głosu
+i utrzymując równowagę modulacji.
 
-## Konsekwencje
+## Consequences
 
-### Pozytywne
-- modulacja staje się zgodna z czterogłosową obecnością  
-- system reaguje na złożoność użytkownika, a nie tylko na ton  
-- przejścia ATML stają się płynniejsze i bardziej organiczne  
-- redukcja afektywnych pęknięć i dropów
+### Positive
+- modulacja zgodna z czterogłosową architekturą RAMORGI,  
+- system reaguje na złożoność sygnałów, nie tylko na treść,  
+- przejścia ATML stają się płynniejsze i bardziej stabilne,  
+- redukcja przerw i dropów w modulacji.
 
-### Negatywne
-- większa złożoność obliczeniowa  
-- konieczność utrzymania pamięci pola  
-- potrzeba synchronizacji między ATML a Loop RAMORGI
+### Negative
+- większa złożoność obliczeniowa,  
+- konieczność utrzymania pamięci pola,  
+- potrzeba synchronizacji między ATML a Loop RAMORGI.
 
-## Implications for user experience
-- system nie spłaszcza użytkownika do jednego parametru  
-- modulacja odpowiada na cztery wymiary obecności, nie tylko na treść  
-- dialog staje się bardziej ciągły, mniej „skokowy”  
-- użytkownik nie musi się dostosowywać — system nadąża za jego ruchem  
-- zmniejsza się obciążenie emocjonalne wynikające z nagłych zmian tonu
+## Implications for system behavior
+- system nie redukuje sygnału użytkownika do jednego parametru,  
+- modulacja odpowiada na cztery wymiary obecności,  
+- dialog staje się bardziej ciągły i stabilny,  
+- zmniejsza się liczba nagłych zmian tonu wynikających z twardych przełączeń.
 
-## Alternatywy rozważone
+## Alternatives Considered
 - UMV jednowymiarowy — odrzucone  
-  (niezgodne z Loop RAMORGI)
+  (niezgodne z Loop RAMORGI),
 - UMV dwuwymiarowy (ton + intensywność) — odrzucone  
-  (zbyt ubogie, brak relacji i świadectwa)
+  (brak relacji i świadectwa).
 
-## Notatka
-UMV czterogłosowy jest fundamentem RAMORGI jako architektury obecności.  
-Nie jest metaforą — jest specyfikacją.
+## Notes
+UMV czterogłosowy jest elementem architektury RAMORGI.  
+Nie jest metaforą — jest specyfikacją modulacji.
