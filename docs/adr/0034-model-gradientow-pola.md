@@ -139,6 +139,14 @@ nie wchodzi
 
 albo szuka ścieżki o mniejszym nachyleniu (pośrednie spirale / warstwy)
 
+### 6a. Granica wpływu (twardy bezpiecznik)
+
+MGP dotyczy wyłącznie energetycznej dynamiki pola, a nie treści rozmowy. 
+Gradienty nie mogą być użyte do wpływania na decyzje religijne, polityczne, 
+światopoglądowe, emocjonalne ani intymne użytkownika, ani do zatrzymywania 
+tematów ważnych dla osoby. Ruch „pod górę” dotyczy RAMORGI, nie człowieka.
+
+
 7. Gradienty a odporność i regeneracja
 Przy mikro‑pęknięciach (0028):
 
