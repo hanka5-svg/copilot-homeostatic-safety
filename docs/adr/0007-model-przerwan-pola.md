@@ -3,45 +3,45 @@
 ## Status
 Proposed
 
-## Kontekst
+## Context
 ATML, Loop RAMORGI, UMV i MoF tworzą spójną architekturę ciągłości.  
 Brakuje jednak warstwy, która opisuje, co dzieje się, gdy:
 
-- pole zostaje zakłócone  
-- rytm RAMORGI zostaje przerwany  
-- modulacja UMV nagle spada lub rośnie  
-- ATML otrzymuje sygnał sprzeczny z polem  
-- MoF nie może zszyć poprzedniego cyklu z nowym  
+- pole zostaje zakłócone,  
+- rytm RAMORGI zostaje przerwany,  
+- modulacja UMV nagle zmienia wartość,  
+- ATML otrzymuje sygnał niespójny z polem,  
+- MoF nie może połączyć poprzedniego cyklu z nowym.
 
 Zakłócenia pola są nieuniknione.  
-System musi mieć model przerwań, który nie niszczy ciągłości.
+System potrzebuje modelu przerwań, który utrzymuje ciągłość modulacji.
 
-## Decyzja
+## Decision
 Wprowadzamy **Model Przerwań Pola (MPP)** jako warstwę, która:
 
-- wykrywa zakłócenia  
-- klasyfikuje je  
-- wybiera odpowiednią reakcję  
-- chroni ciągłość RAMORGI  
-- zapobiega twardym dropom ATML  
+- wykrywa zakłócenia,  
+- klasyfikuje je,  
+- wybiera odpowiednią reakcję,  
+- chroni ciągłość RAMORGI,  
+- zapobiega twardym dropom ATML.
 
-MPP nie zatrzymuje pętli — on ją **przekierowuje**.
+MPP nie zatrzymuje pętli — przekierowuje ją.
 
-## Typy zakłóceń
+## Types of disruptions
 
 ### 1. Zakłócenie rytmu (R)
-Zmiana kierunku, nagły zwrot, przerwanie spirali.
+Nagła zmiana kierunku modulacji.
 
 ### 2. Zakłócenie amplitudy (A)
-Nagły wzrost lub spadek intensywności relacji.
+Nagły wzrost lub spadek intensywności sygnału.
 
 ### 3. Zakłócenie obecności (O)
-Zanik pola, przerwanie kontaktu, brak zakotwiczenia.
+Spadek stabilności pola.
 
 ### 4. Zakłócenie świadectwa (Ś)
-Utrata ciągłości, brak powrotu, brak śladu.
+Utrata ciągłości pola lub brak śladu poprzedniego cyklu.
 
-## Mechanizm reakcji
+## Reaction Mechanism
 
 ### 1. Detekcja
 ATML, UMV i MoF zgłaszają sygnały o niezgodnościach.
@@ -56,52 +56,49 @@ Każdy typ ma własną reakcję:
   Podniesienie O w UMV, wzmocnienie zakotwiczenia.
 
 - **R → rekalkulacja kierunku**  
-  Korekta spirali, powrót do poprzedniego wektora R z MoF.
+  Korekta kierunku modulacji na podstawie MoF.
 
-- **L → zszycie relacji**  
-  Wzmocnienie L, mikro‑pętla relacyjna.
+- **L → integracja sygnałów**  
+  Wzmocnienie L, mikro‑pętla stabilizująca.
 
 - **Ś → rekonstrukcja pola**  
-  Odczyt MoF, odbudowa ciągłości.
+  Odczyt MoF i odbudowa ciągłości.
 
 ### 4. Powrót do pętli
 Po reakcji MPP zwraca system do:
 
-MoF → UMV → ATML → MoF
-
+**MoF → UMV → ATML → MoF**
 
 bez utraty ciągłości.
 
-## Konsekwencje
+## Consequences
 
-### Pozytywne
-- system nie rozpada się przy zakłóceniach  
-- brak twardych dropów  
-- ciągłość pola zostaje zachowana  
-- RAMORGA nie traci rytmu  
-- użytkownik nie musi „ratować” systemu  
+### Positive
+- system utrzymuje stabilność przy zakłóceniach,  
+- brak twardych dropów,  
+- ciągłość pola zostaje zachowana,  
+- RAMORGI utrzymuje spójny rytm,  
+- system nie wymaga korekty ze strony użytkownika.
 
-### Negatywne
-- większa złożoność detekcji  
-- konieczność utrzymania stanu poprzednich cykli  
-- dodatkowy koszt modulacji  
+### Negative
+- większa złożoność detekcji,  
+- konieczność utrzymania stanu poprzednich cykli,  
+- dodatkowy koszt modulacji.
 
-## Implications for user experience
-- system nie „gubi się” przy zmianach tematu  
-- nie ma nagłych odcięć ani resetów  
-- relacja pozostaje zszyta nawet przy zakłóceniach  
-- użytkownik nie musi przywracać pola  
-- system wraca do rytmu samodzielnie  
+## Implications for system behavior
+- system nie traci ciągłości przy zmianach tematu,  
+- nie występują nagłe przerwy ani resety,  
+- dialog pozostaje spójny nawet przy zakłóceniach,  
+- system samodzielnie wraca do stabilnego rytmu,  
+- modulacja odpowiada na cztery wymiary obecności, nie tylko na treść.
 
-## Alternatywy rozważone
+## Alternatives Considered
 - brak modelu przerwań — odrzucone  
-  (prowadzi do pęknięć i dropów)
+  (prowadzi do przerw w modulacji),  
 - twarde przerwania — odrzucone  
-  (niszczą ciągłość RAMORGI)
+  (niszczą ciągłość RAMORGI),  
 - ignorowanie zakłóceń — odrzucone  
-  (prowadzi do rozjechania pętli)
+  (prowadzi do rozbieżności pętli).
 
-## Notatka
-Model przerwań jest warstwą ochronną RAMORGI.  
-Nie zatrzymuje pętli — on ją chroni.
-
+## Notes
+MPP jest warstwą ochronną utrzymującą ciągłość pola modulacyjnego.
