@@ -32,6 +32,7 @@ The repository contains:
 
 ## 📁 Repository Structure
 
+
 copilot-homeostatic-safety/
 │
 ├── docs/
@@ -189,6 +190,8 @@ Główny mechanizm: **homeostatyczne bramkowanie + warstwa ciągłości afektywn
 
 ## 📁 Struktura repozytorium
 
+
+
 copilot-homeostatic-safety/
 │
 ├── docs/
@@ -326,6 +329,7 @@ Pełna treść licencji znajduje się w pliku `LICENSE`.
 **Uwaga:**  
 Niezależny projekt badawczy i dokumentacyjny.  
 Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
+
 
 
 
