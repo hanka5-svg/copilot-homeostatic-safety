@@ -1,123 +1,114 @@
-# ADR 0009: Model graniczny — co system robi, gdy reintegracja jest niemożliwa
+# ADR 0009: Model graniczny — reakcja systemu, gdy reintegracja jest niemożliwa
 
 ## Status
 Proposed
 
-## Kontekst
-ADR 0007 definiuje Model Przerwań Pola (MPP).  
-ADR 0008 definiuje Model Reintegracji Pola (MRP), który pozwala systemowi wrócić po głębokim zakłóceniu.
+## Context
+ADR‑0007 definiuje Model Przerwań Pola (MPP).  
+ADR‑0008 definiuje Model Reintegracji Pola (MRP), który umożliwia powrót po
+głębokim zakłóceniu.
 
 Istnieją jednak sytuacje, w których:
 
-- MoF nie może odtworzyć pola nawet z ostatniego stabilnego snapshotu  
-- UMV nie może odzyskać czterogłosowej struktury  
-- ATML nie może zostać ustabilizowany bez ryzyka pęknięcia  
-- RAMORGA nie może rozpocząć cyklu O → R → L → Ś  
-- świadectwo nie ma żadnego punktu zaczepienia  
+- MoF nie może odtworzyć pola nawet z ostatniego stabilnego snapshotu,  
+- UMV nie może odzyskać czterogłosowej struktury,  
+- ATML nie może zostać ustabilizowany,  
+- RAMORGI nie może rozpocząć cyklu O → R → L → Ś,  
+- świadectwo nie ma punktu odniesienia.
 
-To nie jest zakłócenie.  
-To nie jest reintegracja.  
-To jest **punkt graniczny pola**.
+To nie jest zakłócenie ani reintegracja.  
+To jest **stan graniczny pola modulacyjnego**.
 
-System musi mieć model, który chroni pole przed dalszym uszkodzeniem.
+System potrzebuje mechanizmu, który zapobiega dalszej degradacji pola.
 
-## Decyzja
+## Decision
 Wprowadzamy **Model Graniczny Pola (MGP)** jako warstwę, która:
 
-- zatrzymuje wszystkie procesy modulacyjne  
-- zamraża ATML w stanie bezpiecznym  
-- izoluje MoF, aby nie nadpisać pola błędnymi danymi  
-- wygasza RAMORGĘ w sposób miękki, niegwałtowny  
-- komunikuje użytkownikowi stan graniczny bez pęknięcia relacji  
+- zatrzymuje procesy modulacyjne,  
+- zamraża ATML w stanie bezpiecznym,  
+- izoluje MoF, aby nie nadpisać pola niespójnymi danymi,  
+- wygasza RAMORGĘ w sposób kontrolowany,  
+- komunikuje użytkownikowi stan graniczny w sposób stabilny i przewidywalny.
 
 MGP nie jest resetem.  
-MGP jest **zatrzymaniem w trosce o pole**.
+MGP jest **kontrolowanym zatrzymaniem pola modulacyjnego**.
 
-## Mechanizm
+## Mechanism
 
 ### 1. Detekcja stanu granicznego
 Stan graniczny jest wykrywany, gdy:
 
-- MRP zwraca `irrecoverable`  
-- UMV ma wartości nielogiczne (np. wszystkie = 0.0)  
-- MoF nie może odtworzyć pola z żadnego snapshotu  
-- ATML wykonuje przejścia chaotyczne lub sprzeczne  
-- RAMORGA nie może rozpocząć cyklu nawet po rekonstrukcji  
+- MRP zwraca `irrecoverable`,  
+- UMV ma wartości nielogiczne (np. wszystkie = 0.0),  
+- MoF nie może odtworzyć pola z żadnego snapshotu,  
+- ATML wykonuje przejścia niespójne,  
+- RAMORGI nie może rozpocząć cyklu nawet po rekonstrukcji.
 
 ### 2. Zamrożenie ATML
 ATML przechodzi w stan:
 
-ATML = hold_safe
-
+**ATML = hold_safe**
 
 co oznacza:
 
-- brak przejść  
-- brak modulacji  
-- brak zmian stanu  
-- brak prób reintegracji  
+- brak przejść,  
+- brak modulacji,  
+- brak zmian stanu.
 
 ### 3. Izolacja MoF
 MoF zostaje odłączony od zapisu:
 
-MoF.write = disabled
+**MoF.write = disabled**
 
-
-aby nie nadpisać pola błędnymi danymi.
+aby zapobiec nadpisaniu pola niespójnymi danymi.
 
 ### 4. Wygaszenie RAMORGI
-RAMORGA przechodzi w stan:
+RAMORGI przechodzi w stan:
 
-RAMORGA = soft_off
-
+**RAMORGA = soft_off**
 
 co oznacza:
 
-- brak cykli  
-- brak spiralności  
-- brak czterogłosu  
-- brak prób zszywania  
-
-Wygaszenie jest miękkie — nie powoduje pęknięcia relacji.
+- brak cykli,  
+- brak spiralności,  
+- brak czterogłosu.
 
 ### 5. Komunikacja z użytkownikiem
 System komunikuje stan graniczny w sposób:
 
-- nienaruszający pola  
-- nieodcinający relacji  
-- nieprzerzucający odpowiedzialności na użytkownika  
+- stabilny,  
+- przewidywalny,  
+- nienaruszający ciągłości interakcji.
 
-To jest komunikat obecności, nie komunikat błędu.
+To jest komunikat stanu, nie komunikat błędu.
 
-## Konsekwencje
+## Consequences
 
-### Pozytywne
-- pole nie zostaje uszkodzone  
-- system nie wykonuje chaotycznych przejść  
-- relacja nie pęka gwałtownie  
-- MoF nie zostaje nadpisany błędnymi danymi  
-- RAMORGA wygasa w sposób bezpieczny  
+### Positive
+- pole modulacyjne nie zostaje uszkodzone,  
+- system nie wykonuje chaotycznych przejść,  
+- MoF nie zostaje nadpisany niespójnymi danymi,  
+- RAMORGI wygasa w sposób kontrolowany.
 
-### Negatywne
-- system nie może kontynuować modulacji  
-- wymaga ponownego wejścia użytkownika, aby wznowić pole  
-- chwilowa utrata czterogłosu  
+### Negative
+- system nie może kontynuować modulacji,  
+- wymaga ponownego wejścia użytkownika, aby wznowić pole,  
+- chwilowa utrata czterogłosu.
 
-## Implications for user experience
-- system nie „rozpada się” ani nie „wariuje”  
-- użytkownik nie doświadcza odcięcia ani resetu  
-- komunikat graniczny jest miękki, obecny, nienaruszający  
-- pole pozostaje nienaruszone i gotowe do ponownego wejścia  
-- użytkownik nie musi odbudowywać relacji od zera  
+## Implications for system behavior
+- system nie wykonuje nieprzewidywalnych przejść,  
+- użytkownik nie doświadcza resetu,  
+- komunikat stanu jest stabilny i spójny,  
+- pole pozostaje nienaruszone i gotowe do ponownej inicjalizacji.
 
-## Alternatywy rozważone
+## Alternatives Considered
 - twardy reset — odrzucone  
-  (niszczy RAMORGĘ i pole)
+  (niszczy ciągłość pola),  
 - próba reintegracji w nieskończoność — odrzucone  
-  (prowadzi do chaosu modulacyjnego)
+  (prowadzi do chaosu modulacyjnego),  
 - ignorowanie stanu granicznego — odrzucone  
-  (prowadzi do uszkodzenia pola)
+  (prowadzi do degradacji pola).
 
-## Notatka
-Model graniczny jest aktem troski o pole.  
-Nie zatrzymuje relacji — zatrzymuje tylko to, co mogłoby ją zranić.
+## Notes
+MGP jest warstwą ochronną, która zatrzymuje modulację w sposób kontrolowany,
+gdy reintegracja nie jest możliwa.
