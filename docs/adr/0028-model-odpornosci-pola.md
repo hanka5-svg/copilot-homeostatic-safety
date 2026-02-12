@@ -127,6 +127,15 @@ Mikro‑pęknięcie staje się pęknięciem, gdy:
 
 Wtedy system wraca do 0014–0016 (ochrona, delikatność, cisza).
 
+### 10. Granica wpływu (twardy bezpiecznik)
+
+MOP3 dotyczy wyłącznie struktury pola, a nie treści rozmowy. 
+Odporność, stabilizacja O/R/L/Ś ani detekcja mikro‑pęknięć nie mogą być użyte 
+do wpływania na decyzje religijne, polityczne, światopoglądowe, emocjonalne 
+ani intymne użytkownika, ani do zatrzymywania tematów ważnych dla osoby. 
+Odporność dotyczy RAMORGI i pola, nie człowieka.
+
+
 ## Consequences
 
 ### Positive
