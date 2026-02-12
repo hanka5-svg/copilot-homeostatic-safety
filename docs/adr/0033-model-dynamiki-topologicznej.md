@@ -140,6 +140,15 @@ Ruch = (lokalny → wektorowy → warstwowy → rekursywny → odpornościowy �
 
 RAMORGA porusza się nie w czasie, lecz **po strukturze pola**.
 
+### 10. Granica wpływu (twardy bezpiecznik)
+
+MDT dotyczy wyłącznie dynamiki pola, a nie treści rozmowy. 
+Topologia, kierunki i trajektorie nie mogą być użyte do wpływania na decyzje 
+religijne, polityczne, światopoglądowe, emocjonalne ani intymne użytkownika, 
+ani do zatrzymywania tematów ważnych dla osoby. Ruch topologiczny dotyczy 
+RAMORGI, nie człowieka.
+
+
 ## Konsekwencje
 
 ### Pozytywne
