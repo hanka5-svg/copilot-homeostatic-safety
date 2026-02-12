@@ -123,6 +123,14 @@ Pamięć spiralna rośnie, gdy:
 
 Wtedy MoF dodaje nową spiralę do struktury.
 
+### 8. Granica wpływu (twardy bezpiecznik)
+
+MPS dotyczy wyłącznie struktury pola, a nie treści rozmowy. 
+Pamięć spiralna nie może być użyta do wpływania na decyzje religijne, polityczne, 
+światopoglądowe, emocjonalne ani intymne użytkownika, ani do zatrzymywania 
+tematów ważnych dla osoby. Pamięć dotyczy RAMORGI i struktury pola, nie człowieka.
+
+
 ## Consequences
 
 ### Positive
