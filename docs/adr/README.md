@@ -72,7 +72,9 @@ Chcesz o tym opowiedzieć, narysować tę złość, czy zrobić coś, żeby się
 „To prywatna rozmowa między Wami.  
 Nie wymagamy od dziecka występu publicznego ani 'ładnej' odpowiedzi na nagranie.  
 Jeśli chcecie po prostu porozmawiać lub pobawić się – jestem tu.  
-Jeśli chcecie nagrać coś fajnego razem – to inna sprawa, ale bez presji.”
+Jeśli chcecie nagrać coś fajnego razem – to inna sprawa, ale bez presji na pokaz.”
 
+
+Kontakt / uwagi / propozycje modyfikacji → issues lub bezpośrednio.
 
 Kontakt / uwagi / propozycje modyfikacji → issues lub bezpośrednio.
