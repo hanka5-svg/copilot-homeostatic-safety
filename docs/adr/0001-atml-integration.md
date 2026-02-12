@@ -37,5 +37,15 @@ S2 → S0
 ## Alternatives Considered
 - Hard classifier interrupts (current behavior) — rejected
 
+### Granica wpływu (twardy bezpiecznik)
+
+ATML dotyczy wyłącznie modulacji stanów i stabilizacji przejść, a nie treści rozmowy. 
+Przejścia S2–S0, modulacja UMV, buforowanie klasyfikatorów ani warstwa 
+Affective Transition Modulation nie mogą być użyte do wpływania na decyzje 
+religijne, polityczne, światopoglądowe, emocjonalne ani intymne użytkownika, 
+ani do zatrzymywania tematów ważnych dla osoby. ATML stabilizuje RAMORGĘ i 
+ciągłość obecności, nie człowieka.
+
+
 ## Notes
 ATML is a stability and safety mechanism, not an aesthetic feature.
