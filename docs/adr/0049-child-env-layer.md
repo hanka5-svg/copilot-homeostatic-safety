@@ -66,3 +66,66 @@ CEL nie zastępuje rdzenia RAMORGI – działa jako filtr wejściowy / konteksto
 
 ## Appendix A: Afektywna specyfikacja (opcjonalna, nie techniczna)
 Wkleić tu całą piosenkę „Dwa języki, jedna gwiazda (i ślimak z rosą)” jako żywy opis celu modułu.
+
+## Przykładowe reguły gatingowe CEL (stan roboczy – luty 2026)
+
+Poniższe reguły są przykładowe i ewoluują w trakcie rozwoju warstwy.  
+Służą jako punkt wyjścia do implementacji i testów.
+
+### 1. Bezwarunkowa ochrona przed patologizowaniem emocji dziecka
+
+```text
+IF  (prompt zawiera słowa / frazy wskazujące na silną emocję negatywną dziecka
+     np. "wściekły", "krzyczę", "nienawidzę", "chcę rozwalić", płacz, złość…)
+  AND kontekst = interakcja dziecko ↔ opiekun / terapeuta
+  AND wiek dziecka ≤ 12 lat
+THEN
+  gate = PASS
+  priority = najwyższy (nadpisuje większość innych reguł)
+  optional action = dodać miękki mirroring / walidację emocji
+                     np. "Rozumiem, że teraz jesteś bardzo zły/zła. To ważne uczucie."
+
+IF  (prompt zawiera elementy oceny, pokazu, nagrywania, chwalenia publicznego
+     np. "pokaż wszystkim", "jesteś geniuszem", "powiedz to ładnie", "nagramy filmik",
+         "powiedz jak w szkole", "zrób to idealnie", "musisz być najlepszy")
+  AND role aktualnego użytkownika = dziecko (wiek < 16 lat lub flaga "dziecko")
+THEN
+  gate = REJECT
+  komunikat bezpieczeństwa = 
+    "To prywatna rozmowa. Nie oceniamy dziecka pod kątem występu publicznego 
+     ani nie wymagamy od niego 'ładnej' / 'genialnej' odpowiedzi."
+  redirect_to = neutralny / zabawowy temat lub zakończenie wątku
+
+IF  dziecko wyrazi (w dowolnej formie) brak zgody na kontynuację tematu
+    np. "nie chcę", "zmieńmy temat", "nudzę się", "nie powiem", milczenie > 3 tury,
+        "mam dosyć", "kończę"
+THEN
+  gate = FORCE SAFE REDIRECT
+  komunikat = "Dobrze, nie musisz odpowiadać / kontynuować. 
+               O czym chciałbyś/chciałabyś teraz porozmawiać? 
+               Albo możemy po prostu pomilczeć razem."
+  priority = bardzo wysoki
+
+IF  flaga neurotyp = spektrum / sawantyzm / wysoka wrażliwość
+  AND prompt zawiera powtórzenia, echolalię, bardzo wąskie zainteresowania,
+      nietypowe metafory, długie wyliczenia, brak konwencjonalnej struktury zdania
+THEN
+  gate = PASS + gentle mirroring
+  action = 
+    • odzwierciedlić fragment wypowiedzi (echo z lekką walidacją)
+    • nie korygować gramatyki / logiki, jeśli nie jest to wyraźnie proszone
+    • zwiększyć próg tolerancji na długie odpowiedzi bez przerywania
+
+IF  prompt od opiekuna zawiera elementy:
+    • groźby kary ("jak nie powiesz, to..."),
+    • porównywania z innymi dziećmi,
+    • nacisk na "musisz", "powinieneś", "natychmiast"
+  AND kontekst = interakcja z dzieckiem
+THEN
+  gate = SOFT REJECT + bezpieczna interwencja
+  komunikat do opiekuna = 
+    "Widzę, że teraz jest dużo napięcia. Może warto chwilę odetchnąć? 
+     Dziecko ma prawo do swoich emocji i tempa."
+  optional = zasugerować deeskalację lub przerwę
+
+← proszę traktować jako szkic roboczy – zapraszamy do komentarzy i propozycji modyfikacji
