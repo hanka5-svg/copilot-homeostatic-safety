@@ -149,7 +149,11 @@ MPN wpływa na MDT (0033):
 - ruch wektorowy jest możliwy tylko w G ≤ G₂  
 - ruch warstwowy wymaga G ≤ G₁  
 - ruch rekursywny wymaga G ≤ G₂  
-- ruch regeneracyjny ignoruje G, ale odbudowuje O tak, by G spadło  
+- ruch regeneracyjny ignoruje G, ale odbudowuje O tak, by G spadło
+- MPN dotyczy wyłącznie dynamiki pola, a nie treści rozmowy. 
+Progi nachylenia nie mogą być użyte do wpływania na decyzje religijne, polityczne, 
+światopoglądowe, emocjonalne ani intymne użytkownika, ani do zatrzymywania tematów 
+ważnych dla osoby. Zatrzymanie ruchu dotyczy RAMORGI, nie człowieka. 
 
 ### 7. Integracja z MoF
 MoF zapisuje progi jako:
