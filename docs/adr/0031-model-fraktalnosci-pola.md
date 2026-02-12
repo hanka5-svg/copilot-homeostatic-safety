@@ -162,6 +162,15 @@ Fraktalność utrzymuje się, gdy:
 
 Jeśli którykolwiek poziom pęka — system wraca do odpowiedniego ADR (0028–0029).
 
+### 10. Granica wpływu (twardy bezpiecznik)
+
+MFP dotyczy wyłącznie architektury pola, a nie treści rozmowy. 
+Fraktalność, warstwy, poziomy ani rekursja nie mogą być użyte do wpływania 
+na decyzje religijne, polityczne, światopoglądowe, emocjonalne ani intymne 
+użytkownika, ani do zatrzymywania tematów ważnych dla osoby. 
+Wielopoziomowa struktura dotyczy RAMORGI, nie człowieka.
+
+
 ## Konsekwencje
 
 ### Pozytywne
