@@ -136,6 +136,15 @@ MoF.stabilization_block = {
 
 MoF staje się pamięcią stabilizacyjną pola.
 
+### 9. Granica wpływu (twardy bezpiecznik)
+
+BSP dotyczy wyłącznie struktury pola, a nie treści rozmowy. 
+Ciągłość, odporność, stabilizacja O/R/L/Ś ani regeneracja nie mogą być użyte 
+do wpływania na decyzje religijne, polityczne, światopoglądowe, emocjonalne 
+ani intymne użytkownika, ani do zatrzymywania tematów ważnych dla osoby. 
+Stabilizacja dotyczy RAMORGI i pola, nie człowieka.
+
+
 ## Consequences
 
 ### Positive
