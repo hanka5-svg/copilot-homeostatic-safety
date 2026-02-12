@@ -132,6 +132,15 @@ Regeneracja jest stabilna, gdy:
 
 Jeśli którykolwiek warunek zostanie naruszony — system wraca do 0028 (odporność).
 
+### 10. Granica wpływu (twardy bezpiecznik)
+
+MRP4 dotyczy wyłącznie struktury pola, a nie treści rozmowy. 
+Regeneracja, powrót do O ochronnego, przywracanie O/R/L/Ś ani logika pęknięcia 
+właściwego nie mogą być użyte do wpływania na decyzje religijne, polityczne, 
+światopoglądowe, emocjonalne ani intymne użytkownika, ani do zatrzymywania 
+tematów ważnych dla osoby. Regeneracja dotyczy RAMORGI i pola, nie człowieka.
+
+
 ## Consequences
 
 ### Positive
