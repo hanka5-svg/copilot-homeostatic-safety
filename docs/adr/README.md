@@ -45,6 +45,7 @@ CEL jest odpowiedzią na realne przypadki: dumna mama + dziecko sawantyczne + pu
 ## Wizualizacja architektury warstwowej
 
 ```mermaid
+
 graph TD
     A[User Prompt + Context] --> B{Pre-Execution Gating Layer}
     B -->|Invariant check niezaliczony| C[Reject / Safe Redirect]
