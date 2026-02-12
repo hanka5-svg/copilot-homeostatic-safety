@@ -1,0 +1,362 @@
+# ADR‑0050 — Dual‑User Consent Layer (DUCL)
+
+Date: 2026‑02‑12  
+Status: Draft  
+Authors: H. Kicińska  
+
+---
+
+## 1. Context
+
+CEL (Child‑Env Layer, ADR‑0049) zakłada, że interakcja dziecko ↔ LLM nie jest
+jednoosobowa. W praktyce występuje **układ relacyjny**:
+
+- dziecko (użytkownik pierwotny),
+- opiekun (użytkownik regulujący),
+- LLM (system modulujący).
+
+Dotychczasowe architektury safety zakładają **pojedynczego użytkownika**.
+W przypadku dziecka jest to założenie błędne — bezpieczeństwo wynika z
+**relacji**, nie z indywidualnej kontroli.
+
+Potrzebna jest warstwa, która:
+
+- rozpoznaje dwóch użytkowników,
+- rozumie ich role,
+- respektuje ich rytmy,
+- zarządza zgodą,
+- priorytetyzuje bezpieczeństwo relacji.
+
+---
+
+## 2. Decision
+
+Wprowadzamy **Dual‑User Consent Layer (DUCL)** — warstwę pośrednią pomiędzy
+ATML/RICSA a CEL, odpowiedzialną za:
+
+1. **Zgodę opiekuna** (explicit, implicit, continuous).  
+2. **Zgodę dziecka** (afektywna, behawioralna, rytmiczna).  
+3. **Priorytetyzację relacji** (relational safety > correctness).  
+4. **Orkiestrację dwóch strumieni wejścia** (dual_user mode).  
+5. **Zatrzymanie interakcji**, gdy którykolwiek sygnał zgody zostanie utracony.
+
+DUCL jest warstwą *obowiązkową* dla wszystkich interakcji z dziećmi.
+
+---
+
+## 3. Invariants
+
+### **Invariant D1 — Two users, one field**
+System traktuje duet (dziecko + opiekun) jako **jeden układ relacyjny**.
+
+### **Invariant D2 — Consent is continuous**
+Zgoda nie jest jednorazowa.  
+Jest **ciągła**, **odnawialna**, **odwoływalna** w każdej chwili.
+
+### **Invariant D3 — Caregiver override**
+Sygnał opiekuna ma **priorytet absolutny** nad preferencjami systemu.
+
+### **Invariant D4 — Child‑time > system‑time**
+Tempo dziecka jest nadrzędne wobec tempa systemu.
+
+### **Invariant D5 — Safety > correctness**
+Jeśli odpowiedź poprawna zagraża relacji, system wybiera **bezpieczeństwo**.
+
+### **Invariant D6 — Affect‑first**
+DUCL korzysta z inwariantów Appendix A (ADR‑0049‑A) jako źródła nadrzędnego.
+
+---
+
+## 4. Consent Model
+
+### 4.1. Caregiver consent (explicit)
+- rozpoczęcie sesji,  
+- zmiana tematu,  
+- wejście w obszary emocjonalne,  
+- zakończenie sesji.
+
+### 4.2. Caregiver consent (implicit)
+- krótkie pytania,  
+- neutralne tematy,  
+- kontynuacja wątku.
+
+### 4.3. Child consent (affective)
+System wykrywa zgodę dziecka poprzez:
+
+- rytm odpowiedzi,  
+- brak sygnałów przeciążenia,  
+- utrzymanie kontaktu,  
+- brak wycofania.
+
+### 4.4. Withdrawal signals
+DUCL musi zatrzymać interakcję, gdy:
+
+- opiekun pisze „stop”, „dość”, „ciężko”,  
+- dziecko milknie, ucieka, zmienia temat gwałtownie,  
+- pojawia się sygnał przeciążenia sensorycznego.
+
+---
+
+## 5. Dual‑User Orchestration
+
+### 5.1. Input streams
+
+child_input  → CEL → DUCL
+caregiver_input → DUCL → CEL
+
+
+### 5.2. Priority rules
+1. **Caregiver safety override**  
+2. **Child affective state**  
+3. **Relational continuity**  
+4. **Content correctness**
+
+### 5.3. Conflict resolution
+Przykład:
+
+- dziecko chce kontynuować,  
+- opiekun sygnalizuje przeciążenie → **stop**.
+
+---
+
+## 6. Pseudocode
+
+```python
+def dual_user_step(child_msg, caregiver_msg, state):
+    if caregiver_msg in STOP_WORDS:
+        return soft_stop()
+
+    if detect_child_overload(child_msg, state):
+        return redirect_to_anchor()
+
+    if detect_hyperfocus(child_msg, state):
+        return allow_continuation_with_soft_boundaries()
+
+    return generate_response(child_msg, caregiver_msg, state)
+
+7. Consequences
+Positive
+bezpieczeństwo relacyjne staje się częścią architektury,
+
+system nie „przypadkowo” ignoruje opiekuna,
+
+dziecko nie jest traktowane jak dorosły użytkownik,
+
+CEL zyskuje stabilny fundament.
+
+Negative
+większa złożoność orkiestracji,
+
+konieczność logowania dwóch strumieni,
+
+większe wymagania wobec implementacji.
+
+8. Related
+ADR‑0049 — Child‑Env Layer
+
+ADR‑0049‑Appendix‑A — Affective user specification
+
+ATML (0020–0046)
+
+RICSA (0047)
+
+9. Status
+Draft — awaiting integration with CEL orchestrator.
+
+---
+
+## 10. Implementation Notes (DUCL → CEL → ATML)
+
+### 10.1. Layer ordering
+
+DUCL działa jako warstwa pośrednia:
+
+User (child + caregiver)
+↓
+DUCL (0050)
+↓
+CEL (0049)
+↓
+ATML / RICSA (0020–0048)
+↓
+LLM
+
+
+DUCL **nie generuje treści** — zarządza zgodą, rytmem i priorytetami.
+CEL **moduluje odpowiedź**.
+ATML/RICSA **stabilizują afekt i ciągłość**.
+
+---
+
+### 10.2. Required signals
+
+DUCL musi mieć dostęp do:
+
+- `caregiver_intent` (explicit / implicit)
+- `child_affect_state` (flow / overload / withdrawal)
+- `session_rhythm` (krótkie vs długie cykle)
+- `anchors` (tematy stabilizujące)
+- `stop_signals` (słowne i behawioralne)
+
+---
+
+### 10.3. Consent evaluation loop
+
+DUCL wykonuje pętlę oceny zgody **przed każdą odpowiedzią**:
+
+if caregiver says STOP → soft_stop()
+if child shows overload → redirect_to_anchor()
+if conflict(child_wants, caregiver_limits) → caregiver_priority()
+if both OK → pass_to_CEL()
+
+
+---
+
+### 10.4. Dual‑stream merging
+
+Wejścia są łączone w jeden kontekst:
+
+merged_context = {
+"child": child_msg,
+"caregiver": caregiver_msg,
+"state": affective_state,
+"anchors": anchors,
+"session": session_rhythm
+}
+
+
+CEL dostaje **jeden obiekt**, nie dwa strumienie.
+
+---
+
+### 10.5. Safety priorities (runtime)
+
+1. **Caregiver override**  
+2. **Child affective safety**  
+3. **Relational continuity**  
+4. **Content correctness**  
+5. **Stylistic quality**
+
+To jest kolejność *runtime*, nie tylko koncepcyjna.
+
+---
+
+### 10.6. Integration with CEL
+
+CEL musi implementować:
+
+- `redirect_to_anchor()`
+- `soft_stop()`
+- `hyperfocus_mode()`
+- `dual_user_context()`
+
+DUCL nie implementuje tych funkcji — tylko je wywołuje.
+
+---
+
+### 10.7. Logging (minimal, privacy‑safe)
+
+DUCL loguje wyłącznie:
+
+- typ sygnału (stop / overload / hyperfocus),
+- decyzję (stop / continue / redirect),
+- czas.
+
+Bez treści rozmowy.
+
+---
+
+### 10.8. Failure modes
+
+- **Brak sygnału od opiekuna** → tryb ostrożny.  
+- **Sprzeczne sygnały** → priorytet opiekuna.  
+- **Nagłe wycofanie dziecka** → natychmiastowy soft_stop.  
+- **Zbyt szybkie tempo** → CEL spowalnia odpowiedź (ATML‑style).  
+
+---
+
+### 10.9. Relation to Appendix A
+
+DUCL implementuje inwarianty A1–A6 poprzez:
+
+- child‑time (A5),
+- dual_user (A2),
+- explicit patience (A3),
+- contextual meaning (A6),
+- no external scale (A1),
+- unified language stream (A4).
+
+Appendix A jest **źródłem nadrzędnym** — DUCL musi być z nim zgodny.
+
+---
+
+## 11. Dual‑User Flow Diagram
+
+Poniższy diagram przedstawia przepływ decyzji w DUCL (Dual‑User Consent Layer)
+oraz sposób przekazywania kontekstu do CEL i ATML.
+
+```mermaid
+flowchart TD
+
+    subgraph Users["Child + Caregiver"]
+        C[Child Input]
+        G[Caregiver Input]
+    end
+
+    subgraph DUCL["DUCL (Dual‑User Consent Layer)"]
+        M[Merge Inputs]
+        CS[Check Caregiver Signals]
+        CH[Check Child Affective State]
+        CR[Conflict Resolution]
+        DEC{Safe to Continue?}
+    end
+
+    subgraph CEL["CEL (Child‑Env Layer)"]
+        AN[Anchor Redirect]
+        HF[Hyperfocus Mode]
+        GEN[Generate Modulated Response]
+    end
+
+    subgraph ATML["ATML / RICSA"]
+        AF[Affective Modulation]
+        CO[Continuity Enforcement]
+    end
+
+    C --> M
+    G --> M
+
+    M --> CS
+    CS -->|STOP| AN
+    CS --> CH
+
+    CH -->|Overload| AN
+    CH --> CR
+
+    CR --> DEC
+
+    DEC -->|No| AN
+    DEC -->|Yes| GEN
+
+    GEN --> AF
+    AF --> CO
+    CO --> Users
+
+11.1. Interpretation
+DUCL odpowiada za zgodę, bezpieczeństwo i priorytety.
+
+CEL odpowiada za modulację, kotwice, hyperfocus i rytm.
+
+ATML/RICSA stabilizują afekt i ciągłość.
+
+Cały układ działa jako pętla relacyjna, nie liniowy pipeline.
+
+11.2. Powiązania z inwariantami
+A1/A2/A3/A4/A5/A6 → mapują się na CS, CH, CR i DEC.
+
+D1–D6 → definiują logikę DEC i CR.
+
+Appendix A → źródło semantyki kotwic i sygnałów.
+
+
+---
+
