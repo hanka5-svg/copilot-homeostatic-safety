@@ -1,5 +1,16 @@
 # ADR-0049: Child-Env Layer (CEL) – Adaptacja ATML dla użytkowników rozwojowo przyspieszonych
 
+## Assumptions
+
+CEL zakłada istnienie nadrzędnego opiekuna‑regulatora (caregiver‑in‑the‑loop), 
+który decyduje o tempie, kierunku i kontynuacji interakcji. 
+Warstwa CEL nie jest autonomicznym filtrem treści i nie powinna być używana 
+bez aktywnego udziału opiekuna.
+
+Model nie interpretuje zachowań dziecka ani nie nadpisuje sygnałów opiekuna. 
+Sygnał od opiekuna ma zawsze pierwszeństwo nad sygnałem środowiskowym.
+
+
 ## Status
 Draft – do weryfikacji z Kamilą Dragan i testów empirycznych (Gabryś, 4 lata, sawant, ASD)
 
