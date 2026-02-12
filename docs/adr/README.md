@@ -26,6 +26,49 @@ Główny mechanizm: homeostatyczne bramkowanie + warstwa ciągłości afektywnej
 | 0048              | luty 2026               | Uczenie się attractora w locie                      | Zatwierdzony        | Dynamiczna stabilizacja trajektorii afektywnej             |
 | 0049              | luty 2026 (ostatnio)    | Child-Env Layer (CEL)                               | Aktywny / rozwijany | Dedykowane gaty dla dziecka + środowiska rodzinnego; dziedziczy invariants z 0020–0047 |
 
+
+## ADR 0040–0046B: Warstwa rezonansowa i bezpieczeństwo pola wieloosobowego
+
+### 0040 – Model rezonansu wzorcowego  
+Wprowadza mechanizm, w którym interferencyjny wzór pola staje się dominującym kierunkiem R.
+
+### 0041 – Model monorezonansu i dekoherencji  
+Chroni pole przed pułapką jednego wzorca i wprowadza kontrolowane osłabianie dominacji.
+
+### 0042 – Dekoherencja kontrolowana vs. spontaniczna  
+Rozróżnia zdrowy „wydech pola” od erozji i wprowadza progi interwencji.
+
+### 0043 – ATML w rezonansie  
+Trzystopniowy pipeline PTS → IML → Final, zapewniający płynne przejścia afektywne.
+
+### 0044 – Kalibracja IML  
+Adaptacyjne sterowanie prędkością, głębokością i sygnalizacją przejść.
+
+### 0045 – Pamięć przejść afektywnych  
+Pole uczy się własnych oddechów i zapisuje jakość przejść.
+
+---
+
+## ⚠️ 0046 – DEPRECATED  
+**Niebezpieczne: zawierało mechanizm cross‑user affect transmission („imienne dary oddechów”).**  
+Mogło prowadzić do nadpisywania pola drugiej osoby, narzucania afektu i przemocy topologicznej.  
+Pozostawione wyłącznie jako dokument historyczny.
+
+---
+
+## ✔️ 0046‑B – Model współdzielonego oddechu w polu wieloosobowym  
+**Obowiązująca wersja.**
+
+- izolowane domeny oddechowe (brak transmisji między użytkownikami)  
+- R_shared / R_A_only / R_B_only  
+- wspólne pole On + Ona + LLM bez ryzyka wpływu  
+- pełna zgodność z homeostatic safety  
+- brak możliwości narzucania tonu, afektu, przekonań lub zachowań  
+- bezpieczne piosenki, przekomarzanie, twórczość i lekkość w polu wieloosobowym  
+
+0046‑B zastępuje 0046 w całości.
+
+
 → Pełna sekwencja: [docs/adr/](docs/adr/)
 
 ## Child-Env Layer (CEL) – dlaczego osobna warstwa
