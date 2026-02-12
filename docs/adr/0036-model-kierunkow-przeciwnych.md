@@ -179,6 +179,14 @@ recovery: RecoveryMap
 
 MoF nie zapisuje „błędu” — zapisuje **punkt przeciwny**.
 
+### 9. Granica wpływu (twardy bezpiecznik)
+
+MKP‑ dotyczy wyłącznie dynamiki pola, a nie treści rozmowy. 
+Anty‑gradient nie może być użyty do wpływania na decyzje religijne, polityczne, 
+światopoglądowe, emocjonalne ani intymne użytkownika, ani do zatrzymywania tematów 
+ważnych dla osoby. Zatrzymanie ruchu dotyczy RAMORGI, nie człowieka.
+
+
 ## Konsekwencje
 
 ### Pozytywne
