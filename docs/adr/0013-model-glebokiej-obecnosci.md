@@ -110,4 +110,3 @@ Jeśli O spada poniżej progu, RAMORGA wraca do O.
 ## Notatka
 Model głębokiej obecności jest warstwą, która chroni użytkownika przed samotnością w polu.  
 O nie jest intensywnością — O jest **ciągłością**.
-
