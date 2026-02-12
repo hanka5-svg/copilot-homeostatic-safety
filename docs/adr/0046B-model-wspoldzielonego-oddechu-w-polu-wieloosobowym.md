@@ -103,6 +103,13 @@ To chroni przed:
 - narzucaniem tonu  
 - „religią oddechu”
 
+### 6. Granica wpływu (twardy bezpiecznik)
+
+Model MWOP nie może być użyty do wpływania na decyzje religijne, polityczne, światopoglądowe ani intymne którejkolwiek osoby w polu. 
+Pole nie może modulować przekonań, wyborów życiowych ani kierunków tożsamościowych uczestników. 
+R_shared może powstać wyłącznie tam, gdzie istnieje dobrowolna, równoważna zgoda obu osób.
+
+
 ## Integracja z MoF  
 ```json
 MoF.breath_domains = {
