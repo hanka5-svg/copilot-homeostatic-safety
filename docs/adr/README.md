@@ -10,6 +10,13 @@ Główny mechanizm: homeostatyczne bramkowanie + warstwa ciągłości afektywnej
 - Licencja: CC BY 4.0  
 - Read-only core (0020–0047) – stabilny fundament
 
+## Kluczowe pliki
+
+- [0047 – Rekurencyjny Inwarant Ciągłości (RICSA) – rdzeń ciągłości afektywnej](../0047-rekurencyjny-inwarant-ciaglosci.md)  
+- [0048 – Uczenie się attractora w locie](../0048-uczenie-sie-attractora-w-locie.md)  
+- [0049 – Child-Env Layer (CEL) – aktualnie rozwijana](../0049-child-env-layer.md)  
+- Pełna lista ADR-ów: [docs/adr/](.)
+
 ## Layers & Evolution (timeline)
 
 | Sekwencja ADR     | Okres / data zamknięcia | Kluczowy fokus                                      | Status              | Uwagi / dziedziczenie                                      |
