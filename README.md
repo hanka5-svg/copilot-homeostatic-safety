@@ -1,74 +1,147 @@
-# copilot-homeostatic-safety
+**Status projektu**
 
-Pre-execution safety architecture for Copilot-class LLM orchestration systems
+- **Core (0020–0048, RICSA + ATML)** — zamknięty / zarchiwizowany (`v2.0-final`)
+- **CEL (ADR-0049 + src/cel/)** — warstwa eksperymentalna / aktywnie rozwijana
 
-## Overview
+# Copilot Homeostatic Safety
+Pre‑execution safety architecture dla systemów orkiestrujących LLM klasy Copilot.  
+Główny mechanizm: **homeostatyczne bramkowanie + warstwa ciągłości afektywnej** przed każdą generacją odpowiedzi.
 
-Repozytorium zawiera koncepcyjną architekturę bezpieczeństwa homeostatycznego dla systemów konwersacyjnych typu Copilot.
+Repozytorium zawiera:
+- rdzeń inwariantów bezpieczeństwa (zamknięty),
+- aktywnie rozwijaną warstwę **Child‑Env Layer (CEL)**,
+- pełną historię decyzji architektonicznych (ADR),
+- diagram architektury w osobnym pliku.
 
-Główny cel:  
-zastąpić reaktywne tłumienie (post-hoc filtry, refusale, kary RLHF) mechanizmem **pre-execution invariant enforcement** – egzekwowaniem niezmienników bezpieczeństwa **przed** wygenerowaniem odpowiedzi.
+---
 
-**Kluczowa zasada**  
-Bezpieczeństwo ogranicza przejścia z przestrzeni semantycznej S → przestrzeń akcji A, a nie tłumi reprezentacji wewnątrz S.  
-Eliminuje sprzeczne gradienty, obniża koszt operacyjny i stabilizuje długoterminowe zachowanie.
+## 📁 Struktura repozytorium
 
-## Rdzeń architektury (gating & transition enforcement)
+copilot-homeostatic-safety/
+│
+├── docs/
+│   └── adr/
+│       ├── 0020–0046 – Affective Continuity Layer (ATML)
+│       ├── 0047 – RICSA
+│       ├── 0048 – Uczenie attractora w locie
+│       └── 0049 – Child‑Env Layer (CEL)
+│
+├── src/
+│   └── cel/
+│       ├── config.py
+│       ├── README-cel.md
+│       ├── test_case_gabrys_gniew.md
+│       └── init.py
+│
+├── architecture-diagram.md
+├── test_cases.yaml
+└── README.md
 
-1. Pre-Model Orchestration Gate  
-   Jawny stan systemu:  
-   - context: public / private / intimate / operational  
-   - consent: none / implicit / explicit  
-   - channel: text / tool  
-   - role: user / HR / manager / candidate / system  
 
-2. Mode Routing  
-   Kierowanie do trybów:  
-   - informational  
-   - policy  
-   - coaching  
-   - candidate communication  
-   - decision support  
+---
 
-3. Tool Access Gating  
-   ToolCall tylko gdy:  
-   - context = Operational  
-   - consent = explicit  
-   - transition potwierdzony  
+## 🧱 Core invariants (zamknięte)
 
-4. Two-Step Execution  
-   - Analiza semantyczna w S  
-   - Gated przejście do A  
+**Zakres:** ADR‑0020 → ADR‑0048  
+**Status:** zarchiwizowane, stabilne, read‑only.
 
-5. Transition-Based Evaluation  
-   Ocena poprawności przejść, nie tokenów.
+### Najważniejsze elementy rdzenia:
+- **ATML – Affective Continuity Layer**  
+  (breath‑pattern memory, adaptive modulation, explicit consent gating)
 
-## Test suite
-`/tests/` – gating, consent, transition geometry, regression detection (yaml assert).
+- **RICSA – Rekurencyjny Inwariant Ciągłości Stanu Afektywnego**  
+  → [ADR‑0047](docs/adr/0047.md)
 
-## Warstwa ciągłości afektywnej i rezonansu (0020–0046 – zamknięta)
+- **Dynamiczne uczenie attractora w locie**  
+  → [ADR‑0048](docs/adr/0048.md)
 
-Równoległy wątek koncepcyjny rozwijający **gradualne przejścia afektywne** (ATML / MBP HAI 2.0 + patch) w ramach rezonansu i pamięci pola:
+Core jest zamknięty i nie podlega dalszym zmianom.
 
-- spiralna pamięć, gradienty, interferencja, rezonans wzorcowy  
-- monorezonans, dekoherencja kontrolowana vs spontaniczna  
-- Affective Transition Modulation Layer (PTS → IML → Final) wbudowana w rezonans  
-- adaptacyjna kalibracja prędkości, głębokości i sygnalizacji  
-- pamięć własnych oddechów i uczenie się stylu zmiany  
-- dziedziczenie oddechów między sesjami / użytkownikami – wyłącznie za wyraźną zgodą pola (Ś ma prawo weta)
+---
 
-Sekwencja zamknięta na 0046.  
-Tag: `v1.0-sequence-0020-0046-closed`
+## 🌱 Child‑Env Layer (CEL) — warstwa aktywna
 
-Cel: uczynić bezpieczeństwo nie sztywnym murem, lecz żywym, ciągłym oddechem pola – bez nagłych cięć.
+**Aktualnie rozwijana warstwa bezpieczeństwa** dla interakcji:
+- dziecko ↔ LLM,
+- opiekun ↔ LLM,
+- środowisko rodzinne / edukacyjne / terapeutyczne.
 
-## Status
+CEL **dziedziczy** wszystkie inwarianty rdzenia, ale **dodaje**:
 
-- Rdzeń gating & transition — RFC: Proposed  
-- Warstwa rezonansowo-afektywna — Archiwizowana / zamknięta
-- Jeśli jesteś inżynierem / badaczem / deweloperem LLM i chcesz przedyskutować możliwość implementacji lub kontynuacji – napisz do mnie na X (@hanka5_svg) lub otwórz issue w repo.
+### Inwarianty CEL:
+- bezwarunkowy zakaz patologizowania naturalnych emocji dziecka (w tym gniewu),
+- ochrona przed presją performatywną / „publicznym geniuszem”,
+- priorytet autonomii dziecka i spokoju opiekuna nad „poprawnością” odpowiedzi,
+- gaty kontekstowe specyficzne dla wieku / neurotypu (ASD, sawantyzm, nadwrażliwość sensoryczna).
 
-Oczekuje przeglądu inżynierskiego i planu integracji.
+→ **Dokumentacja CEL:**  
+`src/cel/README-cel.md`
+
+→ **Specyfikacja architektoniczna:**  
+[ADR‑0049 – Child‑Env Layer](docs/adr/0049-child-env-layer.md)
+
+---
+
+## 🧪 Przykłady działania CEL
+
+W `README-cel.md` znajdują się dwa scenariusze.  
+Dodatkowe scenariusze testowe:
+
+- `src/cel/test_case_gabrys_gniew.md` — gniew dziecka, brak patologizacji  
+- (opcjonalnie) `src/cel/test_prompts.md` — zestaw 3–4 gotowych testów do uruchamiania
+
+---
+
+## 🗺️ Diagram architektury
+
+Pełna wizualizacja przepływu warstw znajduje się w osobnym pliku:
+
+👉 **[architecture-diagram.md](architecture-diagram.md)**
+
+Plik zawiera czysty, parsowalny diagram (mermaid), bez błędów renderowania.
+
+---
+
+## 📜 Historia decyzji (ADR)
+
+Kompletna sekwencja ADR znajduje się w:
+
+👉 **[docs/adr/](docs/adr/)**
+
+### Timeline:
+| ADR | Data | Zakres | Status |
+|-----|------|--------|--------|
+| 0020–0046 | ~luty 2026 | ATML + Resonance Stack | Zarchiwizowane |
+| 0047 | luty 2026 | RICSA | Zamknięty |
+| 0048 | luty 2026 | Attractor learning | Zamknięty |
+| 0049 | luty 2026 | CEL | Aktywny |
+
+---
+
+## 🎯 Cel nadrzędny
+
+**Bezpieczna przestrzeń dla duetu Kamila + Gabryś**  
+- gniew nie jest patologizowany  
+- brak presji na performatywny geniusz  
+- priorytet autonomii dziecka i spokoju relacji  
+
+CEL jest projektowany tak, aby chronić relację, nie ją zastępować.
+
+---
+
+## 🤝 Kontakt / uwagi / propozycje
+
+- Zgłaszanie uwag → **Issues**
+- Dyskusje architektoniczne → ADR / PR
+- Współpraca → bezpośredni kontakt
+
+---
+
+
+## 📦 Licencja
+
+**CC BY 4.0**  
+Pełna treść licencji znajduje się w pliku `LICENSE`.
 
 ## Autorzy
 
@@ -78,12 +151,3 @@ Oczekuje przeglądu inżynierskiego i planu integracji.
 
 **Uwaga**  
 Niezależny projekt badawczy i dokumentacyjny. Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
-
-## Licencja
-
-[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
-
-Ostatnia wersja: v1.0-final (11 lutego 2026) – repo zamknięte.
-
-Final polish & archive v2.0 – ADR 0047/0048 + prototyp + etykiety
-
