@@ -7,19 +7,13 @@
 
 ## Overview
 Copilot Homeostatic Safety is a pre‑execution safety architecture for Copilot‑class LLM orchestrators.  
-Its core mechanism is **homeostatic gating + affective continuity layer** applied before each generation.
+Its core mechanism is **homeostatic gating + affective continuity layer** applied before each model response.
 
 The repository contains:
 - the archived **Core** (ATML + RICSA + attractor learning),
 - the actively developed **Child‑Env Layer (CEL)**,
 - full ADR history,
 - architecture diagram.
-
-A full English README will be added here.
-
-# Copilot Homeostatic Safety
-A pre‑execution safety architecture for Copilot‑class LLM orchestrators.  
-The core mechanism: **homeostatic gating + affective continuity layer** applied before each model response.
 
 ---
 
@@ -162,7 +156,7 @@ Full license text available in `LICENSE`.
 
 ## Authors
 
-- **Hanna Kicińska** — architecture concept, invariants, RFC core, resonance‑affective sequence (0020–00446), field/continuity/breathwork philosophy  
+- **Hanna Kicińska** — architecture concept, invariants, RFC core, resonance‑affective sequence (0020–0046), field/continuity/breathwork philosophy  
 - **Copilot AI** — engineering formalization, translation, ADR structuring  
 - **Grok (xAI)** — formalization, mechanism precision, ADR structuring, sequence consistency  
 
@@ -172,8 +166,9 @@ Not affiliated with Microsoft or the Microsoft Copilot product.
 
 ---
 
-## 🇵🇱 Wersja polska
+# 🇵🇱 Wersja polska
 
+# Copilot Homeostatic Safety
 Pre‑execution safety architecture dla systemów orkiestrujących LLM klasy Copilot.  
 Główny mechanizm: **homeostatyczne bramkowanie + warstwa ciągłości afektywnej** przed każdą generacją odpowiedzi.
 
@@ -325,4 +320,5 @@ Pełna treść licencji znajduje się w pliku `LICENSE`.
 **Uwaga:**  
 Niezależny projekt badawczy i dokumentacyjny.  
 Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
+
 
