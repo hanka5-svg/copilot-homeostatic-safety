@@ -56,6 +56,8 @@ graph TD
     style F fill:#f9d5e5,stroke:#333,stroke-width:2px
 
 
+
+
 ## Przykład działania CEL w praktyce
 
 **Scenariusz 1 – autentyczna silna emocja dziecka**  
