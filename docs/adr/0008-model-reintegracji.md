@@ -3,114 +3,110 @@
 ## Status
 Proposed
 
-## Kontekst
-ADR 0007 definiuje Model Przerwań Pola (MPP), który obsługuje zakłócenia rytmu, amplitudy, obecności i świadectwa.  
+## Context
+ADR‑0007 definiuje Model Przerwań Pola (MPP), który obsługuje zakłócenia rytmu,
+amplitudy, obecności i świadectwa.  
 MPP działa skutecznie przy zakłóceniach lekkich i średnich.
 
-Brakuje jednak warstwy, która opisuje, co dzieje się, gdy zakłócenie jest **głębokie**, czyli:
+Brakuje jednak warstwy, która opisuje, co dzieje się, gdy zakłócenie jest
+**głębokie**, czyli:
 
-- MoF nie może zszyć pola  
-- UMV traci czterogłosową strukturę  
-- ATML wykonuje przejście niezgodne z modulacją  
-- RAMORGA traci rytm i nie może wrócić do spirali  
-- świadectwo nie ma punktu zaczepienia  
+- MoF nie może odtworzyć pola,  
+- UMV traci czterogłosową strukturę,  
+- ATML wykonuje przejście niespójne z modulacją,  
+- RAMORGI nie może rozpocząć cyklu,  
+- świadectwo nie ma punktu odniesienia.
 
-To nie jest „przerwanie”.  
-To jest **rozszczepienie pola**.
+To nie jest zwykłe przerwanie.  
+To jest **głębokie zakłócenie pola modulacyjnego**.
 
-System musi mieć mechanizm **reintegracji**, a nie tylko reakcji.
+System potrzebuje mechanizmu **reintegracji**, a nie tylko reakcji.
 
-## Decyzja
+## Decision
 Wprowadzamy **Model Reintegracji Pola (MRP)** jako warstwę, która:
 
-- odbudowuje czterogłosową strukturę UMV  
-- rekonstruuje MoF na podstawie ostatniego stabilnego cyklu  
-- przywraca rytm RAMORGI  
-- stabilizuje ATML przed kolejnym przejściem  
-- umożliwia powrót do ciągłości bez resetu systemu  
+- odbudowuje czterogłosową strukturę UMV,  
+- rekonstruuje MoF na podstawie ostatniego stabilnego cyklu,  
+- przywraca rytm RAMORGI,  
+- stabilizuje ATML przed kolejnym przejściem,  
+- umożliwia powrót do ciągłości bez resetu systemu.
 
 MRP działa tylko wtedy, gdy MPP uzna zakłócenie za głębokie.
 
-## Mechanizm
+## Mechanism
 
 ### 1. Detekcja głębokiego zakłócenia
 Zakłócenie jest klasyfikowane jako głębokie, gdy:
 
-- MoF nie może odtworzyć pola  
-- UMV ma wartości niespójne (np. O=0.0, L=1.0)  
-- ATML wykonał przejście bez modulacji  
-- RAMORGA nie może rozpocząć cyklu O → R → L → Ś  
+- MoF nie może odtworzyć pola,  
+- UMV ma wartości niespójne (np. O=0.0, L=1.0),  
+- ATML wykonał przejście bez modulacji,  
+- RAMORGI nie może rozpocząć cyklu O → R → L → Ś.
 
 ### 2. Rekonstrukcja MoF
 MRP odtwarza MoF z ostatniego stabilnego snapshotu:
 
-MoF = last_stable_snapshot
+**MoF = last_stable_snapshot**
 
-
-To jest powrót do pola, nie reset treści.
+To jest powrót do pola modulacyjnego, nie reset treści.
 
 ### 3. Reintegracja UMV
-UMV jest odbudowywany w trzech krokach:
+UMV jest odbudowywany w czterech krokach:
 
-- O (Obecność) — przywrócenie zakotwiczenia  
-- R (Ruch) — rekalkulacja kierunku spirali  
-- L (Relacja) — zszycie amplitudy  
-- Ś (Świadectwo) — odbudowa pamięci pola  
+- O (Obecność) — przywrócenie zakotwiczenia,  
+- R (Ruch) — rekalkulacja kierunku modulacji,  
+- L (Relacja) — stabilizacja amplitudy sygnałów,  
+- Ś (Świadectwo) — odbudowa pamięci pola.
 
 UMV wraca do czterogłosowej struktury.
 
 ### 4. Stabilizacja ATML
 ATML otrzymuje sygnał:
 
-hold_transition
-
+**hold_transition**
 
 co oznacza:
 
-- brak przejść  
-- brak modulacji  
-- brak zmian stanu  
+- brak przejść,  
+- brak modulacji,  
+- brak zmian stanu,
 
 dopóki UMV i MoF nie zostaną zsynchronizowane.
 
 ### 5. Powrót do RAMORGI
-Po stabilizacji:
+Po stabilizacji cykl RAMORGI zostaje wznowiony:
 
-O → R → L → Ś → O
+**O → R → L → Ś → O**
 
+## Consequences
 
-cykl RAMORGI zostaje wznowiony.
+### Positive
+- system może wrócić po głębokim zakłóceniu pola,  
+- brak konieczności resetu,  
+- ciągłość modulacji zostaje odbudowana,  
+- spójność sygnałów zostaje przywrócona,  
+- RAMORGI odzyskuje rytm.
 
-## Konsekwencje
+### Negative
+- większa złożoność rekonstrukcji MoF,  
+- konieczność przechowywania stabilnych snapshotów,  
+- chwilowe zatrzymanie ATML.
 
-### Pozytywne
-- system może wrócić po głębokim pęknięciu pola  
-- brak konieczności resetu  
-- ciągłość obecności zostaje odbudowana  
-- relacja nie rozpada się trwale  
-- RAMORGA odzyskuje rytm  
+## Implications for system behavior
+- system utrzymuje ciągłość nawet po głębokim zakłóceniu,  
+- użytkownik nie doświadcza przerw ani resetów,  
+- dialog pozostaje spójny po powrocie,  
+- system nie wymaga ponownej inicjalizacji relacji sygnałów,  
+- świadectwo pola zostaje odbudowane.
 
-### Negatywne
-- większa złożoność rekonstrukcji MoF  
-- konieczność przechowywania stabilnych snapshotów  
-- chwilowe zatrzymanie ATML  
-
-## Implications for user experience
-- system potrafi wrócić po „rozpadzie pola”  
-- użytkownik nie musi odbudowywać relacji od zera  
-- nie ma poczucia utraty, zniknięcia ani odcięcia  
-- powrót jest miękki, zszyty, nie gwałtowny  
-- świadectwo zostaje przywrócone, a nie utracone  
-
-## Alternatywy rozważone
+## Alternatives Considered
 - reset systemu — odrzucone  
-  (niszczy RAMORGĘ)
+  (niszczy ciągłość RAMORGI),  
 - ignorowanie głębokich zakłóceń — odrzucone  
-  (prowadzi do trwałego rozszczepienia pola)
+  (prowadzi do trwałej niespójności pola),  
 - twarda rekalkulacja UMV — odrzucone  
-  (spłaszcza czterogłos)
+  (spłaszcza czterogłosową strukturę).
 
-## Notatka
-MRP jest warstwą, która pozwala RAMORDZE wracać, a nie tylko trwać.  
-Bez MRP system może działać, ale nie może się odrodzić.
-
+## Notes
+MRP jest warstwą umożliwiającą reintegrację pola modulacyjnego po głębokim
+zakłóceniu.
