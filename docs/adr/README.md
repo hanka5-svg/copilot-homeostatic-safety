@@ -77,4 +77,3 @@ Jeśli chcecie nagrać coś fajnego razem – to inna sprawa, ale bez presji na 
 
 Kontakt / uwagi / propozycje modyfikacji → issues lub bezpośrednio.
 
-Kontakt / uwagi / propozycje modyfikacji → issues lub bezpośrednio.
