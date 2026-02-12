@@ -1,4 +1,10 @@
 # Copilot Homeostatic Safety  
+
+![Project Status: Active](https://img.shields.io/badge/Project%20Status-Active-brightgreen)
+![Core: Archived](https://img.shields.io/badge/Core-Archived-blue)
+![CEL: In Development](https://img.shields.io/badge/CEL-In%20Development-orange)
+
+
 *(Polish version below / Wersja polska poniżej)*
 
 ---
@@ -320,5 +326,6 @@ Pełna treść licencji znajduje się w pliku `LICENSE`.
 **Uwaga:**  
 Niezależny projekt badawczy i dokumentacyjny.  
 Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
+
 
 
