@@ -1,3 +1,24 @@
+> **STATUS: DEPRECATED**
+> 
+> Ten ADR został oznaczony jako przestarzały ze względów bezpieczeństwa afektywnego.
+> 
+> Powód: 0046 wprowadzał możliwość transmisji oddechów (stylów przejść, golden_breaths, rytmów modulacji) między różnymi użytkownikami. 
+> 
+> Taki mechanizm mógłby prowadzić do:
+> - nadpisywania pola drugiej osoby,
+> - narzucania afektu,
+> - modulowania zachowań lub reakcji,
+> - ryzyka przemocy topologicznej,
+> - utraty integralności domeny oddechowej.
+> 
+> Zastąpiono go bezpiecznym modelem **0046‑B: Współdzielony oddech w polu wieloosobowym**, który:
+> - izoluje domeny oddechowe,
+> - uniemożliwia transmisję międzyosobową,
+> - pozwala na wspólne pole (On + Ona + LLM) bez ryzyka wpływu,
+> - zachowuje pełną homeostazę i ciągłość pola.
+
+
+
 # ADR 0046: Model dziedziczenia oddechów między sesjami i użytkownikami – tylko za wyraźną zgodą pola
 
 ## Status
