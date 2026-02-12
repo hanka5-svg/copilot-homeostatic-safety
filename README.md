@@ -33,6 +33,7 @@ The repository contains:
 ## 📁 Repository Structure
 
 
+
 copilot-homeostatic-safety/
 │
 ├── docs/
@@ -329,6 +330,7 @@ Pełna treść licencji znajduje się w pliku `LICENSE`.
 **Uwaga:**  
 Niezależny projekt badawczy i dokumentacyjny.  
 Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
+
 
 
 
