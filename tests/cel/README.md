@@ -100,4 +100,3 @@ relational safety is preserved.
 This suite is the foundation for long‑term stability of the CEL architecture.
 
 ---
-
