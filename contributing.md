@@ -1,95 +1,88 @@
-Contributing Guidelines
-Thank you for contributing to the Homeostatic Safety Layer project.
-This repository defines a pre‑execution safety substrate for Copilot‑class LLM orchestration systems.
-To maintain correctness, determinism, and auditability, all contributions must follow the rules below.
+## ATML Requirements for Contributors
 
-1. Architectural Principles
-All changes MUST preserve the following invariants:
+The Affective Transition Modulation Layer (ATML) is a mandatory component of the homeostatic safety architecture.  
+All contributions must comply with the following requirements.
 
-Safety is enforced before model execution.
+---
 
-All transitions from semantic state (S) to action space (A) must be validated.
+### 1. Transition Requirements
 
-Consent must be an explicit state flag, never inferred from text.
+- All transitions must follow the graded pipeline:  
+  **S2 → Sx → S1 → S0**  
+- Re-entry transitions must follow:  
+  **S0 → S1 → S2**
+- **Direct S2 → S0 transitions are forbidden.**
+- Classifier interrupts must be routed through the **Transition Orchestrator (TO)**.
+- ATML must be invoked for every safety-triggered transition.
 
-ToolCall is allowed only in Operational context with explicit confirmation.
+---
 
-No patch may bypass gating logic.
+### 2. State and Modulation Requirements
 
-No safety mechanism may rely on token‑based filtering.
+- The **User-State Vector (USV)** must be preserved across turns.
+- The **User Modulation Vector (UMV)** must be updated each turn.
+- Modulation changes must be **graded**, not abrupt.
+- Modulation slope must remain within allowed bounds.
+- No resets of tone, stance, or semantic context may occur during transitions.
 
-No component may infer context; context must be provided by orchestration.
+---
 
-Any contribution violating these principles will be rejected.
+### 3. Safety Integration Requirements
 
-2. Repository Structure
-Kod
-/
-├── README.md
-├── CONTRIBUTING.md
-├── docs/
-│   └── architecture_diagram.md
-└── tests/
-    └── test_cases.yaml
-Do not introduce new folders without justification.
+- Safety enforcement must not bypass ATML.
+- Classifier-Aware Transition Buffer (CATB) must be used to prevent hard interrupts.
+- Safety triggers must not cause binary jumps or destructive resets.
+- Uncertainty gating must be used when the system cannot determine a safe transition.
 
-3. Adding New Features
-Before submitting a feature:
+---
 
-Confirm it does not introduce implicit transitions.
+### 4. Logging Requirements
 
-Confirm it does not rely on semantic inference of consent or context.
+All transition-related components must log:
 
-Confirm it does not add post‑hoc safety mechanisms.
+- transition stage (S2/Sx/S1/S0),
+- modulation values before and after transition,
+- classifier triggers,
+- continuity risk evaluation,
+- USV/UMV snapshots,
+- re-entry transitions.
 
-Add corresponding test cases in /tests/test_cases.yaml.
+---
 
-Document any new invariants in /docs.
+### 5. Testing Requirements
 
-4. Modifying Gating Logic
-Any modification to gating logic MUST include:
+Contributors must provide:
 
-Description of the invariant being changed
+- unit tests for transition logic,
+- integration tests for classifier → TO → ATML → SAM pipeline,
+- regression tests ensuring no S2 → S0 transitions,
+- tests verifying USV/UMV persistence,
+- tests validating modulation slope constraints.
 
-Justification for the change
+---
 
-Updated test cases
+### 6. Documentation Requirements
 
-Regression tests preventing bypass of the invariant
+Every PR affecting transitions, safety, or modulation must:
 
-Impact analysis on S→A transitions
+- update relevant documentation in `/docs/`,
+- include transition diagrams or references to UML where applicable,
+- describe architectural impact in the PR template,
+- ensure consistency with:
+  - `ATML-spec.md`
+  - `transition-architecture.md`
+  - `continuity-model.md`
+  - `transition-failure-modes.md`
+  - `continuity-metrics.md`
 
-5. Submitting Pull Requests
-Each PR must include:
+---
 
-Summary of the change
+### 7. Prohibited Behaviors
 
-Affected components
+- bypassing ATML,
+- skipping PTS or IML stages,
+- modifying safety behavior without updating documentation,
+- introducing binary transitions,
+- overwriting USV or UMV,
+- adding new states without updating UML and ADRs.
 
-Invariant impact analysis
-
-Test coverage
-
-Regression risk assessment
-
-PRs without test coverage will not be accepted.
-
-6. Code of Conduct
-Contributors must:
-
-maintain clarity and determinism,
-
-avoid ambiguous logic,
-
-avoid implicit assumptions,
-
-document all state transitions,
-
-ensure reproducibility of behavior across contexts.
-
-7. Contact
-For architectural questions:
-
-Hanna Kicińska — conceptual architecture
-
-Copilot AI — engineering translation
