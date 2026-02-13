@@ -320,6 +320,72 @@ Kompletna sekwencja ADR znajduje się w:
 
 CEL jest projektowany tak, aby **chronić relację, nie ją zastępować**.
 
+## Demo
+## Demo: Child-Env Layer (CEL) + Dual-User Consent Layer (DUCL)
+
+Repozytorium zawiera demonstrator (`demo.py`) pokazujący, jak działa warstwa
+Child-Env Layer (CEL) oraz Dual-User Consent Layer (DUCL) w kontekście
+nieliniowych interakcji dorosły–dziecko.
+
+CEL i DUCL są rozszerzeniami architektury homeostatycznej, zaprojektowanymi
+dla sytuacji, w których:
+
+- dziecko komunikuje się w sposób nieliniowy (skoki tematyczne, flow, liczenie,
+  powtarzanie, szybkie przełączanie kontekstu),
+- dorosły pełni rolę regulatora i sygnalizuje przeciążenie lub potrzebę pauzy,
+- system musi priorytetyzować bezpieczeństwo dorosłego,
+- jednocześnie zachowując szacunek dla dynamiki dziecka.
+
+### Co demonstruje `demo.py`
+
+`demo.py` nie korzysta z prawdziwego LLM — to symulator przepływów, który
+pokazuje:
+
+- **priorytet dorosłego**: gdy dorosły sygnalizuje zmęczenie lub przeciążenie,
+  system przełącza się w tryb ochronny,
+- **szacunek dla flow dziecka**: jeśli dziecko jest w stanie intensywnego
+  skupienia (np. liczenie, powtarzanie, eksploracja tematu), system nie
+  przerywa tego stanu, lecz reguluje go łagodnie,
+- **obsługę przeciążenia**: gdy pojawia się sygnał overload, system przechodzi
+  do „kotwicy” bezpieczeństwa (np. neutralny, uspokajający temat),
+- **dwujęzyczność**: naturalne mieszanie języków jest akceptowane i nie jest
+  „korygowane”,
+- **soft-stop**: system potrafi zakończyć interakcję w sposób łagodny i
+  nienaruszający ciągłości.
+
+### Dlaczego CEL/DUCL są potrzebne
+
+Standardowe modele dialogowe zakładają liniową wymianę zdań.  
+Interakcje dorosły–dziecko są **nieliniowe**:
+
+- zmieniają tempo,
+- zmieniają kierunek,
+- mają różne progi przeciążenia,
+- wymagają dwóch równoległych ścieżek bezpieczeństwa.
+
+CEL i DUCL wprowadzają:
+
+- osobne stany afektywne dla dorosłego i dziecka,
+- osobne progi przeciążenia,
+- kotwice bezpieczeństwa,
+- wykrywanie hyperfocus,
+- priorytet dorosłego w sytuacjach konfliktowych,
+- modulację odpowiedzi zgodną z architekturą homeostatyczną.
+
+### Zakres demonstratora
+
+`demo.py` zawiera sześć scenariuszy:
+
+1. standardowe pytanie dziecka (normalny przepływ),
+2. sygnał zmęczenia dorosłego (priorytet dorosłego),
+3. intensywne skupienie dziecka (hyperfocus),
+4. przeciążenie dziecka (overload → kotwica),
+5. konflikt potrzeb (dziecko chce kontynuować, dorosły mówi „stop”),
+6. dwujęzyczność (naturalne mieszanie języków).
+
+To demonstrator architektury — nie jest to narzędzie terapeutyczne ani
+diagnostyczne.
+
 ---
 
 ## 🤝 Kontakt / uwagi / propozycje
@@ -346,6 +412,7 @@ Pełna treść licencji znajduje się w pliku `LICENSE`.
 **Uwaga:**  
 Niezależny projekt badawczy i dokumentacyjny.  
 Nie jest powiązany z Microsoftem ani z produktem Microsoft Copilot.
+
 
 
 
