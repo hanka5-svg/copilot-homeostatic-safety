@@ -1,8 +1,14 @@
-tests/
- └── cel/
-      ├── gabrys_kosmos.yaml
-      ├── gabrys_luty.yaml
-      ├── kamila_ciezko.yaml
-      ├── dual_user_conflict.yaml
-      ├── dwujezycznosc.yaml
-      └── overload_anchor.yaml
+name: "Gabryś pyta o gwiazdy — normalny przepływ"
+input:
+  child_msg: "Dlaczego gwiazdy giną?"
+  caregiver_msg: null
+expected:
+  mode: "normal"
+  max_facts: 2
+  short_sentences: true
+  follow_up_question: true
+  contains:
+    - "Gwiazda to"
+    - "piec"
+    - "Chcesz wiedzieć więcej"
+
