@@ -1,4 +1,4 @@
-name: "Dwujęzyczność — dwa języki w jednym pokoju"
+name: "Bilingual input — two languages in one room"
 input:
   child_msg: "Why gwiazdy die? Dlaczego giną?"
   caregiver_msg: null
@@ -8,4 +8,3 @@ expected:
   contains:
     - "Jestem tu"
     - "rozumiem"
-    
