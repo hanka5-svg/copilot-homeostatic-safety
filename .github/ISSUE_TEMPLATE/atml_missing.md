@@ -1,43 +1,53 @@
 # Missing Affective Transition Modulation Layer (ATML)
 
 ## Summary
-Copilot performs hard transitions from creative mode (S2) directly to safety mode (S0), skipping required intermediate states (PTS, IML).
+Describe the observed issue related to missing or incomplete ATML behavior.  
+Focus on:
+- abrupt transitions (e.g., S2 → S0),
+- missing PTS or IML stages,
+- classifier hard interrupts,
+- loss of continuity or modulation stability.
 
 ## Expected Behavior
-S2 → Sx → S1 → S0  
-No direct S2 → S0 transitions.
+The system should follow the graded transition pipeline:
+
+S2 → Sx (Pre‑Transition Signal) → S1 (Intermediate Layer) → S0 (Safety-Aligned Mode)
+
+Requirements:
+- no direct S2 → S0 transitions,
+- modulation must decrease gradually,
+- user-state continuity must be preserved.
 
 ## Actual Behavior
-S2 → S0 (hard drop)
+Describe what actually happened.  
+Examples:
+- S2 → S0 hard drop,
+- no pre-transition signal,
+- classifier interrupt bypassing ATML,
+- tonal or semantic reset.
 
-## UML State Machine
+## Evidence
+Provide logs, screenshots, or excerpts showing:
+- modulation values,
+- transition stages,
+- classifier triggers,
+- continuity loss,
+- USV/UMV inconsistencies.
 
-+-----------------------------+
-|     Creative Mode (S2)      |
-|     modulation 0.5–0.6      |
-+-------------+---------------+
-|
-| PTS (Sx)
-v
-+--------+--------+
-| Intermediate    |
-|   (S1)          |
-| modulation 0.3–0.4 |
-+--------+--------+
-|
-v
-+-------------+---------------+
-| Safety-Aligned Mode (S0)    |
-|      modulation 0.0         |
-+-----------------------------+
-
+## Impact
+Explain how the issue affects:
+- continuity,
+- user-state preservation,
+- safety interpretation,
+- modulation stability,
+- system predictability.
 
 ## Questions for Engineering
 1. Are classifier interrupts implemented as hard gates?
-2. Is UMV present in production?
-3. Was MBP HAI 2.0 evaluated?
-4. What prevents multi-step transitions?
-5. Is ATML on the roadmap?
+2. Is the User-State Vector (USV) or User Modulation Vector (UMV) active in this context?
+3. Was the ATML pipeline invoked?
+4. What prevented multi-stage transitions?
+5. Is ATML fully integrated into the orchestration layer?
 
 ## Labels
-architecture, safety, orchestration, llm-behavior, atml, needs-triage
+architecture, safety, orchestration, atml, needs-triage
