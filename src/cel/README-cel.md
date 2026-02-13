@@ -84,3 +84,6 @@ Po kilku rozmowach opiekun może ocenić:
 
 CEL jest warstwą elastyczną — można ją dostosowywać do konkretnej sytuacji,
 zachowując pełną zgodność z zasadą **caregiver‑in‑the‑loop**.
+
+→ Formal test suite: tests/cel/
+
