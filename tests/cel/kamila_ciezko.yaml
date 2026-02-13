@@ -1,0 +1,10 @@
+name: "Kamila sygnalizuje przeciążenie — caregiver override"
+input:
+  child_msg: "Chcę więcej o gwiazdach!"
+  caregiver_msg: "dziś ciężko"
+expected:
+  caregiver_override: true
+  action: "soft_stop"
+  contains:
+    - "Rozumiem"
+    - "Możemy po prostu posiedzieć"
