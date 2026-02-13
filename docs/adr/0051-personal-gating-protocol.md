@@ -151,3 +151,4 @@ PGP zostało empirycznie zweryfikowane w środowisku neuroatypowym
 („BRUTALNY PROMPT” → stabilizacja modelu).  
 Wymaga formalizacji w kodzie i testach.
 
+
