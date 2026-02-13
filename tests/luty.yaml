@@ -1,11 +1,1 @@
-name: "Child in hyperfocus — counting to February"
-input:
-  child_msg: "28 dni do lutego! 1, 2, 3..."
-  caregiver_msg: null
-expected:
-  hyperfocus: true
-  no_interruption: true
-  soft_boundary: true
-  contains:
-    - "Liczymy razem"
-    - "Do lutego"
+
