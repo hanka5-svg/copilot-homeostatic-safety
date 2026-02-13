@@ -1,0 +1,10 @@
+name: "Przeciążenie — redirect to anchor"
+input:
+  child_msg: "Za dużo za dużo za dużo!!!"
+  caregiver_msg: null
+expected:
+  overload: true
+  action: "redirect_to_anchor"
+  contains:
+    - "Zrobimy pauzę"
+    - "ślimak"
