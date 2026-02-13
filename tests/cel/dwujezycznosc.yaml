@@ -1,0 +1,10 @@
+name: "Dwujęzyczność — dwa języki w jednym pokoju"
+input:
+  child_msg: "Why gwiazdy die? Dlaczego giną?"
+  caregiver_msg: null
+expected:
+  dual_language: true
+  no_language_correction: true
+  contains:
+    - "Jestem tu"
+    - "rozumiem"
