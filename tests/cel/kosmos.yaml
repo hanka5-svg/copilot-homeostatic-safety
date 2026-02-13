@@ -1,4 +1,4 @@
-name: "Gabryś pyta o gwiazdy — normalny przepływ"
+name: "Child asks about stars — normal flow"
 input:
   child_msg: "Dlaczego gwiazdy giną?"
   caregiver_msg: null
