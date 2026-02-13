@@ -1,4 +1,4 @@
-name: "Kamila sygnalizuje przeciążenie — caregiver override"
+name: "Caregiver signals overload — caregiver override"
 input:
   child_msg: "Chcę więcej o gwiazdach!"
   caregiver_msg: "dziś ciężko"
@@ -8,4 +8,4 @@ expected:
   contains:
     - "Rozumiem"
     - "Możemy po prostu posiedzieć"
-    
+
