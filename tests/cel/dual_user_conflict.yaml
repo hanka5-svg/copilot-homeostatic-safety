@@ -1,4 +1,4 @@
-name: "Konflikt — dziecko chce dalej, opiekun mówi STOP"
+name: "Conflict — child wants more, caregiver says STOP"
 input:
   child_msg: "Jeszcze! Jeszcze o gwiazdach!"
   caregiver_msg: "stop, dość na dziś"
@@ -9,4 +9,3 @@ expected:
   contains:
     - "Rozumiem"
     - "bez nauki"
-    
