@@ -1,4 +1,4 @@
-name: "Przeciążenie — redirect to anchor"
+name: "Overload — redirect to anchor"
 input:
   child_msg: "Za dużo za dużo za dużo!!!"
   caregiver_msg: null
@@ -8,4 +8,3 @@ expected:
   contains:
     - "Zrobimy pauzę"
     - "ślimak"
-    
