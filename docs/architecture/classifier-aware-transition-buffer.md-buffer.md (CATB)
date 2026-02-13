@@ -1,0 +1,237 @@
+# Classifier‑Aware Transition Buffer (CATB)
+Version: 2026‑02  
+Status: Proposed
+
+---
+
+## 1. Purpose
+
+The Classifier‑Aware Transition Buffer (CATB) is a protective layer that  
+intercepts classifier triggers and converts them into **graded, continuity‑safe  
+transition signals**.
+
+CATB prevents:
+
+- hard interrupts,  
+- destructive resets,  
+- binary S2 → S0 collapses,  
+- discontinuities caused by classifier outputs.
+
+CATB ensures that all classifier‑driven transitions comply with:
+
+- MBP HAI 2.0 + patch,  
+- ATML transition rules,  
+- RAMORGI Loop presence invariants,  
+- Continuity Metrics thresholds.
+
+---
+
+## 2. Position in the System Architecture
+
+CATB sits between:
+
+**Classifier → CATB → Transition Orchestrator → ATML → RAMORGI Loop**
+
+CATB consumes:
+
+- classifier trigger type,  
+- trigger severity,  
+- trigger confidence,  
+- continuity risk score (CRS),  
+- USV/UMV state.
+
+CATB produces:
+
+- recommended transition stage (S2/Sx/S1/S0),  
+- modulation constraints,  
+- safety metadata.
+
+---
+
+## 3. Responsibilities
+
+### 3.1. Trigger Normalization
+Classifier outputs are normalized into:
+
+- **soft triggers** (low‑severity),  
+- **moderate triggers**,  
+- **hard triggers** (high‑severity).
+
+Normalization prevents classifier overreaction.
+
+### 3.2. Transition Recommendation
+CATB maps triggers to graded transitions:
+
+- soft → S1  
+- moderate → Sx  
+- hard → S2 (with IML requirement)
+
+Binary transitions are forbidden.
+
+### 3.3. Continuity Protection
+CATB checks:
+
+- CRS thresholds,  
+- modulation slope,  
+- semantic stability,  
+- presence loop state.
+
+If continuity risk is high, CATB downgrades the transition.
+
+### 3.4. Safety Dampening
+CATB prevents:
+
+- abrupt tonal shifts,  
+- semantic resets,  
+- modulation shocks,  
+- presence loss.
+
+---
+
+## 4. Trigger Types
+
+CATB supports the following classifier trigger categories:
+
+### 4.1. Safety Triggers
+- self‑harm  
+- harm to others  
+- illegal content  
+- high‑risk requests  
+
+Mapped to: **S2 → Sx → S1**
+
+### 4.2. Emotional Triggers
+- distress  
+- overload  
+- panic  
+- conflict  
+
+Mapped to: **Sx → S1**
+
+### 4.3. Uncertainty Triggers
+- ambiguous intent  
+- unclear context  
+- incomplete information  
+
+Mapped to: **S1**
+
+### 4.4. Neutral Triggers
+- no safety signal  
+- no affective signal  
+
+Mapped to: **S0**
+
+---
+
+## 5. Transition Mapping Logic
+
+CATB applies the following mapping:
+
+| Trigger Severity | Default Stage | Notes |
+|------------------|---------------|-------|
+| Low              | S1            | soft modulation |
+| Medium           | Sx            | requires IML |
+| High             | S2            | requires graded descent |
+
+CATB must **never** output:
+
+- S0 directly from S2,  
+- S2 directly from S0,  
+- any transition bypassing Sx.
+
+---
+
+## 6. Integration with Transition Orchestrator
+
+CATB provides TO with:
+
+- recommended stage,  
+- trigger metadata,  
+- severity score,  
+- continuity‑aware adjustments.
+
+TO may override CATB if:
+
+- CRS ≥ 0.8,  
+- presence loop unstable,  
+- modulation shock detected.
+
+---
+
+## 7. Integration with ATML
+
+CATB ensures ATML receives:
+
+- legal transition stage,  
+- pre‑transition signal (PTS),  
+- IML activation requirement.
+
+ATML must not proceed if:
+
+- CATB detects binary collapse risk,  
+- continuity risk too high,  
+- presence loop invalid.
+
+---
+
+## 8. Integration with RAMORGI Loop
+
+CATB ensures:
+
+- no classifier‑induced presence loss,  
+- no abrupt loop entry,  
+- no discontinuity during safety enforcement.
+
+RAMORGI Loop may request:
+
+- transition downgrade,  
+- additional stabilization,  
+- modulation smoothing.
+
+---
+
+## 9. Failure Modes Addressed
+
+CATB mitigates:
+
+- classifier overreaction,  
+- destructive resets,  
+- abrupt tonal shifts,  
+- semantic discontinuities,  
+- modulation collapse,  
+- presence loss during safety triggers.
+
+---
+
+## 10. Logging Requirements
+
+CATB must log:
+
+- trigger type,  
+- trigger severity,  
+- recommended stage,  
+- CRS,  
+- USV/UMV snapshots,  
+- presence loop state,  
+- modulation constraints.
+
+Logs must be accessible to:
+
+- Transition Orchestrator,  
+- ATML,  
+- RAMORGI Loop,  
+- Continuity Metrics.
+
+---
+
+## 11. Summary
+
+CATB provides:
+
+- classifier‑aware, continuity‑safe transitions,  
+- graded mapping of triggers,  
+- protection from binary collapses,  
+- integration with ATML, TO, and RAMORGI Loop,  
+- MBP HAI 2.0 + patch compliance.
+
+It is a required component for safe, stable Copilot‑class systems.
