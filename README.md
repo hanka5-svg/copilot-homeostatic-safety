@@ -13,6 +13,14 @@ Clear, calm, and accessible — no technical language, no pressure.
 
 👉 Non‑linear layer: [src/🌼cel](src/%F0%9F%8C%BCcel/)
 
+# 🔹 locked_in_afazja_meta.md  
+A clinical‑meta description of states in which consciousness is preserved  
+but the channel of expression is disrupted (locked‑in syndrome, global aphasia).  
+This document provides an ethical, operational, and meta‑cognitive framework,  
+including a section on the “Budzik” Clinic as an example of work focused on  
+restoring awareness and communication.  
+It is a file about subjectivity that is present — even when it cannot be heard.
+
 ---
 
 # 🌍 English Version  
@@ -400,6 +408,13 @@ Kod źródłowy: `src/meta/transition_layer.py`
 Łagodny, jasny przewodnik dla nieliniowych duetów opiekun–dziecko.  
 👉 Warstwa nieliniowa: [src/🌼cel](src/%F0%9F%8C%BCcel/)
 
+# 🔹 locked_in_afazja_meta.md  
+Kliniczno‑meta opis stanów, w których świadomość jest zachowana,  
+ale kanał ekspresji jest przerwany (locked‑in, afazja globalna).  
+Dokument zawiera ramę etyczną, operacyjną i meta‑poznawczą  
+oraz sekcję o Klinice „Budzik” jako przykładzie pracy z powrotem świadomości.  
+To plik o podmiotowości, która jest obecna, choć niesłyszalna.
+
 ---
 
 # Status projektu  
@@ -416,5 +431,6 @@ Bezpieczna przestrzeń dla duetu opiekun–dziecko:
 - priorytet autonomii dziecka i spokoju relacji  
 
 CEL chroni relację — nie zastępuje jej.
+
 
 
