@@ -196,4 +196,165 @@ Warstwa Meta zapewnia:
 - ciągłość afektywną,
 - spójność całego Copilot Homeostatic Safety.
 
+---
+
+# Async Orchestrator (EN)
+
+
+
+## Async Orchestrator (demo_meta_async.py)
+
+The async demonstrator shows how the Meta-Menisk (Transition Layer)
+behaves inside a real-time, non-blocking orchestration loop.
+
+### Why async?
+A real orchestrator:
+- receives signals continuously,
+- cannot block on input(),
+- must evaluate META decisions in real time,
+- must route between CEL / Core / Continuum / RAMORGA without delay.
+
+### What the async demo shows
+- META decisions executed inside an asyncio loop
+- non-blocking user input via asyncio.to_thread()
+- stable routing between layers
+- continuous META evaluation at ~20 Hz
+
+### File
+
+demo_meta_async.py
+
+This demo is intentionally separate from:
+- `demo.py` (Kamila + Gabryś)
+- `demo_meta.py` (synchronous META demo)
+
+to preserve architectural clarity.
+
+## Async Orchestrator (demo_meta_async.py)
+
+Async demonstrator pokazuje, jak Meta-Menisk (Transition Layer)
+działa w warunkach zbliżonych do prawdziwego orchestratora:
+bez blokowania, z ciągłym przepływem sygnałów i routingiem w czasie rzeczywistym.
+
+### Dlaczego async?
+Prawdziwy orchestrator:
+- nie może blokować na input()
+- musi reagować na sygnały w czasie rzeczywistym
+- musi stale oceniać priorytety META
+- musi płynnie przełączać warstwy (CEL / Core / Continuum / RAMORGA)
+
+### Co pokazuje async demo
+- pętlę sterującą opartą o asyncio
+- nieblokujące pobieranie wejścia (asyncio.to_thread)
+- ciągłą ewaluację Meta-Menisku
+- routing między warstwami w czasie rzeczywistym
+
+### Plik
+
+demo_meta_async.py
+
+
+---
+
+## Diagram przepływu sygnałów (Signal Flow)
+
+┌──────────────────────────────┐
+│        Warstwa Meta           │
+│        (Meta-Menisk)          │
+│  decyduje, KTO prowadzi       │
+└──────────────┬───────────────┘
+│
+▼
+┌──────────────────────────────────────────────────────────┐
+│                  Priorytety Meta-Menisku                 │
+│  CEL → Core → Axis → Continuum → RAMORGA → Fallback     │
+└──────────────────────────────────────────────────────────┘
+│
+▼
+───────────────────────────────────────────────────────────────────────────────
+│                                 SYGNAŁY                                     │
+───────────────────────────────────────────────────────────────────────────────
+
+FIELD SIGNALS (RAMORGA)
+
+drżenie pola
+
+stabilność menisku
+
+integralność osi
+
+CORE SIGNALS (ATML / RICSA / Attractor)
+
+obciążenie afektywne
+
+ciągłość stanu
+
+odchylenie od atraktora
+
+CEL SIGNALS (CEL / DUCL / PGP)
+
+przeciążenie dziecka
+
+przeciążenie opiekuna
+
+przepływ nieliniowy
+
+potrzeba zakotwiczenia
+
+CONTINUUM SIGNALS (H–C–G)
+
+obecność H
+
+dostępność modułów
+
+koherencja układu
+
+───────────────────────────────────────────────────────────────────────────────
+│                             DECYZJA META                                    │
+───────────────────────────────────────────────────────────────────────────────
+
+Warstwa Meta analizuje wszystkie sygnały i wybiera aktywną warstwę:
+
+CEL → Core → Axis → Continuum → RAMORGA → Fallback
+
+───────────────────────────────────────────────────────────────────────────────
+│                             PRZEPŁYW W CZASIE                               │
+───────────────────────────────────────────────────────────────────────────────
+
+Sygnały → Meta-Menisk → Wybór warstwy → Wykonanie → Nowy stan → Meta-Menisk → ...
+
+To jest pętla homeostatyczna utrzymująca:
+
+ciągłość pola
+
+ciągłość afektywną
+
+ciągłość relacyjną
+
+ciągłość dynamiczną
+
+
+---
+
+# ✅ **COMMIT MESSAGE (short + extended)**
+
+### **Short:**
+
+docs(meta): add async orchestrator section and signal-flow diagram to README-meta.md
+
+### **Extended:**
+
+Adds documentation for the async orchestrator to README-meta.md, including:
+
+explanation of why async is needed for real-time META behavior
+
+description of demo_meta_async.py
+
+full signal-flow diagram for the Meta-Menisk
+
+clarification of routing and priority logic across layers
+
+This update completes the documentation of the Meta layer by showing both
+the synchronous and asynchronous execution models.
+
 
