@@ -1470,3 +1470,4 @@ Multiple failures overwhelm META.
 **Mitigation:**  
 Global fallback invariant:  
 → Core.
+
