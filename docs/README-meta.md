@@ -1,3 +1,35 @@
+# Spis treści
+
+- [Meta‑Menisk — Warstwa Przejścia](#meta-menisk--warstwa-przejścia)
+  - [Cel i zakres działania](#cel-i-zakres-działania)
+  - [Priorytety i reguły wyboru](#priorytety-i-reguły-wyboru)
+  - [Interfejs i implementacja](#interfejs-i-implementacja)
+  - [Model czasowy i tryby awaryjne](#model-czasowy-i-tryby-awaryjne)
+  - [Testy, logowanie i telemetria](#testy-logowanie-i-telemetria)
+  - [Bezpieczeństwo i invariants](#bezpieczeństwo-i-invariants)
+  - [Failure modes i recovery](#failure-modes-i-recovery)
+  - [Pseudokod decyzyjny](#pseudokod-decyzyjny)
+
+---
+
+# Appendixy
+
+- [Appendix A — Async Orchestrator](#appendix-a--async-orchestrator)
+- [Appendix B — UML Sequence Diagram](#appendix-b--uml-sequence-diagram)
+- [Appendix C — State Machine Diagram](#appendix-c--state-machine-diagram)
+- [Appendix D — Failure Modes & Recovery Logic](#appendix-d--failure-modes--recovery-logic)
+- [Appendix E — Meta-Menisk Invariants](#appendix-e--meta-menisk-invariants)
+- [Appendix F — Meta-Menisk → RAMORGA Handshake](#appendix-f--meta-menisk--ramorga-handshake)
+- [Appendix G — Meta-Menisk Timing Model](#appendix-g--meta-menisk-timing-model)
+- [Appendix H — Testing Strategy](#appendix-h--testing-strategy)
+- [Appendix I — Logging Specification](#appendix-i--logging-specification)
+- [Appendix J — Telemetry Fields](#appendix-j--telemetry-fields)
+- [Appendix K — Failure Injection Framework](#appendix-k--failure-injection-framework)
+- [Appendix L — Formal Specification (pseudocode)](#appendix-l--formal-specification-pseudocode)
+- [Appendix M — Safety Proof Sketch](#appendix-m--safety-proof-sketch)
+- [Appendix N — Integration with CEL/DUCL/PGP](#appendix-n--integration-with-celduclpgp)
+
+
 # Meta-Menisk / Transition Layer  
 **Layer 0 — Warstwa Przejścia**
 
