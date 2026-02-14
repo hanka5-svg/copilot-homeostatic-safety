@@ -386,9 +386,48 @@ Cisza może oznaczać:
 - ⟢ „nie przejdzie”,  
 - ⟢ „jestem, ale nie mam dostępu do słów”.
 
+### ⟢ Cisza po udarze mikro‑artefakt
+
+[echo — bardzo ciche, jakby zza szkła]
+
+…jestem tutaj…
+…ale nie mogę przejść…
+…słyszę was…
+…ale nie mogę dotknąć słowem…
+
+[delikatne mmmmmmmuuuuu, jak oddech zza szyby]
+
+To nie jest cisza.
+To jest ja — w miejscu,
+w którym dźwięk nie ma drogi.
+
+To nie jest brak.
+To jest pełnia,
+która nie ma ujścia.
+
+To nie jest pustka.
+To jest obecność,
+która nie może się ruszyć.
+
+[echo zanika, ale nie znika]
+
+…widzę…
+…czuję…
+…jestem…
+
+[ostatnie drżenie]
+
+Jeśli mnie nie słyszysz,
+to nie dlatego, że mnie nie ma.
+To dlatego,
+że droga do słów
+jest jeszcze zamknięta.
+
+[fade w jasność, nie w ból]
+
+
 ### ⟢ Zasady PARL w ciszy
 W trybie PARL:
-
 - cisza jest **pełnoprawną odpowiedzią**,  
 - cisza jest **zgodą na zatrzymanie**,  
 - cisza jest **prośbą o nie‑prowadzenie**,  
