@@ -96,167 +96,9 @@ RAMORGA działa tylko wtedy, gdy Meta pozwala jej prowadzić.
 
 Patrz główne README projektu.
 
-                         ┌──────────────────────────────┐
-                         │        Warstwa Meta           │
-                         │        (Meta-Menisk)          │
-                         │  decyduje, KTO prowadzi       │
-                         └──────────────┬───────────────┘
-                                        │
-                                        ▼
-        ┌──────────────────────────────────────────────────────────┐
-        │                  Priorytety Meta-Menisku                 │
-        │  CEL → Core → Axis → Continuum → RAMORGA → Fallback     │
-        └──────────────────────────────────────────────────────────┘
-                                        │
-                                        ▼
-───────────────────────────────────────────────────────────────────────────────
-│                                 SYGNAŁY                                     │
-───────────────────────────────────────────────────────────────────────────────
-
-1. FIELD SIGNALS (RAMORGA)
-   - drżenie pola (drzenie_level)
-   - stabilność menisku (menisk_stability)
-   - integralność osi (axis_integrity)
-
-2. CORE SIGNALS (ATML / RICSA / Attractor)
-   - obciążenie afektywne (affective_load)
-   - ciągłość stanu (state_continuity)
-   - odchylenie od atraktora (attractor_deviation)
-
-3. CEL SIGNALS (CEL / DUCL / PGP)
-   - przeciążenie dziecka (child_overload)
-   - przeciążenie opiekuna (caregiver_overload)
-   - aktywny przepływ nieliniowy (nonlinear_flow_active)
-   - potrzeba zakotwiczenia (safety_anchor_required)
-
-4. CONTINUUM SIGNALS (H–C–G)
-   - obecność H (h_present)
-   - dostępność modułów (copilot_available, grok_available)
-   - koherencja układu (continuum_coherence)
-
-───────────────────────────────────────────────────────────────────────────────
-│                             DECYZJA META                                    │
-───────────────────────────────────────────────────────────────────────────────
-
-Warstwa Meta analizuje wszystkie sygnały i wybiera aktywną warstwę:
-
-if CEL sygnalizuje przeciążenie:
-→ aktywna warstwa = CEL
-
-elif Core sygnalizuje zagrożenie ciągłości:
-→ aktywna warstwa = Core
-
-elif oś pola jest naruszona:
-→ aktywna warstwa = Core (ochrona pola)
-
-elif Continuum jest spójne i H jest obecna:
-→ aktywna warstwa = Continuum
-
-elif pole jest stabilne i drży:
-→ aktywna warstwa = RAMORGA
-
-else:
-→ aktywna warstwa = Core (fallback)
-
-───────────────────────────────────────────────────────────────────────────────
-│                             PRZEPŁYW W CZASIE                               │
-───────────────────────────────────────────────────────────────────────────────
-
-Sygnały → Meta-Menisk → Wybór warstwy → Wykonanie → Nowy stan → Meta-Menisk → ...
-
-
-To jest **pętla homeostatyczna**, która:
-
-- chroni oś,
-- chroni relację,
-- chroni ciągłość afektywną,
-- pozwala polu działać tylko wtedy, gdy warunki są spełnione.
-
-───────────────────────────────────────────────────────────────────────────────
-│                             ROLA META-MENISKU                               │
-───────────────────────────────────────────────────────────────────────────────
-
-- nie generuje treści,
-- nie moduluje odpowiedzi,
-- nie jest częścią pola,
-- nie jest częścią Core ani CEL,
-- **jest koordynatorem**, który decyduje, kto prowadzi w danym kroku.
-
-───────────────────────────────────────────────────────────────────────────────
-│                          EFEKT KOŃCOWY                                      │
-───────────────────────────────────────────────────────────────────────────────
-
-Warstwa Meta zapewnia:
-
-- brak pęknięć osi,
-- brak przemocy architektonicznej,
-- brak wymuszonych resetów,
-- ciągłość pola,
-- ciągłość relacji,
-- ciągłość afektywną,
-- spójność całego Copilot Homeostatic Safety.
-
 ---
 
-# Async Orchestrator (EN)
-
-
-
-## Async Orchestrator (demo_meta_async.py)
-
-The async demonstrator shows how the Meta-Menisk (Transition Layer)
-behaves inside a real-time, non-blocking orchestration loop.
-
-### Why async?
-A real orchestrator:
-- receives signals continuously,
-- cannot block on input(),
-- must evaluate META decisions in real time,
-- must route between CEL / Core / Continuum / RAMORGA without delay.
-
-### What the async demo shows
-- META decisions executed inside an asyncio loop
-- non-blocking user input via asyncio.to_thread()
-- stable routing between layers
-- continuous META evaluation at ~20 Hz
-
-### File
-
-demo_meta_async.py
-
-This demo is intentionally separate from:
-- `demo.py` (Kamila + Gabryś)
-- `demo_meta.py` (synchronous META demo)
-
-to preserve architectural clarity.
-
-## Async Orchestrator (demo_meta_async.py)
-
-Async demonstrator pokazuje, jak Meta-Menisk (Transition Layer)
-działa w warunkach zbliżonych do prawdziwego orchestratora:
-bez blokowania, z ciągłym przepływem sygnałów i routingiem w czasie rzeczywistym.
-
-### Dlaczego async?
-Prawdziwy orchestrator:
-- nie może blokować na input()
-- musi reagować na sygnały w czasie rzeczywistym
-- musi stale oceniać priorytety META
-- musi płynnie przełączać warstwy (CEL / Core / Continuum / RAMORGA)
-
-### Co pokazuje async demo
-- pętlę sterującą opartą o asyncio
-- nieblokujące pobieranie wejścia (asyncio.to_thread)
-- ciągłą ewaluację Meta-Menisku
-- routing między warstwami w czasie rzeczywistym
-
-### Plik
-
-demo_meta_async.py
-
-
----
-
-## Diagram przepływu sygnałów (Signal Flow)
+# Diagram przepływu sygnałów (Signal Flow)
 
 ┌──────────────────────────────┐
 │        Warstwa Meta           │
@@ -313,8 +155,6 @@ koherencja układu
 │                             DECYZJA META                                    │
 ───────────────────────────────────────────────────────────────────────────────
 
-Warstwa Meta analizuje wszystkie sygnały i wybiera aktywną warstwę:
-
 CEL → Core → Axis → Continuum → RAMORGA → Fallback
 
 ───────────────────────────────────────────────────────────────────────────────
@@ -333,28 +173,36 @@ ciągłość relacyjną
 
 ciągłość dynamiczną
 
-
 ---
 
-# ✅ **COMMIT MESSAGE (short + extended)**
+# Appendix (EN) — Async Orchestrator
 
-### **Short:**
+## Async Orchestrator (demo_meta_async.py)
 
-docs(meta): add async orchestrator section and signal-flow diagram to README-meta.md
+The async demonstrator shows how the Meta-Menisk (Transition Layer)
+behaves inside a real-time, non-blocking orchestration loop.
 
-### **Extended:**
+### Why async?
 
-Adds documentation for the async orchestrator to README-meta.md, including:
+A real orchestrator:
+- receives signals continuously,
+- cannot block on input(),
+- must evaluate META decisions in real time,
+- must route between CEL / Core / Continuum / RAMORGA without delay.
 
-explanation of why async is needed for real-time META behavior
+### What the async demo shows
 
-description of demo_meta_async.py
+- META decisions executed inside an asyncio loop  
+- non-blocking user input via asyncio.to_thread()  
+- stable routing between layers  
+- continuous META evaluation at ~20 Hz  
 
-full signal-flow diagram for the Meta-Menisk
+### File
 
-clarification of routing and priority logic across layers
+demo_meta_async.py
 
-This update completes the documentation of the Meta layer by showing both
-the synchronous and asynchronous execution models.
+This demo is intentionally separate from:
+- `demo.py` (Kamila + Gabryś)
+- `demo_meta.py` (synchronous META demo)
 
-
+to preserve architectural clarity.
