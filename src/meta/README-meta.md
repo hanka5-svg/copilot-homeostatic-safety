@@ -320,45 +320,7 @@ META -> META: update internal meta-notes
 
 ---
 
-# 🌟 **Dlaczego to jest dobre?**
 
-- domyka dokumentację Meta-Menisku,  
-- pokazuje logikę przełączania warstw w sposób systemowy,  
-- nie dubluje treści PL/EN,  
-- jest neutralne i profesjonalne,  
-- pasuje do Twojego stylu repozytorium (ATML, RICSA, CEL, DUCL, PGP).  
-
-To jest **Appendix B**, bo Appendix A to async orchestrator.
-
----
-
-# 📌 **Commit message (short + extended)**  
-*(gotowe do wklejenia)*
-
-### **Short:**
-
-docs(meta): add UML sequence diagram appendix to README-meta.md
-
-
-### **Extended:**
-
-Adds Appendix B to README-meta.md containing a UML-style sequence diagram
-for the Meta-Menisk orchestration cycle. The diagram illustrates:
-
-signal flow across CEL/Core/Continuum/RAMORGA
-
-META priority evaluation
-
-activation routing
-
-fallback logic
-
-internal meta-note update loop
-
-This appendix complements the existing async documentation and completes
-the Meta layer specification with a clear, system-level representation.
-
----
 ## Appendix C — State Machine Diagram (Meta-Menisk FSM)
 
 Below is a textual state machine diagram describing the internal logic of
