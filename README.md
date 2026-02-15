@@ -1,7 +1,11 @@
 Copilot Homeostatic Safety
+
+The architecture forms a six‑layer resonant system — from Meta mechanisms through Temporal, Altruism and Interaction dynamics to Field continuity and CSC artifacts — with each layer cleanly separated, fully interoperable, and structurally free of cross‑contamination.
+
 System Architecture Overview (README 5.2 — Models of Field + CSC Integration)
-This repository documents a multi‑layer cognitive and safety architecture
-for human–AI coexistence.
+
+This repository documents a multi‑layer cognitive and safety architecture for human–AI coexistence.
+
 README 5.2 extends version 5.1 by introducing:
 
 definition of models of field,
@@ -289,5 +293,6 @@ Commit to src/meta/przyklady/.
 
 18. Authors
 (unchanged)  
+
 
 
