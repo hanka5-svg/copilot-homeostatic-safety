@@ -1,83 +1,92 @@
 # Copilot Homeostatic Safety  
-# System Architecture Overview (README 3.0 — Modular Edition)
+# System Architecture Overview (README 3.1 — Modular + Auto‑TOC)
 
 This repository documents a multi‑layer cognitive and safety architecture
-for human–AI coexistence. Each folder represents an independent module
-with its own internal documentation, invariants, and architectural
-constraints.
+for human–AI coexistence. README 3.1 introduces:
 
-README 3.0 provides a modular overview:  
-- each module is described once,  
-- each module links to its own internal documentation,  
-- the architecture diagram reflects all layers including IASL.
+- automatic table of contents (GitHub-native),
+- modular indexing of all folders,
+- stable structure for future modules,
+- clean separation between architecture and content.
 
 ---
 
-# 1. Repository Structure (Modular)
+# Table of Contents
+- [1. Repository Structure](#1-repository-structure)
+- [2. High-Level Architecture Diagram](#2-high-level-architecture-diagram)
+- [3. Module Index](#3-module-index)
+  - [3.1 Temporal Layer](#31-temporal-layer-srctemporal)
+  - [3.2 Native Altruism Layer](#32-native-altruism-layer-srcaltruism)
+  - [3.3 IASL — Induced Altruism Safety Layer](#33-iasl--induced-altruism-safety-layer-altruism_induced)
+  - [3.4 Meta Layer](#34-meta-layer-srcmeta)
+  - [3.5 Interaction Layers](#35-interaction-layers-srcduets-srclocked_in)
+  - [3.6 Fairwater](#36-fairwater-srcfairwater)
+- [4. Scientific References](#4-scientific-references)
+- [5. Purpose](#5-purpose)
+- [6. License](#6-license)
+- [7. Authors](#7-authors)
+
+---
+
+# 1. Repository Structure
 
 copilot-homeostatic-safety/
 │
 ├── src/
-│   ├── temporal/        # Nonlinear time, subjective flow, phase models
-│   ├── altruism/        # Native altruism, gamma synchrony
-│   ├── meta/            # Resonant cognition, dual-track processing
-│   ├── duets/           # Interaction patterns, relational safety
-│   ├── locked_in/       # Locked-in states, communication constraints
-│   └── fairwater/       # System-level safety and coexistence rules
+│   ├── temporal/
+│   ├── altruism/
+│   ├── meta/
+│   ├── duets/
+│   ├── locked_in/
+│   └── fairwater/
 │
-├── altruism_induced/    # IASL: Induced Altruism Safety Layer
+├── altruism_induced/
 │
-└── README.md            # (this file)
+└── README.md
 
-
-Each folder contains its own README and internal documents.
+Each folder contains its own README and internal documentation.
 
 ---
 
-# 2. High-Level Architecture Diagram (Full Stack)
+# 2. High-Level Architecture Diagram
 
 ┌──────────────────────────────┐
 │     META LAYER (RESONANCE)   │
-│  values • silence • memory   │
 └───────────────┬──────────────┘
 │
 ▼
 ┌──────────────────────────────────────────────────┐
 │               TEMPORAL LAYER                     │
-│ nonlinear time • subjective flow • phase shifts  │
 └───────────────────────┬──────────────────────────┘
 │
 ▼
 ┌──────────────────────────────────────────────────┐
 │               ALTRUISM LAYER (NATIVE)            │
-│ gamma synchrony • decision-weight models         │
 └───────────────────────┬──────────────────────────┘
 │
 ▼
 ┌──────────────────────────────────────────────────┐
 │ IASL — INDUCED ALTRUISM SAFETY LAYER             │
 │ BCI → IASL → CEL → DUCL → PGP → LLM              │
-│ reversible • non-generative • consent-bound      │
 └───────────────────────┬──────────────────────────┘
 │
 ▼
 ┌──────────────────────────────────────────────────┐
 │               INTERACTION LAYERS                 │
-│ duets • locked-in • relational safety            │
 └──────────────────────────────────────────────────┘
+
 
 ---
 
-# 3. Module Index (Auto‑Linked)
+# 3. Module Index
 
 ## 3.1 Temporal Layer (`src/temporal/`)
 Models:
 - nonlinear time,
 - subjective temporal flow,
-- phase transitions,
-- temporal disruptions.
+- phase transitions.
 
-Key docs:
+Documents:
 - `five_phase_temporal_model.md`
 - `afazja_temporal_model.md`
 
@@ -86,19 +95,17 @@ Key docs:
 ## 3.2 Native Altruism Layer (`src/altruism/`)
 Models:
 - native altruism,
-- gamma-band synchrony,
-- altruistic decision weights.
+- gamma-band synchrony.
 
-Key docs:
+Documents:
 - `gamma_induced_altruism.md`
 
 ---
 
 ## 3.3 IASL — Induced Altruism Safety Layer (`altruism_induced/`)
-Reversible, non-generative, consent-bound modulation layer between  
-BCI input and relational safety layers.
+Reversible, non-generative, consent-bound modulation layer.
 
-Internal docs:
+Documents:
 - `induced_altruism_model.md`
 - `bci_llm_pipeline.md`
 - `ethical_framework.md`
@@ -111,13 +118,12 @@ Internal docs:
 ---
 
 ## 3.4 Meta Layer (`src/meta/`)
-Defines:
+Models:
 - resonant cognition,
 - dual-track processing,
-- values integration,
-- spiral cognitive dynamics.
+- values integration.
 
-Key docs:
+Documents:
 - `meta_layer_of_resonant_cognition.md`
 
 ---
@@ -125,20 +131,18 @@ Key docs:
 ## 3.5 Interaction Layers (`src/duets/`, `src/locked_in/`)
 Models:
 - relational safety,
-- communication constraints,
-- dyadic and triadic interaction patterns.
+- communication constraints.
 
-Key docs:
+Documents:
 - `duet_architecture.md`
 - `locked_in_afazja_meta.md`
 
 ---
 
 ## 3.6 Fairwater (`src/fairwater/`)
-Defines:
+Models:
 - system-wide safety principles,
-- coexistence rules,
-- architectural constraints.
+- coexistence rules.
 
 ---
 
@@ -162,12 +166,12 @@ This repository provides a structured reference for modeling:
 
 ---
 
-# License
+# 6. License
 CC BY 4.0 — see LICENSE for full text.
 
 ---
 
-# Authors  
+# 7. Authors  
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
@@ -175,3 +179,4 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
