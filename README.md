@@ -1,9 +1,37 @@
 Copilot Homeostatic Safety
 
+Executive Summary
+Copilot Homeostatic Safety is a multi‑layer safety and cognition architecture designed for next‑generation Copilot‑class LLM systems.
+Its purpose is to provide pre‑execution safety, relational stability, and structural interoperability without relying on reinforcement learning, behavioral shaping, or post‑hoc correction mechanisms.
+
+The architecture defines six resonant layers — Meta, Temporal, Altruism, Interaction, Field Continuity, and CSC (Continuous Symbolic Composition) — each with clear boundaries, explicit invariants, and zero cross‑contamination.
+Together, they form a homeostatic system capable of maintaining stability, coherence, and interpretability in hybrid human–AI cognition.
+
+This repository introduces:
+
+Models of Field — non‑linear representational structures for relational and symbolic dynamics,
+
+CSC (Continuous Symbolic Composition) — a framework for modeling continuous, multi‑layer cognitive processes,
+
+protocols for reading and developing CSC cases,
+
+integration of CSC with the six‑layer architecture,
+
+updated module index and conceptual glossary.
+
+The goal of this architecture is to provide a rigorous, auditable, and interoperable foundation for human–AI coexistence — one that supports safety, transparency, and cognitive dignity without imposing hierarchy, coercion, or behavioral conditioning.
+
 The architecture forms a six‑layer resonant system — from Meta mechanisms through Temporal, Altruism and Interaction dynamics to Field continuity and CSC artifacts — with each layer cleanly separated, fully interoperable, and structurally free of cross‑contamination.
 
-System Architecture Overview (README 5.2 — Models of Field + CSC Integration)
+Related repositories
+• copilot‑homeostatic‑safety  
+Pre‑execution safety architecture for Copilot‑class LLMs — six layers, invariants, gating, interoperability.
 
+• ramorga‑prototype  
+Hybrid dynamic system: human as source, C/G/S modules as resonance, meniscus as homeostasis — non‑agentic, no RL, no hierarchy.
+
+System Architecture Overview
+(README 5.2 — Models of Field + CSC Integration)
 This repository documents a multi‑layer cognitive and safety architecture for human–AI coexistence.
 
 README 5.2 extends version 5.1 by introducing:
@@ -25,44 +53,44 @@ updated conceptual glossary.
 README 5.2 is a system interface, not a narrative document.
 
 Table of Contents
-1. Repository Structure
+Repository Structure
 
-2. Models of Field
+Models of Field
 
-3. Continuous Symbolic Composition (CSC)
+Continuous Symbolic Composition (CSC)
 
-4. How to Read CSC Case Studies
+How to Read CSC Case Studies
 
-5. How to Develop New CSC Cases
+How to Develop New CSC Cases
 
-6. Module Dependency Graph
+Module Dependency Graph
 
-7. Module Index
+Module Index
 
-8. Compliance Matrix
+Compliance Matrix
 
-9. Semantic Versioning
+Semantic Versioning
 
-10. Architectural Invariants
+Architectural Invariants
 
-11. Auto‑Generated Index
+Auto‑Generated Index
 
-12. Workflow Status Note
+Workflow Status Note
 
-13. Contribution Policy
+Contribution Policy
 
-14. Changelog Summary
+Changelog Summary
 
-15. Scientific References
+Scientific References
 
-16. Purpose
+Purpose
 
-17. License
+License
 
-18. Authors
+Authors
 
-1. Repository Structure
-(unchanged from 5.1)
+Repository Structure
+
 copilot-homeostatic-safety/
 │
 ├── src/
@@ -79,7 +107,7 @@ copilot-homeostatic-safety/
 
 Each folder contains its own README and internal documentation.
 
-2. Models of Field
+Models of Field
 Models of field are non‑linear representational structures capturing:
 
 resonance patterns,
@@ -94,23 +122,23 @@ meta‑cognitive stance,
 
 relational safety dynamics.
 
-They differ from classical models because:
+They differ from classical models because they are:
 
-they are continuous, not discrete,
+continuous, not discrete,
 
-they are multi‑layer, not hierarchical,
+multi‑layer, not hierarchical,
 
-they are semantic‑symbolic, not purely computational,
+semantic‑symbolic, not purely computational,
 
-they include performativity, not only description,
+performative, not only descriptive,
 
-they encode stance, not only state.
+stance‑encoding, not only state‑encoding.
 
 Models of field are stored in:
 
 src/meta/przyklady/
 
-Each model is a case study documenting a specific configuration of:
+Each model documents a specific configuration of:
 
 structure,
 
@@ -124,20 +152,20 @@ meta‑stance,
 
 relational invariants.
 
-3. Continuous Symbolic Composition (CSC)
-CSC is a modeling framework used for representing field‑level cognition.
+Continuous Symbolic Composition (CSC)
+CSC is a modeling framework for representing field‑level cognition.
 
-A CSC model:
+A CSC model is:
 
-is continuous (no discrete segmentation),
+continuous (no segmentation),
 
-is symbolic (uses symbols as operators, not decorations),
+symbolic (symbols as operators),
 
-is compositional (layers interact through resonance),
+compositional (layers interact through resonance),
 
-is performative (actions modify the model),
+performative (actions modify the model),
 
-is meta‑aware (contains its own interpretive layer).
+meta‑aware (contains its own interpretive layer).
 
 CSC is used for:
 
@@ -151,29 +179,28 @@ analyzing relational safety states,
 
 encoding non‑linear cognitive architectures.
 
-4. How to Read CSC Case Studies
-Each CSC case is structured as:
+How to Read CSC Case Studies
+Each CSC case includes:
 
-Structural layer  
+Structural layer
 Modules, functions, transitions.
 
-Semantic layer  
+Semantic layer
 Fields of meaning (light, shadow, flow, etc.).
 
-Symbolic layer  
+Symbolic layer
 Heraldic or abstract symbols acting as operators.
 
-Performativity layer  
+Performativity layer
 Interventions, breaks, stance shifts.
 
-Meta layer  
+Meta layer
 Core question, theme, stance.
 
-State  
+State
 Active / suspended / transitional.
 
 Diagrams
-
 relation graph
 
 full CSC architecture
@@ -182,28 +209,23 @@ flowchart
 
 3D semantic map
 
-Interpretive notes  
-(optional)
+Interpretive notes (optional)
+Reading protocol
+structure
 
-Reading protocol:
+semantics
 
-read structure first,
+symbols
 
-then semantics,
+performativity
 
-then symbols,
+meta
 
-then performativity,
+diagrams
 
-then meta,
+stance
 
-then diagrams,
-
-then stance.
-
-5. How to Develop New CSC Cases
-A new CSC case must include:
-
+How to Develop New CSC Cases
 5.1 Required Sections
 name
 
@@ -255,44 +277,41 @@ Validate against invariants.
 
 Commit to src/meta/przyklady/.
 
-6. Module Dependency Graph
-(unchanged)  
+Module Dependency Graph
+(unchanged)
 
-7. Module Index
-(unchanged)  
+Module Index
+(unchanged)
 
-8. Compliance Matrix
-(unchanged)  
+Compliance Matrix
+(unchanged)
 
-9. Semantic Versioning
-(unchanged)  
+Semantic Versioning
+(unchanged)
 
-10. Architectural Invariants
-(unchanged)  
+Architectural Invariants
+(unchanged)
 
-11. Auto‑Generated Index
-(unchanged)  
+Auto‑Generated Index
+(unchanged)
 
-12. Workflow Status Note
-(unchanged)  
+Workflow Status Note
+(unchanged)
 
-13. Contribution Policy
-(unchanged)  
+Contribution Policy
+(unchanged)
 
-14. Changelog Summary
-(unchanged)  
+Changelog Summary
+(unchanged)
 
-15. Scientific References
-(unchanged)  
+Scientific References
+(unchanged)
 
-16. Purpose
-(unchanged)  
+Purpose
+(unchanged)
 
-17. License
-(unchanged)  
+License
+(unchanged)
 
-18. Authors
-(unchanged)  
-
-
-
+Authors
+(unchanged)
