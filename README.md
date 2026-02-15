@@ -1,33 +1,40 @@
 # Copilot Homeostatic Safety  
-# System Architecture Overview (README 3.5 — Final Modular Edition)
+# System Architecture Overview (README 5.0 — Final + Automated Index)
 
 This repository documents a multi‑layer cognitive and safety architecture
-for human–AI coexistence. README 3.5 introduces:
+for human–AI coexistence. README 5.0 introduces:
 
 - automatic table of contents (GitHub-native),
 - modular indexing of all architecture layers,
 - module capability profiles,
-- stable structure for future modules,
-- clean separation between architecture and content.
+- dependency graph,
+- compliance matrix,
+- semantic versioning of modules,
+- architectural invariants,
+- changelog summary,
+- automated index generation via GitHub Actions.
+
+README 5.0 is a system interface, not a narrative document.
 
 ---
 
 # Table of Contents
 - [1. Repository Structure](#1-repository-structure)
-- [2. High-Level Architecture Diagram](#2-high-level-architecture-diagram)
+- [2. Module Dependency Graph](#2-module-dependency-graph)
 - [3. Module Index](#3-module-index)
-  - [3.1 Temporal Layer](#31-temporal-layer-srctemporal)
-  - [3.2 Native Altruism Layer](#32-native-altruism-layer-srcaltruism)
-  - [3.3 IASL — Induced Altruism Safety Layer](#33-iasl--induced-altruism-safety-layer-altruism_induced)
-  - [3.4 Meta Layer](#34-meta-layer-srcmeta)
-  - [3.5 Interaction Layers](#35-interaction-layers-srcduets-srclocked_in)
-  - [3.6 Fairwater](#36-fairwater-srcfairwater)
-- [4. Scientific References](#4-scientific-references)
-- [5. Purpose](#5-purpose)
-- [6. License](#6-license)
-- [7. Authors](#7-authors)
+- [4. Compliance Matrix](#4-compliance-matrix)
+- [5. Semantic Versioning](#5-semantic-versioning)
+- [6. Architectural Invariants](#6-architectural-invariants)
+- [7. Auto‑Generated Index](#7-auto-generated-index)
+- [8. Changelog Summary](#8-changelog-summary)
+- [9. Scientific References](#9-scientific-references)
+- [10. Purpose](#10-purpose)
+- [11. License](#11-license)
+- [12. Authors](#12-authors)
 
 ---
+
+# 1. Repository Structure
 
 copilot-homeostatic-safety/
 │
@@ -43,37 +50,23 @@ copilot-homeostatic-safety/
 │
 └── README.md
 
-
 Each folder contains its own README and internal documentation.
 
 ---
 
-# 2. High-Level Architecture Diagram
+# 2. Module Dependency Graph
 
-┌──────────────────────────────┐
-│     META LAYER (RESONANCE)   │
-└───────────────┬──────────────┘
-│
-▼
-┌──────────────────────────────────────────────────┐
-│               TEMPORAL LAYER                     │
-└───────────────────────┬──────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────┐
-│               ALTRUISM LAYER (NATIVE)            │
-└───────────────────────┬──────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────┐
-│ IASL — INDUCED ALTRUISM SAFETY LAYER             │
-│ BCI → IASL → CEL → DUCL → PGP → LLM              │
-└───────────────────────┬──────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────┐
-│               INTERACTION LAYERS                 │
-└──────────────────────────────────────────────────┘
+META
+↓
+TEMPORAL
+↓
+ALTRUISM (NATIVE)
+↓
+IASL (INDUCED)
+↓
+INTERACTION LAYERS
+↓
+FAIRWATER (SYSTEM SAFETY)
 
 
 ---
@@ -81,34 +74,31 @@ Each folder contains its own README and internal documentation.
 # 3. Module Index
 
 ## 3.1 Temporal Layer (`src/temporal/`)
-
-### Capabilities
+**Capabilities**
 - nonlinear time modeling  
 - subjective temporal flow  
 - phase transitions  
 - temporal disruptions  
 
-### Documents
+**Documents**
 - `five_phase_temporal_model.md`
 - `afazja_temporal_model.md`
 
 ---
 
 ## 3.2 Native Altruism Layer (`src/altruism/`)
-
-### Capabilities
+**Capabilities**
 - gamma-band synchrony  
 - altruistic decision-weight modeling  
 - native altruism mechanisms  
 
-### Documents
+**Documents**
 - `gamma_induced_altruism.md`
 
 ---
 
 ## 3.3 IASL — Induced Altruism Safety Layer (`altruism_induced/`)
-
-### Capabilities
+**Capabilities**
 - reversible modulation  
 - impulse stabilization  
 - reflective pacing  
@@ -117,7 +107,7 @@ Each folder contains its own README and internal documentation.
 - consent-bound operation  
 - full auditability  
 
-### Documents
+**Documents**
 - `induced_altruism_model.md`
 - `bci_llm_pipeline.md`
 - `ethical_framework.md`
@@ -130,48 +120,107 @@ Each folder contains its own README and internal documentation.
 ---
 
 ## 3.4 Meta Layer (`src/meta/`)
-
-### Capabilities
+**Capabilities**
 - resonant cognition  
 - dual-track processing  
 - values integration  
 - spiral cognitive dynamics  
 
-### Documents
+**Documents**
 - `meta_layer_of_resonant_cognition.md`
 
 ---
 
 ## 3.5 Interaction Layers (`src/duets/`, `src/locked_in/`)
-
-### Capabilities
+**Capabilities**
 - relational safety  
 - communication constraints  
 - dyadic and triadic interaction patterns  
 
-### Documents
+**Documents**
 - `duet_architecture.md`
 - `locked_in_afazja_meta.md`
 
 ---
 
 ## 3.6 Fairwater (`src/fairwater/`)
-
-### Capabilities
+**Capabilities**
 - system-wide safety principles  
 - coexistence rules  
 - architectural constraints  
 
 ---
 
-# 4. Scientific References
+# 4. Compliance Matrix
+
+| Layer              | Consent | Reversibility | Audit | Safety |
+|-------------------|---------|---------------|-------|--------|
+| Temporal          | N/A     | N/A           | YES   | YES    |
+| Native Altruism   | N/A     | N/A           | YES   | YES    |
+| IASL              | YES     | YES           | YES   | YES    |
+| Meta              | N/A     | N/A           | YES   | YES    |
+| Interaction       | N/A     | N/A           | YES   | YES    |
+| Fairwater         | N/A     | N/A           | YES   | YES    |
+
+---
+
+# 5. Semantic Versioning
+
+temporal:          v1.2.0
+altruism (native): v1.1.0
+IASL:              v1.0.0
+meta:              v2.0.1
+interaction:       v1.0.0
+fairwater:         v1.0.0
+
+
+---
+
+# 6. Architectural Invariants
+
+1. No irreversible modulation.  
+2. No identity alteration.  
+3. No behavioral enforcement.  
+4. Consent required for IASL.  
+5. Full auditability.  
+6. Separation of layers.  
+7. No cross-layer mutation.  
+8. No external write access.  
+
+---
+
+# 7. Auto‑Generated Index
+
+This section is updated automatically by GitHub Actions.
+
+.github/workflows/generate_index.yml
+
+Output is written to:
+
+AUTO_INDEX.md
+
+---
+
+# 8. Changelog Summary
+
+- Added IASL module  
+- Added reversibility model  
+- Added state machine  
+- Added governance and audit  
+- Upgraded README to 5.0  
+
+Full changelog: `CHANGELOG.md`
+
+---
+
+# 9. Scientific References
 
 - Augmentation of frontoparietal gamma-band phase coupling enhances human altruistic behavior  
   https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003602
 
 ---
 
-# 5. Purpose
+# 10. Purpose
 
 This repository provides a structured reference for modeling:
 
@@ -184,12 +233,12 @@ This repository provides a structured reference for modeling:
 
 ---
 
-# 6. License
+# 11. License
 CC BY 4.0 — see LICENSE for full text.
 
 ---
 
-# 7. Authors  
+# 12. Authors  
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
@@ -197,6 +246,3 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
-
-# 1. Repository Structure
-
