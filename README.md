@@ -245,11 +245,18 @@ CC BY 4.0 — see LICENSE for full text.
 - *Kimi AI* — engineering audit
 
 ## Contribution Policy
+
 This repository does not accept external contributions.  
-All changes must be authored and approved by the repository owner.
+All changes must be authored and approved by the repository owner.  
+No pull requests, forks, or external edits will be merged.
+
+GitHub Actions workflows do not grant write access to external users.  
+All automation runs exclusively under the repository owner's permissions.
+
 
 ---
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
