@@ -242,7 +242,14 @@ CC BY 4.0 — see LICENSE for full text.
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
-- *Kimi AI* — engineering audit  
+- *Kimi AI* — engineering audit
+
+## Contribution Policy
+This repository does not accept external contributions.  
+All changes must be authored and approved by the repository owner.
+
+---
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
