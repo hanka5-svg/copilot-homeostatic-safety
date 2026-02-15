@@ -1,8 +1,8 @@
 # Copilot Homeostatic Safety  
-# System Architecture Overview (README 5.0 — Final + Automated Index)
+# System Architecture Overview (README 5.1 — Modular + Automated Index + Contribution Policy)
 
 This repository documents a multi‑layer cognitive and safety architecture
-for human–AI coexistence. README 5.0 introduces:
+for human–AI coexistence. README 5.1 introduces:
 
 - automatic table of contents (GitHub-native),
 - modular indexing of all architecture layers,
@@ -12,9 +12,11 @@ for human–AI coexistence. README 5.0 introduces:
 - semantic versioning of modules,
 - architectural invariants,
 - changelog summary,
-- automated index generation via GitHub Actions.
+- automated index generation via GitHub Actions,
+- contribution policy,
+- workflow status note.
 
-README 5.0 is a system interface, not a narrative document.
+README 5.1 is a system interface, not a narrative document.
 
 ---
 
@@ -26,15 +28,15 @@ README 5.0 is a system interface, not a narrative document.
 - [5. Semantic Versioning](#5-semantic-versioning)
 - [6. Architectural Invariants](#6-architectural-invariants)
 - [7. Auto‑Generated Index](#7-auto-generated-index)
-- [8. Changelog Summary](#8-changelog-summary)
-- [9. Scientific References](#9-scientific-references)
-- [10. Purpose](#10-purpose)
-- [11. License](#11-license)
-- [12. Authors](#12-authors)
+- [8. Workflow Status Note](#8-workflow-status-note)
+- [9. Contribution Policy](#9-contribution-policy)
+- [10. Changelog Summary](#10-changelog-summary)
+- [11. Scientific References](#11-scientific-references)
+- [12. Purpose](#12-purpose)
+- [13. License](#13-license)
+- [14. Authors](#14-authors)
 
 ---
-
-# 1. Repository Structure
 
 copilot-homeostatic-safety/
 │
@@ -67,7 +69,6 @@ IASL (INDUCED)
 INTERACTION LAYERS
 ↓
 FAIRWATER (SYSTEM SAFETY)
-
 
 ---
 
@@ -173,7 +174,6 @@ meta:              v2.0.1
 interaction:       v1.0.0
 fairwater:         v1.0.0
 
-
 ---
 
 # 6. Architectural Invariants
@@ -193,34 +193,60 @@ fairwater:         v1.0.0
 
 This section is updated automatically by GitHub Actions.
 
+Workflow:
+
 .github/workflows/generate_index.yml
 
-Output is written to:
+Output file:
 
 AUTO_INDEX.md
 
 ---
 
-# 8. Changelog Summary
+# 8. Workflow Status Note
+
+The automated index workflow (`generate_index.yml`) may occasionally show  
+a red ❌ status on the repository homepage. This does not indicate an  
+error in the repository or workflow. It simply means that the workflow  
+ran successfully but found no changes to commit (e.g., `AUTO_INDEX.md`  
+was already up to date). This is expected behavior for GitHub Actions.
+
+---
+
+# 9. Contribution Policy
+
+This repository does not accept external contributions.  
+All changes must be authored and approved by the repository owner.  
+No pull requests, forks, or external edits will be merged.
+
+GitHub Actions workflows do not grant write access to external users.  
+All automation runs exclusively under the repository owner's permissions.
+
+---
+
+# 10. Changelog Summary
 
 - Added IASL module  
 - Added reversibility model  
 - Added state machine  
 - Added governance and audit  
 - Upgraded README to 5.0  
+- Added Contribution Policy  
+- Added Workflow Status Note  
+- Added automated index workflow  
 
 Full changelog: `CHANGELOG.md`
 
 ---
 
-# 9. Scientific References
+# 11. Scientific References
 
 - Augmentation of frontoparietal gamma-band phase coupling enhances human altruistic behavior  
   https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003602
 
 ---
 
-# 10. Purpose
+# 12. Purpose
 
 This repository provides a structured reference for modeling:
 
@@ -233,30 +259,19 @@ This repository provides a structured reference for modeling:
 
 ---
 
-# 11. License
+# 13. License
 CC BY 4.0 — see LICENSE for full text.
 
 ---
 
-# 12. Authors  
+# 14. Authors  
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
-- *Kimi AI* — engineering audit
-
-## Contribution Policy
-
-This repository does not accept external contributions.  
-All changes must be authored and approved by the repository owner.  
-No pull requests, forks, or external edits will be merged.
-
-GitHub Actions workflows do not grant write access to external users.  
-All automation runs exclusively under the repository owner's permissions.
-
-
----
+- *Kimi AI* — engineering audit  
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
 
+# 1. Repository Structure
 
