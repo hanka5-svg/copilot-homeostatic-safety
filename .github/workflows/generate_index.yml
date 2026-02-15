@@ -1,0 +1,33 @@
+name: Generate Auto Index
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate index
+        run: |
+          echo "# Auto‑Generated Index" > AUTO_INDEX.md
+          echo "" >> AUTO_INDEX.md
+          echo "Generated on: $(date -u)" >> AUTO_INDEX.md
+          echo "" >> AUTO_INDEX.md
+          echo "## Repository Files" >> AUTO_INDEX.md
+          echo "" >> AUTO_INDEX.md
+          find . -type f ! -path "./.git/*" | sort >> AUTO_INDEX.md
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add AUTO_INDEX.md
+          git commit -m "Auto-update AUTO_INDEX.md" || echo "No changes to commit"
+          git push
