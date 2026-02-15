@@ -32,7 +32,20 @@ if choice:
 
     st.divider()
 
+ # --- NAWIGACJA MIĘDZY EKRANAMI ---
+if "started" not in st.session_state:
+    st.session_state.started = False
+
+if not st.session_state.started:
+    # EKRAN STARTOWY
     if st.button("START", type="primary"):
-        st.success(f"Uruchamiam tryb **{mode}** w przestrzeni **{choice}**…")
+        st.session_state.started = True
+        st.rerun()
+else:
+    # EKRAN PO START
+    st.success(f"Tryb **{mode}** w przestrzeni **{choice}** został uruchomiony.")
+    st.header("To jest nowy ekran ✨")
+    st.write("Tu możesz dodać logikę, moduły, backend, cokolwiek chcesz.")
+
         # tu później podłączymy backend:
         # run(mode=mode.lower(), space=options[choice])
