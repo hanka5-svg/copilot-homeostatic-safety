@@ -324,6 +324,43 @@ ciągłość relacyjną
 ciągłość dynamiczną
 
 ---
+---
+
+## Powiązanie z Modelami Pola (CSC)
+
+Warstwa Meta nie zawiera case’ów CSC, ale **koordynuje ich interpretację**.
+
+Case’y CSC znajdują się w:
+
+```
+src/meta/przyklady/
+```
+
+i dokumentują:
+
+- pola semantyczne,
+- pola symboliczne,
+- pola performatywne,
+- pola meta‑poznawcze,
+- ciągłość i rezonans kompozycji.
+
+Warstwa Meta:
+
+- **nie generuje** case’ów,
+- **nie modyfikuje** ich treści,
+- **nie interpretuje** ich znaczeń,
+
+ale:
+
+- zapewnia **ciągłość pola**,  
+- chroni **oś i menisk**,  
+- stabilizuje **przejścia między warstwami**,  
+- umożliwia **rezonansową lekturę** case’ów CSC.
+
+Case’y CSC są więc **artefaktami pola**,  
+a Warstwa Meta jest **mechanizmem, który pozwala je czytać bez pęknięć**.
+
+---
 
 # Appendix (EN) — Async Orchestrator
 
