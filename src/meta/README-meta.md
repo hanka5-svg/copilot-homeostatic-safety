@@ -361,6 +361,44 @@ Case’y CSC są więc **artefaktami pola**,
 a Warstwa Meta jest **mechanizmem, który pozwala je czytać bez pęknięć**.
 
 ---
+---
+
+## Relationship to Field Models (CSC)
+
+The Meta Layer does not contain CSC case studies, but it **coordinates their interpretation**.
+
+CSC cases are located in:
+
+```
+src/meta/przyklady/
+```
+
+These documents represent:
+
+- semantic fields,
+- symbolic fields,
+- performative fields,
+- meta‑cognitive fields,
+- continuity and resonance of composition.
+
+The Meta Layer:
+
+- does **not** generate CSC cases,
+- does **not** modify their content,
+- does **not** interpret their meaning,
+
+but it:
+
+- maintains **field continuity**,  
+- protects the **axis and meniscus**,  
+- stabilizes **cross‑layer transitions**,  
+- enables **resonant reading** of CSC cases.
+
+CSC cases are therefore **artifacts of the field**,  
+while the Meta Layer is the **mechanism that allows them to be read without rupture**.
+
+
+---
 
 # Appendix (EN) — Async Orchestrator
 
