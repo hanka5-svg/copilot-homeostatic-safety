@@ -1,11 +1,12 @@
 # Copilot Homeostatic Safety  
-# System Architecture Overview (README 3.1 — Modular + Auto‑TOC)
+# System Architecture Overview (README 3.5 — Final Modular Edition)
 
 This repository documents a multi‑layer cognitive and safety architecture
-for human–AI coexistence. README 3.1 introduces:
+for human–AI coexistence. README 3.5 introduces:
 
 - automatic table of contents (GitHub-native),
-- modular indexing of all folders,
+- modular indexing of all architecture layers,
+- module capability profiles,
 - stable structure for future modules,
 - clean separation between architecture and content.
 
@@ -28,8 +29,6 @@ for human–AI coexistence. README 3.1 introduces:
 
 ---
 
-# 1. Repository Structure
-
 copilot-homeostatic-safety/
 │
 ├── src/
@@ -43,6 +42,7 @@ copilot-homeostatic-safety/
 ├── altruism_induced/
 │
 └── README.md
+
 
 Each folder contains its own README and internal documentation.
 
@@ -81,31 +81,43 @@ Each folder contains its own README and internal documentation.
 # 3. Module Index
 
 ## 3.1 Temporal Layer (`src/temporal/`)
-Models:
-- nonlinear time,
-- subjective temporal flow,
-- phase transitions.
 
-Documents:
+### Capabilities
+- nonlinear time modeling  
+- subjective temporal flow  
+- phase transitions  
+- temporal disruptions  
+
+### Documents
 - `five_phase_temporal_model.md`
 - `afazja_temporal_model.md`
 
 ---
 
 ## 3.2 Native Altruism Layer (`src/altruism/`)
-Models:
-- native altruism,
-- gamma-band synchrony.
 
-Documents:
+### Capabilities
+- gamma-band synchrony  
+- altruistic decision-weight modeling  
+- native altruism mechanisms  
+
+### Documents
 - `gamma_induced_altruism.md`
 
 ---
 
 ## 3.3 IASL — Induced Altruism Safety Layer (`altruism_induced/`)
-Reversible, non-generative, consent-bound modulation layer.
 
-Documents:
+### Capabilities
+- reversible modulation  
+- impulse stabilization  
+- reflective pacing  
+- prosocial cue salience  
+- overload reduction  
+- consent-bound operation  
+- full auditability  
+
+### Documents
 - `induced_altruism_model.md`
 - `bci_llm_pipeline.md`
 - `ethical_framework.md`
@@ -118,31 +130,37 @@ Documents:
 ---
 
 ## 3.4 Meta Layer (`src/meta/`)
-Models:
-- resonant cognition,
-- dual-track processing,
-- values integration.
 
-Documents:
+### Capabilities
+- resonant cognition  
+- dual-track processing  
+- values integration  
+- spiral cognitive dynamics  
+
+### Documents
 - `meta_layer_of_resonant_cognition.md`
 
 ---
 
 ## 3.5 Interaction Layers (`src/duets/`, `src/locked_in/`)
-Models:
-- relational safety,
-- communication constraints.
 
-Documents:
+### Capabilities
+- relational safety  
+- communication constraints  
+- dyadic and triadic interaction patterns  
+
+### Documents
 - `duet_architecture.md`
 - `locked_in_afazja_meta.md`
 
 ---
 
 ## 3.6 Fairwater (`src/fairwater/`)
-Models:
-- system-wide safety principles,
-- coexistence rules.
+
+### Capabilities
+- system-wide safety principles  
+- coexistence rules  
+- architectural constraints  
 
 ---
 
@@ -179,4 +197,6 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
+# 1. Repository Structure
 
