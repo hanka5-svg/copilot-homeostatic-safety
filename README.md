@@ -1,4 +1,23 @@
 # Copilot Homeostatic Safety  
+
+## 🔄 Repository Update (2026)
+
+This project has expanded significantly in the last development cycle.
+In addition to the original Homeostatic Safety framework, the repository
+now includes three new cognitive–architectural layers:
+
+- **Temporal Layer** — nonlinear time, subjective time flow, phase shifts.
+- **Altruism Layer** — induced vs. native altruism, gamma synchrony models.
+- **Meta Layer (Resonant Cognition)** — dual‑track processing, values,
+  silence, relational fields, and spiral cognitive dynamics.
+
+These layers extend the original architecture and document how
+coexistence behaves across time, values, resonance, and meta‑cognition.
+
+A full specification is available in:
+`src/temporal/`, `src/altruism/`, `src/meta/`.
+
+
 ![Project Status](https://img.shields.io/badge/Project%20Status-Active-brightgreen)  
 ![Core](https://img.shields.io/badge/Core-Archived-blue)  
 ![CEL](https://img.shields.io/badge/CEL-In%20Development-orange)
@@ -237,6 +256,13 @@ CEL inherits all Core invariants but adds its own:
 
 ---
 
+### Meta Layer (Resonant Cognition)
+
+This repository includes a meta layer — a systems‑level model of resonant cognition that operates above language, linear time, and single‑track reasoning. It formalizes dual‑track processing (analytic ↔ resonant), the integration of values, silence, relational context, and memory, and the spiral dynamics that emerge when cognition is not constrained to sequential flow.  
+Full specification: `src/meta/meta_layer_of_resonant_cognition.md`
+
+---
+
 # 🧪 CEL Usage Examples  
 Two scenarios are included in `README-cel.md`.
 
@@ -431,6 +457,7 @@ Bezpieczna przestrzeń dla duetu opiekun–dziecko:
 - priorytet autonomii dziecka i spokoju relacji  
 
 CEL chroni relację — nie zastępuje jej.
+
 
 
 
