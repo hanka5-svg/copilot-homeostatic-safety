@@ -1,47 +1,81 @@
 # Induced Altruism Safety Layer (IASL)
 
-This folder contains the documentation and models for the **Induced
-Altruism Safety Layer**, a non-generative, ethically constrained module
-supporting prosocial modulation in BCI → LLM pipelines.
-
-IASL operates between the BCI signal stream and the relational safety
-layers (CEL/DUCL/PGP). Its purpose is to stabilize impulses, enhance
-reflection, and support prosocial behavior without altering identity,
+IASL is a reversible, non-generative, non-coercive modulation layer
+placed between BCI input and relational safety layers (CEL/DUCL/PGP).
+Its purpose is to support prosocial clarity, impulse stabilization,
+reflective pacing, and emotional regulation without altering identity,
 values, or personal preferences.
 
-IASL is:
-- biologically reversible,
-- non-coercive,
-- transparent and auditable,
-- focused on impulse regulation and empathy strengthening,
-- distinct from the META layer (native altruism).
+IASL operates only with explicit informed consent and remains fully
+auditable.
 
-## Contents
-- `induced_altruism_model.md` — conceptual model of IASL  
-- `bci_llm_pipeline.md` — placement of IASL in the signal flow  
-- `ethical_framework.md` — ethical constraints and invariants  
-- `rehabilitation_use_cases.md` — prosocial cognitive applications  
+---
 
-## Architecture (ASCII)
+## Folder Structure
 
-      BCI Signals
-          │
-          ▼
-   ┌───────────────────┐
-   │  IASL (Safety)    │
-   │  • impulse filter │
-   │  • empathy boost  │
-   │  • reflection     │
-   └───────────────────┘
-          │
-          ▼
-   CEL → DUCL → PGP → LLM
+- `induced_altruism_model.md`  
+  Core conceptual model of IASL.
 
-IASL is not a generative layer.  
-IASL supports prosocial cognition through modulation, not identity change.
+- `bci_llm_pipeline.md`  
+  Placement of IASL in the BCI → LLM pipeline.
+
+- `ethical_framework.md`  
+  Ethical constraints, allowed actions, prohibited actions.
+
+- `rehabilitation_use_cases.md`  
+  Abstract use cases including cognitive resocialization, high‑stress
+  professions, caregiving, and wellness.
+
+- `case_studies.md`  
+  Abstract, non-clinical examples of IASL modulation.
+
+- `iasl_architecture_diagram.md`  
+  Full ASCII architecture diagram of IASL.
+
+- `iasl_reversibility_model.md`  
+  Reversibility guarantees, dissipation curves, consent coupling.
+
+- `iasl_state_machine.md`  
+  Operational state machine, transitions, safety fallbacks.
+
+---
+
+## High-Level Architecture (Simplified)
+
+BCI Signals
+│
+▼
+IASL
+│
+▼
+CEL → DUCL → PGP → LLM
+
+IASL does not generate content.  
+IASL does not modify identity or values.  
+IASL provides reversible modulation only.
+
+---
 
 ## Purpose
-To provide a safe, ethical, reversible mechanism for prosocial modulation
-in contexts such as cognitive rehabilitation, impulse regulation, and
-supportive resocialization.
+
+IASL provides:
+- impulse stabilization,  
+- reflective micro-pauses,  
+- prosocial cue salience,  
+- overload reduction,  
+- emotional clarity.
+
+IASL is a support mechanism, not a control mechanism.
+
+---
+
+## Compliance
+
+IASL follows:
+- autonomy preservation,  
+- minimal intervention,  
+- reversibility,  
+- transparency,  
+- auditability,  
+- informed consent.
 
