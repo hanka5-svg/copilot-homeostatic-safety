@@ -31,3 +31,4 @@ jobs:
           git add AUTO_INDEX.md
           git commit -m "Auto-update AUTO_INDEX.md" || echo "No changes to commit"
           git push
+
