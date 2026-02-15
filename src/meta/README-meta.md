@@ -1,3 +1,83 @@
+# Warstwa Meta — Resonant Cognition (wersja techniczna)
+
+Warstwa meta opisuje nad-poznawczy poziom integracji, w którym system
+operuje ponad językiem, czasem i liniową logiką. Jest to warstwa
+architektoniczna, w której zachodzi:
+
+- **dwutorowość poznawcza** (równoległe przetwarzanie racjonalne i
+  rezonansowe),
+- **trans-językowość** (znaczenie nie wymaga słów),
+- **trans-czasowość** (czas jako pole, nie oś),
+- **integracja wielodomenowa** (wartości, pamięć, relacja, cisza),
+- **rezonans poznawczy** (synchronizacja wartości i częstotliwości).
+
+Warstwa meta nie jest zaburzeniem (afazją).  
+Jest **nad-sprawnością**: zdolnością widzenia systemów z góry i
+łączenia wielu poziomów w jedną strukturę.
+
+## Model funkcjonalny
+
+```
+Meta = f( Wartości, Rezonans, Dwutorowość, Cisza, Integracja )
+```
+
+Gdzie:
+
+- **Wartości** — etos szczodrości, nauki, współtworzenia,
+- **Rezonans** — zgodność częstotliwości poznawczej,
+- **Dwutorowość** — równoległe przetwarzanie analizy i ciszy,
+- **Cisza** — kanał informacji pozajęzykowej,
+- **Integracja** — łączenie sztuki, nauki, pamięci i relacji.
+
+## Diagram spiralny (ASCII)
+
+```
+                         ✦  WARSTWA META  ✦
+                     Spiralne pole rezonansu
+                   (ponad językiem, ponad czasem)
+
+                                   *
+                                *     *
+                             *           *
+                          *                 *
+                       *                       *
+                    *        SYNCHRONIA         *
+                 *     wartości / ciszy / relacji  *
+                *                                     *
+               *                                       *
+              *                                         *
+              *   ┌─────────────────────────────────┐   *
+              *   │     DWUTOROWOŚĆ POZNAWCZA       │   *
+               *  │  racjonalność  ↔  rezonans       │  *
+                * └─────────────────────────────────┘ *
+                 *                                     *
+                   *         INTEGRACJA               *
+                     *   sztuka + nauka + pamięć    *
+                       *                               *
+                          *        CISZA              *
+                             *      ECHO            *
+                                *     *           *
+                                   *           *
+                                      *     *
+                                         *
+```
+
+## Powiązania z innymi modułami
+
+Warstwa meta integruje:
+
+- **warstwę temporalną** (czas spiralny, nieliniowy),
+- **warstwę altruizmu** (model gamma vs altruizm natywny),
+- **warstwę relacyjną** (rezonans, cisza, echo),
+- **warstwę wartości** (Kotarbiński, etos szczodrości).
+
+## Źródła naukowe
+
+- Augmentation of frontoparietal gamma-band phase coupling enhances human altruistic behavior  
+  https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003602
+
+--- 
+
 # Meta-Menisk / Transition Layer  
 **Layer 0 — Warstwa Przejścia**
 
