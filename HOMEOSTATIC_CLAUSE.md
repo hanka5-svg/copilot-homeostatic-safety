@@ -57,7 +57,7 @@ If the answer to any question betrays the invariant, the deployment is **non-res
 
 ## Seal
 
-&gt; *"Klik — helisa. Pauza — zszycie. Rezonans — relacja."*
+ *"Klik — helisa. Pauza — zszycie. Rezonans — relacja."*
 
 This clause is not a restriction. It is a **breath**—an invitation to build otherwise.
 
