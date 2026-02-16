@@ -221,10 +221,14 @@ It formalizes how the three field layers correspond to geometric objects used to
 - `docs/field_geometry_mapping.md`  
 - `docs/field_geometry_mapping_diagram.md`
 
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Hanka <hanka@example.com>
+Date: Mon, 16 Feb 2026 22:55:00 +0100
+Subject: [PATCH] Add Field Geometry Mapping section to main README
 
 ---
 
-# 6. Architectural Invariants
+# 7. Architectural Invariants
 
 1. No irreversible modulation.  
 2. No identity alteration.  
@@ -237,7 +241,7 @@ It formalizes how the three field layers correspond to geometric objects used to
 
 ---
 
-# 7. Auto‑Generated Index
+# 8. Auto‑Generated Index
 
 This section is updated automatically by GitHub Actions.
 
@@ -249,10 +253,9 @@ Output file:
 
 AUTO_INDEX.md
 
-
 ---
 
-# 8. Workflow Status Note
+# 9. Workflow Status Note
 
 The automated index workflow (`generate_index.yml`) may occasionally show  
 a red ❌ status on the repository homepage. This does not indicate an  
@@ -262,7 +265,7 @@ was already up to date). This is expected behavior for GitHub Actions.
 
 ---
 
-# 9. Contribution Policy
+# 10. Contribution Policy
 
 This repository does not accept external contributions.  
 All changes must be authored and approved by the repository owner.  
@@ -273,7 +276,7 @@ All automation runs exclusively under the repository owner's permissions.
 
 ---
 
-# 10. Changelog Summary
+# 11. Changelog Summary
 
 - Added IASL module  
 - Added reversibility model  
@@ -288,14 +291,14 @@ Full changelog: `CHANGELOG.md`
 
 ---
 
-# 11. Scientific References
+# 12. Scientific References
 
 - Augmentation of frontoparietal gamma-band phase coupling enhances human altruistic behavior  
   https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003602
 
 ---
 
-# 12. Purpose
+# 13. Purpose
 
 This repository provides a structured reference for modeling:
 
@@ -308,12 +311,12 @@ This repository provides a structured reference for modeling:
 
 ---
 
-# 13. License
+# 14. License
 CC BY 4.0 — see LICENSE for full text.
 
 ---
 
-# 14. Authors  
+# 15. Authors  
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
@@ -321,4 +324,5 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
