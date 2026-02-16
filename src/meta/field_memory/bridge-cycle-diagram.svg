@@ -1,0 +1,86 @@
+<!-- Bridge Cycle Diagram — ADR-0049 (ASCII-only) -->
+<!-- This file is intentionally ASCII-only, stored in .svg for repository consistency. -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+  <!-- ASCII diagram embedded as text for human-readable architecture reference -->
+
+  <!--
+  LAYERS:
+    [G] = Gating
+    [R] = Resonance
+    [C] = Continuity (field_memory)
+
+  PHASE FLOW:
+    P1 → P2 → P3 → P4
+
+  -------------------------------------------------------------------------
+  TOP-LEVEL FLOW
+  -------------------------------------------------------------------------
+
+      +-------------------+        +-------------------+        +-------------------+        +-------------------+
+      |       P1          |        |        P2         |        |        P3         |        |        P4         |
+      |    Initiation     |  --->  |      Zszycie      |  --->  |   Stabilization   |  --->  |      Closure      |
+      |  anchor: set      |        |  gating↔resonance |        |  resonance:aligned|        | resonance:settled |
+      |  resonance:open   |        |  continuity:stable|        |  anchor:stable    |        | continuity:closed |
+      +-------------------+        +-------------------+        +-------------------+        +-------------------+
+
+  -------------------------------------------------------------------------
+  LAYERED VIEW (G / R / C)
+  -------------------------------------------------------------------------
+
+      PHASE 1 (P1: Initiation)
+        [G] operational
+        [R] open
+        [C] anchor=set, snapshot=valid, continuity=baseline
+
+      PHASE 2 (P2: Zszycie)
+        [G] operational
+        [R] active
+        [C] anchor=stable, continuity=preserved, no resets
+
+      PHASE 3 (P3: Stabilization)
+        [G] operational
+        [R] aligned
+        [C] anchor=maintained, snapshot=consistent, transitions=deterministic
+
+      PHASE 4 (P4: Closure)
+        [G] operational
+        [R] settled
+        [C] continuity=closed, anchor=stable, no destructive operations
+
+  -------------------------------------------------------------------------
+  RESET PATH (META-LAYER ONLY)
+  -------------------------------------------------------------------------
+
+      [failure in continuity / anchor / snapshot / transition]
+
+                          |
+                          v
+
+      +------------------------------------------------------+
+      |                RESET PROTOCOL (META)                 |
+      |  - freeze continuity buffer                          |
+      |  - clear active snapshot / markers / anchors         |
+      |  - establish new baseline anchor + snapshot          |
+      |  - restore invariants                                |
+      +---------------------------+--------------------------+
+                                  |
+                                  v
+                               back to P1
+
+      NOTE:
+        - reset is meta-layer exclusive
+        - runtime and applications cannot trigger reset
+        - bridge cycle is designed to complete without reset
+
+  -------------------------------------------------------------------------
+  INVARIANTS (C-LAYER)
+  -------------------------------------------------------------------------
+
+      - no runtime writes to field_memory
+      - deterministic reads only
+      - non-destructive continuity
+      - anchor stability across P1–P4
+      - zero resets during valid cycle
+  -->
+</svg>
