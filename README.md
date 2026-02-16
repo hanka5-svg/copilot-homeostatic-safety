@@ -191,6 +191,36 @@ meta:              v2.0.1
 interaction:       v1.0.0
 fairwater:         v1.0.0
 
+---
+
+## 6. Field Geometry Mapping
+<a id="field-geometry-mapping"></a>
+
+This section provides a concise structural mapping between the homeostatic field architecture and information geometry.  
+It formalizes how the three field layers correspond to geometric objects used to model distinguishability, correlation, and stability.
+
+### 6.1 Field Layers
+- **Micro-field** — local fluctuations, high‑gradient signals, early tension detection.  
+- **Fractal-field** — scale‑dependent curvature, cross‑layer coupling.  
+- **Macro-field** — global curvature, invariants, system‑level stability.
+
+### 6.2 Information Geometry Correspondence
+- **Micro-field → Fisher metric (local)**  
+  Local distinguishability and curvature.
+- **Fractal-field → scale‑dependent metric**  
+  Renormalization of the metric across scales.
+- **Macro-field → global curvature (R)**  
+  Large‑scale correlation structure.
+
+### 6.3 Functional Relationship
+- **curvature → correlation**  
+- **correlation → gating (pre‑execution)**  
+- **gating → homeostasis**
+
+### 6.4 Reference Documents
+- `docs/field_geometry_mapping.md`  
+- `docs/field_geometry_mapping_diagram.md`
+
 
 ---
 
@@ -291,3 +321,4 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
