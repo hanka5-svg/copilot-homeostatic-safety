@@ -193,6 +193,17 @@ fairwater:         v1.0.0
 
 ---
 
+### Geometry Interpretation Layer
+
+Geometry in this repository is an interpretation layer that maps the
+homeostatic field architecture to information‑geometry concepts.
+It does not introduce runtime computation or agency.
+
+See:
+- docs/geometry/README.md — overview of the geometry interpretation layer
+- docs/geometry/INDEX.md — navigation index
+
+
 ## 6. Field Geometry Mapping
 <a id="field-geometry-mapping"></a>
 
@@ -218,13 +229,8 @@ It formalizes how the three field layers correspond to geometric objects used to
 - **gating → homeostasis**
 
 ### 6.4 Reference Documents
-- `docs/field_geometry_mapping.md`  
-- `docs/field_geometry_mapping_diagram.md`
-
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Hanka <hanka@example.com>
-Date: Mon, 16 Feb 2026 22:55:00 +0100
-Subject: [PATCH] Add Field Geometry Mapping section to main README
+docs/geometry/field_geometry_mapping.md
+docs/geometry/field_geometry_mapping_diagram.md
 
 ---
 
@@ -324,5 +330,6 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
 
