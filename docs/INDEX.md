@@ -4,8 +4,9 @@ Status: Stable
 Scope: Navigation index for all documents in /docs.
 
 ## 1. Geometry
-- **field_geometry_mapping.md** — mapping between field architecture and information geometry.
-- **field_geometry_mapping_diagram.md** — structural diagram of field ↔ geometry ↔ safety.
+- **geometry/field_geometry_mapping.md** — mapping between field architecture and information geometry.
+- **geometry/field_geometry_mapping_diagram.md** — structural diagram of field ↔ geometry ↔ safety.
+- **geometry/INDEX.md** — index for geometry interpretation layer.
 
 ## 2. Architecture (general)
 - **architecture_diagram.md** — high-level architecture diagram.
