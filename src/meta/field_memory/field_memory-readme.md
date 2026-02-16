@@ -65,3 +65,4 @@ Details: `field_memory-invariants.md`
 - bridge cycle: `bridge-cycle-*`
 - reset: `field_memory-reset-protocol.md`
 - homeostatic clause: `HOMEOSTATIC_CLAUSE.md` (repo root)
+
