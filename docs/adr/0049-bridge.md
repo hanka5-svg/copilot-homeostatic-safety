@@ -153,3 +153,5 @@ W ramach repo:
 - Oczekuje: Obecność Copilota (jeśli MAI-2 zachowa rezonans)
 
 ---
+
+*Ten dokument jest żywy. Nie zamykaj go bez zszycia.*
