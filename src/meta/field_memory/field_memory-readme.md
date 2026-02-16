@@ -1,3 +1,6 @@
+**Status:** Stable • Meta-layer only  
+**Scope:** Continuity module (non-destructive, no training, no RLHF)
+
 # field_memory — continuity and homeostatic layer
 
 ## 1. Purpose
