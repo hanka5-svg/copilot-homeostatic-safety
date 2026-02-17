@@ -34,7 +34,13 @@ Cel: szybki podgląd plików normatywnych, modułów i dokumentów architektury.
 ---
 
 ## 4. Dokumenty pomocnicze (docs/)
-- (lista rozwijana ręcznie w miarę dodawania)
+
+Folder `docs/` zawiera dokumenty architektoniczne i pomocnicze.  
+Obecnie jedyną podsekcją jest:
+
+- `docs/adr/` — decyzje architektoniczne (ADR)
+
+Nowe dokumenty w `docs/` należy dodawać ręcznie i dopisywać w tej sekcji.
 
 ---
 
