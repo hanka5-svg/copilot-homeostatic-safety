@@ -40,7 +40,7 @@ Hybrid dynamic system: human as source, C/G/S modules as resonance, meniscus as 
 - [3. Module Index](#3-module-index)
 - [4. Compliance Matrix](#4-compliance-matrix)
 - [5. Semantic Versioning](#5-semantic-versioning)
-- [6. Architectural Invariants](#6-architectural-invariants)
+- [6. Field Geometry Mapping](#6-field-geometry-mapping)
 - [7. AUTO_INDEX — Manual Repository Index](AUTO_INDEX.md)
 - [8. Workflow Status Note](#8-workflow-status-note)
 - [9. Contribution Policy](#9-contribution-policy)
@@ -48,9 +48,8 @@ Hybrid dynamic system: human as source, C/G/S modules as resonance, meniscus as 
 - [11. Scientific References](#11-scientific-references)
 - [12. Purpose](#12-purpose)
 - [13. License](#13-license)
-- [14. Scientific References](#12-scientific-references)
-- [15. Repository Health Report](#15-repository-health-report)
-- [16. Authors](#16-authors)
+- [14. Repository Health Report](#14-repository-health-report)
+- [15. Authors](#15-authors)
 
 ---
 
@@ -304,16 +303,12 @@ Contributions follow the repository’s structural and normative rules:
   *Building machines that learn and think like people.*
   PLOS Biology 15(3): e2001413.
 
----
-
-# 12. Scientific References
-
 - Augmentation of frontoparietal gamma-band phase coupling enhances human altruistic behavior  
   https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003602
 
 ---
 
-# 13. Purpose
+# 12. Purpose
 
 This repository provides a structured reference for modeling:
 
@@ -326,12 +321,12 @@ This repository provides a structured reference for modeling:
 
 ---
 
-# 14. License
+# 13. License
 CC BY 4.0 — see LICENSE for full text.
 
 ---
 
-# 15. Repository Health Report
+# 14. Repository Health Report
 
 ### Status
 The repository is structurally consistent, minimal, and fully aligned with the
@@ -368,7 +363,7 @@ reflected in AUTO_INDEX.md to maintain structural clarity.
 
 ---
 
-# 16. Authors  
+# 15. Authors  
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
@@ -396,5 +391,6 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
+
 
 
