@@ -294,16 +294,19 @@ All automation runs exclusively under the repository owner's permissions.
 
 # 11. Changelog Summary
 
-- Added IASL module  
-- Added reversibility model  
-- Added state machine  
-- Added governance and audit  
-- Upgraded README to 5.0  
-- Added Contribution Policy  
-- Added Workflow Status Note  
-- Added automated index workflow  
+### Added
+- AUTO_INDEX.md — manual structural index for the repository.
+- Updated README to include:
+  - Table of Contents entry for AUTO_INDEX.md,
+  - revised Repository Structure section,
+  - updated sections 7, 8, and 9 to remove references to automated workflows.
 
-Full changelog: `CHANGELOG.md`
+### Changed
+- Replaced the former “Auto‑Generated Index” section with a manual index reference.
+- Removed references to GitHub Actions workflows related to index generation.
+
+### Removed
+- Mentions of `.github/workflows/generate_index.yml` and automated index updates.
 
 ---
 
@@ -340,6 +343,26 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
+---
+
+# How to maintain AUTO_INDEX.md
+
+AUTO_INDEX.md is updated manually.  
+No automated workflows modify this file.
+
+### Rules for maintenance
+- Add new files to the appropriate section (Normative Documents, ADRs, Modules).
+- Keep entries minimal: filename + one‑line description.
+- Do not include internal notes, diagrams, or extended commentary.
+- Maintain alphabetical order within each section when possible.
+- Remove entries only when files are deleted from the repository.
+- Ensure consistency with the Repository Structure section in README.
+
+### Purpose
+The manual index provides a clear, transparent overview of the repository without
+relying on automated generation. This aligns with the homeostatic design principles:
+explicitness, control, and auditability.
 
 
 
