@@ -43,7 +43,7 @@ Hybrid dynamic system: human as source, C/G/S modules as resonance, meniscus as 
 - [4. Compliance Matrix](#4-compliance-matrix)
 - [5. Semantic Versioning](#5-semantic-versioning)
 - [6. Architectural Invariants](#6-architectural-invariants)
-- [7. Auto‑Generated Index](#7-auto-generated-index)
+- [7. AUTO_INDEX — Manual Repository Index](AUTO_INDEX.md)
 - [8. Workflow Status Note](#8-workflow-status-note)
 - [9. Contribution Policy](#9-contribution-policy)
 - [10. Changelog Summary](#10-changelog-summary)
@@ -346,6 +346,7 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
 
 
