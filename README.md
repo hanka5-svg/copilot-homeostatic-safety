@@ -248,17 +248,13 @@ docs/geometry/field_geometry_mapping_diagram.md
 
 # 7. AUTO_INDEX — Manual Repository Index
 
-1. No irreversible modulation.  
-2. No identity alteration.  
-3. No behavioral enforcement.  
-4. Consent required for IASL.  
-5. Full auditability.  
-6. Separation of layers.  
-7. No cross-layer mutation.  
-8. No external write access.  
+AUTO_INDEX.md provides a manual, transparent overview of the repository structure.
+It lists normative documents, ADRs, and architectural modules without relying on
+automation or hidden workflows.
+
+See: AUTO_INDEX.md
 
 ### Note on Manual Indexing
-
 AUTO_INDEX.md is maintained by hand to preserve transparency, control, and
 auditability. This approach aligns with the homeostatic design principles:
 no automation, no hidden processes, no implicit transformations.
@@ -283,18 +279,7 @@ Contributions follow the repository’s structural and normative rules:
 
 ---
 
-# 10. Contribution Policy
-
-This repository does not accept external contributions.  
-All changes must be authored and approved by the repository owner.  
-No pull requests, forks, or external edits will be merged.
-
-GitHub Actions workflows do not grant write access to external users.  
-All automation runs exclusively under the repository owner's permissions.
-
----
-
-# 11. Changelog Summary
+# 10. Changelog Summary
 
 ### Added
 - AUTO_INDEX.md — manual structural index for the repository.
@@ -309,6 +294,14 @@ All automation runs exclusively under the repository owner's permissions.
 
 ### Removed
 - Mentions of `.github/workflows/generate_index.yml` and automated index updates.
+
+---
+
+# 11. Scientific References
+
+- B. M. Lake, T. D. Ullman, J. B. Tenenbaum, S. J. Gershman (2017).
+  *Building machines that learn and think like people.*
+  PLOS Biology 15(3): e2001413.
 
 ---
 
@@ -365,6 +358,7 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
+
 
 
 
