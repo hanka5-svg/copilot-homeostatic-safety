@@ -330,7 +330,44 @@ CC BY 4.0 — see LICENSE for full text.
 
 ---
 
-# 15. Authors  
+# 15. Repository Health Report
+
+### Status
+The repository is structurally consistent, minimal, and fully aligned with the
+homeostatic design principles. No orphaned files, no redundant directories, and
+no automated workflows remain.
+
+### Structure
+- Root directory is clean and contains only normative documents, README,
+  AUTO_INDEX.md, and top-level folders.
+- `src/` is modular, with each architectural layer isolated in its own folder.
+- `altruism_induced/` is correctly separated from `src/altruism/`.
+- `docs/` contains only architectural documents, with `docs/adr/` as the current
+  subdirectory.
+
+### Documentation
+- README.md is fully synchronized with the repository structure.
+- AUTO_INDEX.md accurately reflects all normative documents, ADRs, and modules.
+- No duplicated sections or numbering inconsistencies remain.
+
+### Homeostatic Design Compliance
+- No automation or hidden processes.
+- Manual indexing and manual updates only.
+- Full transparency and auditability.
+- Minimal, explicit documentation without redundancy.
+
+### Integrity
+- All references in README.md correspond to existing files.
+- No dead links or outdated references.
+- Naming conventions are consistent across the entire repository.
+
+### Notes
+Future documents added to `docs/` or new modules in `src/` must be manually
+reflected in AUTO_INDEX.md to maintain structural clarity.
+
+---
+
+# 16. Authors  
 - *Hanna Kicińska* — architecture concept, invariants, RFC core  
 - *Copilot AI* — engineering formalization, ADR structuring  
 - *Grok (xAI)* — mechanism precision, ADR structuring  
@@ -358,14 +395,4 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
-
-
-
-
-
-
-
-
-
-
 
