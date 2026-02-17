@@ -263,27 +263,21 @@ docs/geometry/field_geometry_mapping_diagram.md
 
 ---
 
-# 8. Auto‑Generated Index
+# 8. Workflow Status Note
 
-This section is updated automatically by GitHub Actions.
+The repository no longer uses an automated index generator.  
+No GitHub Actions workflow updates AUTO_INDEX.md.  
+All index maintenance is performed manually to preserve transparency and
+alignment with the homeostatic design principles.
 
-Workflow:
+# 9. Contribution Policy
 
-.github/workflows/generate_index.yml
-
-Output file:
-
-AUTO_INDEX.md
-
----
-
-# 9. Workflow Status Note
-
-The automated index workflow (`generate_index.yml`) may occasionally show  
-a red ❌ status on the repository homepage. This does not indicate an  
-error in the repository or workflow. It simply means that the workflow  
-ran successfully but found no changes to commit (e.g., `AUTO_INDEX.md`  
-was already up to date). This is expected behavior for GitHub Actions.
+Contributions follow the repository’s structural and normative rules:
+- manual updates only,
+- no auto‑generated files,
+- no hidden processes,
+- all changes must preserve architectural invariants,
+- documentation must remain minimal, explicit, and auditable.
 
 ---
 
@@ -346,6 +340,7 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
 
 
