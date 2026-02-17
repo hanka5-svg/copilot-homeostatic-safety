@@ -75,6 +75,19 @@ Each folder contains its own README and internal documentation.
 
 ---
 
+### Consent Model (ZERO / POLE / FORMA)
+
+The repository includes a normative document defining a three‑tier consent system
+for exporting user field‑data:
+
+- **ZERO** — no export (default)
+- **POLE** — export of rhythm/density/tension metadata
+- **FORMA** — export of anonymized cognitive structures (thinking patterns, trajectories)
+
+Document: `opcje_zgody_eksportu_pola_003.md`
+
+---
+
 # 2. Module Dependency Graph
 
 META
@@ -333,6 +346,7 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
 
 
