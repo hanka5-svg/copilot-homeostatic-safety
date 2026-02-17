@@ -17,7 +17,6 @@ README 5.2 introduces:
 - This project operates under explicit normative rules.
 See: /rules
 
-
 ---
 
 ## Related repositories
@@ -68,8 +67,9 @@ copilot-homeostatic-safety/
 │
 ├── altruism_induced/
 │
+├── AUTO_INDEX.md
+│
 └── README.md
-
 
 Each folder contains its own README and internal documentation.
 
@@ -346,6 +346,7 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
 
 
