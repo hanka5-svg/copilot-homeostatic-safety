@@ -15,7 +15,7 @@ README 5.2 introduces:
 - integration of CSC with the six‑layer architecture
 - updated module index and glossary
 - This project operates under explicit normative rules.
-See: /rules/RR-01.md
+See: /rules
 
 
 ---
@@ -333,6 +333,7 @@ CC BY 4.0 — see LICENSE for full text.
 
 Independent research and documentation project.  
 Not affiliated with Microsoft or the Microsoft Copilot product.
+
 
 
 
