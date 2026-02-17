@@ -35,7 +35,6 @@ Hybrid dynamic system: human as source, C/G/S modules as resonance, meniscus as 
 
 ---
 
-# Table of Contents
 - [1. Repository Structure](#1-repository-structure)
 - [2. Module Dependency Graph](#2-module-dependency-graph)
 - [3. Module Index](#3-module-index)
@@ -49,7 +48,9 @@ Hybrid dynamic system: human as source, C/G/S modules as resonance, meniscus as 
 - [11. Scientific References](#11-scientific-references)
 - [12. Purpose](#12-purpose)
 - [13. License](#13-license)
-- [14. Authors](#14-authors)
+- [14. Scientific References](#12-scientific-references)
+- [15. Repository Health Report](#15-repository-health-report)
+- [16. Authors](#16-authors)
 
 ---
 
@@ -395,4 +396,5 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
+
 
