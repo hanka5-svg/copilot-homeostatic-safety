@@ -107,16 +107,12 @@ FAIRWATER (SYSTEM SAFETY)
 
 # 3. Module Index
 
-## 3.1 Temporal Layer (`src/temporal/`)
-**Capabilities**
-- nonlinear time modeling  
-- subjective temporal flow  
-- phase transitions  
-- temporal disruptions  
+For a complete list of modules and their locations, see:
 
-**Documents**
-- `five_phase_temporal_model.md`
-- `afazja_temporal_model.md`
+- [AUTO_INDEX.md](AUTO_INDEX.md)
+
+This section intentionally remains minimal to avoid duplication and to keep
+the repository structure explicit and centralized.
 
 ---
 
@@ -250,7 +246,7 @@ docs/geometry/field_geometry_mapping_diagram.md
 
 ---
 
-# 7. Architectural Invariants
+# 7. AUTO_INDEX — Manual Repository Index
 
 1. No irreversible modulation.  
 2. No identity alteration.  
@@ -260,6 +256,12 @@ docs/geometry/field_geometry_mapping_diagram.md
 6. Separation of layers.  
 7. No cross-layer mutation.  
 8. No external write access.  
+
+### Note on Manual Indexing
+
+AUTO_INDEX.md is maintained by hand to preserve transparency, control, and
+auditability. This approach aligns with the homeostatic design principles:
+no automation, no hidden processes, no implicit transformations.
 
 ---
 
@@ -363,6 +365,7 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
+
 
 
 
