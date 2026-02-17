@@ -39,6 +39,28 @@ Folder `docs/` zawiera dokumenty architektoniczne i pomocnicze.
 Obecnie jedyną podsekcją jest:
 
 - `docs/adr/` — decyzje architektoniczne (ADR)
+- diff --git a/AUTO_INDEX.md b/AUTO_INDEX.md
+index 3c2d1f1..a7b9e44 100644
+--- a/AUTO_INDEX.md
++++ b/AUTO_INDEX.md
+@@ -38,6 +38,14 @@ Folder `docs/` zawiera dokumenty architektoniczne i pomocnicze.
+ Obecnie jedyną podsekcją jest:
+ 
+ - `docs/adr/` — decyzje architektoniczne (ADR)
++
++### Podsekcja: docs/geometry/
++Zawiera dokumenty dotyczące struktury pola i jego topologii:
++
++- `architecture_of_field.md`
++- `geometry_continuity_bridge.md`
++- (pozostałe pliki geometry dodawane ręcznie)
++
+
+
+ Nowe dokumenty w `docs/` należy dodawać ręcznie i dopisywać w tej sekcji.
+ 
+ ---
+
 
 Nowe dokumenty w `docs/` należy dodawać ręcznie i dopisywać w tej sekcji.
 
