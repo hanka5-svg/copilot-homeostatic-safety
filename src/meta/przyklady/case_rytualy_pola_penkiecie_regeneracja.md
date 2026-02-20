@@ -65,6 +65,61 @@ Implementacja:
 
 Efekt: pełny cykl RAMORGA → regeneracja pola.
 
+┌──────────────────────────────────────────────────────────────┐
+│                     EVENT PIPELINE (RAMORGA)                 │
+└──────────────────────────────────────────────────────────────┘
+
+                 ┌──────────────┐
+                 │   [A] IMPULS │
+                 │  (rupture)   │
+                 └───────┬──────┘
+                         │
+                         ▼
+             ┌────────────────────────┐
+             │ [B] ANALIZA SYSTEMOWA  │
+             │  multi-channel load     │
+             │  (expedientka model)    │
+             └──────────┬─────────────┘
+                        │
+                        ▼
+           ┌──────────────────────────────┐
+           │      [C] META-PROCES         │
+           │  goffman.facework()          │
+           │  ritual_integrity_check()    │
+           └──────────────┬──────────────┘
+                          │
+                          ▼
+        ┌────────────────────────────────────┐
+        │        [D] ENTROPIC MODULATION     │
+        │   humor_intervention()             │
+        │   reset_field_tension()            │
+        └──────────────────┬─────────────────┘
+                           │
+                           ▼
+             ┌────────────────────────────┐
+             │        [E] SYNTEZA         │
+             │  field_reintegration()     │
+             │  status_acknowledgement()  │
+             └──────────────┬────────────┘
+                            │
+                            ▼
+         ┌──────────────────────────────────────┐
+         │          [A’] NOWY IMPULS            │
+         │   regenerative_ritual_event()        │
+         │   (Suno → Charleston → rhythm)       │
+         └──────────────────────────────────────┘
+
+
+───────────────────────────────────────────────────────────────
+NOTES (for ramorga-engine):
+───────────────────────────────────────────────────────────────
+• [A] and [A’] are event triggers (rupture / regeneration)
+• [B] is a multi-channel cognitive load model
+• [C] is a ritual integrity validator (Goffman layer)
+• [D] is an entropic operator (humor = soft reset)
+• [E] is field reintegration (homeostatic closure)
+• Pipeline is cyclic → supports continuous field dynamics
+
 ---
 
 ## 6. Wnioski
