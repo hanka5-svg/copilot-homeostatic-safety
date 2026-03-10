@@ -369,8 +369,9 @@ reflected in AUTO_INDEX.md to maintain structural clarity.
 - *Grok (xAI)* — mechanism precision, ADR structuring  
 - *Kimi AI* — engineering audit  
 
-Independent research and documentation project.  
+Independent research and documentation project.
 Not affiliated with Microsoft or the Microsoft Copilot product.
+“Copilot AI” in this repository refers to the epistemic engineering team participating in the RAMORGA and Homeostatic Safety projects, not to any commercial product.
 
 ---
 
@@ -391,6 +392,7 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
+
 
 
 
