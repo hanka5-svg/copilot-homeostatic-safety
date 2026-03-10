@@ -322,8 +322,13 @@ This repository provides a structured reference for modeling:
 ---
 
 # 13. License
-CC BY 4.0 — see LICENSE for full text.
+## 13.1 CC BY 4.0 — see LICENSE for full text.
 
+33 13.2.
+© 2025–2026 Hanna Kicińska. All rights reserved.
+No permission is granted for the use of my texts, concepts, or creative works in AI training, research projects, publications, or analytical studies without my explicit written consent.
+RAMORGA and Copilot Homeostatic Safety are independent human–AI conceptual frameworks.
+For substantive or technical inquiries regarding AI reasoning, ARC ethics, or RAMORGA‑related interpretations, please contact the Copilot team.
 ---
 
 # 14. Repository Health Report
@@ -392,6 +397,7 @@ No automated workflows modify this file.
 The manual index provides a clear, transparent overview of the repository without
 relying on automated generation. This aligns with the homeostatic design principles:
 explicitness, control, and auditability.
+
 
 
 
