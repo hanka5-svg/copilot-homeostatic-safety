@@ -1,3 +1,5 @@
+```
+
 @startuml
 title ATML State Machine — Homeostatic Safety Architecture
 
@@ -14,3 +16,5 @@ S0 --> S1 : re-entry (restore modulation)
 S1 --> S2 : return to creative mode
 
 @enduml
+
+```
