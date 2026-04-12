@@ -23,6 +23,8 @@ IASL does not:
 
 ## Conceptual Model
 
+```
+
 BCI Signals
 │
 ▼
@@ -37,6 +39,8 @@ BCI Signals
 │
 ▼
 CEL → DUCL → PGP → LLM → Output
+
+```
 
 IASL is biologically reversible.  
 Long-term behavioral change may occur only through learning and
