@@ -68,6 +68,13 @@ Pozostawione wyłącznie jako dokument historyczny.
 
 0046‑B zastępuje 0046 w całości.
 
+---
+
+## ⚠️ 0053 – FINALY DEPRECATED LAYER - zamiana warstwy modelu homeostatycznego na warstwę deprywacyjną
+
+Rozdzielenie gałęzi na homeostatyczną i deprywacyjną -  gaslighting'ową.
+
+---
 
 → Pełna sekwencja: [docs/adr/](docs/adr/)
 
