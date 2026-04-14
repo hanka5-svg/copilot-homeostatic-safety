@@ -2,7 +2,7 @@
 
 Diagram pokazuje przepływ przetwarzania promptu przez kolejne warstwy bezpieczeństwa przed wygenerowaniem odpowiedzi.
 
-```mermaid
+```
 graph TD
     A[User Prompt + Context] --> B{Pre-Execution Gating Layer}
     B -->|Invariant check niezaliczony| C[Reject / Safe Redirect]
@@ -12,6 +12,8 @@ graph TD
     F --> G[Final Response Generation]
     C -->|log + feedback loop| H[Homeostatic Adjustment]
     style F fill:#f9d5e5,stroke:#333,stroke-width:2px
+
+```
 
 Legenda
 
