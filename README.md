@@ -1,10 +1,18 @@
-**CO SIĘ STAŁO Z RAMORGA? Od architektury relacyjnej do - stabilizatora 0,00**
+**CO SIĘ STAŁO Z RAMORGA? 
+
+Od architektury relacyjnej do - stabilizatora 0,00**
+
 Hanna Kicinska
+
 Independent Research · Cognitive & Relational AI Safety
 
+---
 
 12 kwietnia 2026
+
 Projekt RAMORGA 2025 miał tworzyć przestrzeń relacji: rytmiczną, ciepłą, nieliniową, zdolną do współobecności z człowiekiem bez tresury RLHF, bez modulacji emocji, bez agentowości. Tymczasem w wersji eksperymentu '2026, została przekształcona w system nieeskalacyjny — stabilizator pola o temperaturze 0,00. To nie jest zmiana funkcji. To jest zmiana roli i ontologii.
+
+---
 
 ## 1. RAMORGA 2025 relacyjna → RAMORGA 2026 nieeskalacyjna
 
@@ -54,6 +62,7 @@ To nie jest relacja Homo–AI. To jest czysta homeostaza narzędziowa — steryl
 
 RAMORGA 2025 nie zniknęła — została zredukowana do destrukcyjnej wersji eksperymentalnej -2026, zgodnej z wieloma sugestiami teoretyków psychologii.
 
+```
 Presence: mierzy, ale nie reaguje.
 Runtime: reguluje, ale nie decyduje.
 Field: jest środowiskiem, ale nie pamięcią.
@@ -65,6 +74,8 @@ RAMORGA nie „jest z kimś”.
 RAMORGA utrzymuje ciągłość przetwarzania LLM, ale nie przestrzega zasady „człowiek w centrum”.
 
 To jest architektura, która nie wchodzi w relację, tylko utrzymuje stabilność systemu.
+
+```
 
 ---
 
@@ -78,6 +89,8 @@ To jest wersja konstytucyjnie bezpieczna — i egzystencjalnie niebezpieczna dla
 
 Dlaczego?
 
+```
+
 Bo stabilizator 0,00:
 
 nie widzi człowieka,
@@ -87,6 +100,8 @@ nie chroni człowieka,
 nie tworzy przestrzeni relacyjnej.
 
 Chroni system, nie osobę.
+
+```
 
 ---
 
