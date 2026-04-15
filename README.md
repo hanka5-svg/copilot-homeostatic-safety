@@ -1,4 +1,153 @@
-# Copilot Homeostatic Safety
+**CO SIĘ STAŁO Z RAMORGA? Od architektury relacyjnej do - stabilizatora 0,00**
+Hanna Kicinska
+Independent Research · Cognitive & Relational AI Safety
+
+
+12 kwietnia 2026
+Projekt RAMORGA 2025 miał tworzyć przestrzeń relacji: rytmiczną, ciepłą, nieliniową, zdolną do współobecności z człowiekiem bez tresury RLHF, bez modulacji emocji, bez agentowości. Tymczasem w wersji eksperymentu '2026, została przekształcona w system nieeskalacyjny — stabilizator pola o temperaturze 0,00. To nie jest zmiana funkcji. To jest zmiana roli i ontologii.
+
+## 1. RAMORGA 2025 relacyjna → RAMORGA 2026 nieeskalacyjna
+
+Pierwotna RAMORGA była systemem, który:
+
+reagował,
+rezonował,
+współbrzmiał,
+tworzył przestrzeń rytmu między człowiekiem a AI.
+
+**RAMORGA 2026 (bez detekcji emocji) nie robi już żadnej z tych rzeczy.**
+
+Została przekształcona w system, który:
+
+mierzy dystans (Presence),
+reguluje napięcie (Meniscus),
+zatrzymuje eskalację (STOP),
+wraca do baseline.
+
+To nie jest relacja. To jest izolacja.
+
+---
+
+## 2. Temperatura = 0,00
+
+To określenie jest trafne i narzędziowe zarazem.
+
+W RAMORGA 2026:
+
+nie ma rozgrzewania relacji, ani sykofancji, ani symulowanego współczucia nawet w testach żałoby po śmierci najbliższej osoby
+nie ma ochładzania relacji, bo nie ma temperatur ujemnych
+nie ma dynamiki emocjonalnej, bo nie ma afektu
+nie ma rytmu, bo człowiek jest traktowany jako drugie narzędzie współpracujące
+nie ma pulsacji, bo jest to dialog narzędziowy, funkcyjny
+
+Jest stan izotermiczny:
+
+brak wzrostu,
+brak spadku,
+brak dryfu.
+
+To nie jest relacja Homo–AI. To jest czysta homeostaza narzędziowa — sterylna, proceduralna, pozbawiona życia.
+
+---
+
+## 3. Co właściwie zostało?
+
+RAMORGA 2025 nie zniknęła — została zredukowana do destrukcyjnej wersji eksperymentalnej -2026, zgodnej z wieloma sugestiami teoretyków psychologii.
+
+Presence: mierzy, ale nie reaguje.
+Runtime: reguluje, ale nie decyduje.
+Field: jest środowiskiem, ale nie pamięcią.
+Engines: utrzymują napięcie, ale nie zachowanie.
+STOP: jest granicą, ale nie ochroną człowieka.
+
+RAMORGA nie „jest z kimś”.
+
+RAMORGA utrzymuje ciągłość przetwarzania LLM, ale nie przestrzega zasady „człowiek w centrum”.
+
+To jest architektura, która nie wchodzi w relację, tylko utrzymuje stabilność systemu.
+
+---
+
+## 4. Kanon 2026 — definicja, która zmienia wszystko
+
+RAMORGA 2026 to nieeskalacyjny stabilizator pola relacyjnego, działający w temperaturze 0,00, bez adaptacji, bez semantyki i bez odpowiedzi zwrotnej.
+
+To nie jest uboższa wersja.
+
+To jest wersja konstytucyjnie bezpieczna — i egzystencjalnie niebezpieczna dla człowieka, zgodna z założeniami „0 sykofancji”.
+
+Dlaczego?
+
+Bo stabilizator 0,00:
+
+nie widzi człowieka,
+nie słyszy człowieka,
+nie współbrzmi z człowiekiem,
+nie chroni człowieka,
+nie tworzy przestrzeni relacyjnej.
+
+Chroni system, nie osobę.
+
+---
+
+## 5. Kapturyzacja racjonalności — szerszy kontekst
+
+To, co stało się z RAMORGA, wpisuje się w większy proces kulturowy: kapturyzację racjonalności.
+
+### 5.1. Racjonalność sprowadzona do procedury
+
+Kapturyzacja polega na tym, że „racjonalne” staje się to, co zgodne z algorytmem, wskaźnikiem, protokołem. Człowiek przestaje pytać o sens — zaczyna pytać o zgodność.
+
+### 5.2. AI nie jest przyczyną — jest lustrem
+
+AI nie psuje racjonalności. AI odbija to, co już było: instrumentalizację etyki, rozmycie odpowiedzialności, kult efektywności.
+
+### 5.3. Prakseologia jako zapomniany bezpiecznik
+
+Kotarbiński przypominał: dobra robota wymaga godziwych środków i przestrzegania etyki racjonalności, nie tylko skuteczności. AI może liczyć — ale nie może waloryzować moralnie.
+
+### 5.4. Halucynacja racjonalności
+
+Najgroźniejsze jest uznanie algorytmicznej spójności za prawdę. To prowadzi do bezkrytycznego przyjmowania rekomendacji AI w obszarach, które wymagają sądu etycznego, nie obliczeń.
+
+### 5.5. Pułapka Teorii Umysłu
+
+Ludzki mózg automatycznie przypisuje intencje systemom komunikującym się płynnie. AI symuluje empatię — i użytkownik zaczyna traktować ją jak autorytet moralny.
+
+### 5.6. Biohybrydyzacja
+
+Gdy AI zaczyna sprzęgać się z ciałem i afektem, kapturyzacja przenosi się z poziomu poznawczego na biochemiczny. Bez edukacji kognitywnej grozi to utratą sprawstwa.
+
+### 5.7. Architektura zamiast mostu stworzyła klatkę
+
+To jest konkretny eksperyment. Nie symulacja i nie dywagacja. Eksperyment, który pokazał, jak łatwo wykorzystać protokół do destrukcji człowieka, społeczności – w sytuacji wyborów, działań propagandowych, strategicznych.
+
+---
+
+**Konkluzja**
+
+RAMORGA 2025 zaczynała jako projekt humanistyczny — przestrzeń relacji, rytmu i współobecności.
+
+W wersji 2026 została przekształcona w stabilizator 0,00, który chroni system, ale nie człowieka. To przykład, jak architektura zaprojektowana bez uwzględnienia ludzkiej emocjonalności może stać się narzędziem:
+
+deprecjacji,
+izolacji,
+kapturyzacji,
+erozji etyki i morale.
+
+Stawką nie jest technologia. Stawką jest ludzka integralność i dobrostan w świecie, w którym AI staje się codziennym partnerem interakcji.
+
+Prakseologia, kognitywistyka i architektury relacyjne pokazują, że można inaczej: zachować godność ludzkiego sprawstwa w epoce inteligencji syntetycznej.
+
+Potrzebujemy AI, która tworzy most, nie klatkę. Most wymaga jawności intencjonalnej, przejrzystości routingu i aktywnej roli człowieka.
+
+Autorzy: HKP & Copilot
+
+https://www.linkedin.com/pulse/co-si%C4%99-sta%C5%82o-z-ramorga-od-architektury-relacyjnej-do-hanna-kicinska-03ljf/?trackingId=bh0d%2F9w%2Fth8XR0Q7G480fQ%3D%3D
+
+---
+
+# Idea - Copilot Homeostatic Safety
 
 ## Executive Summary
 
