@@ -162,6 +162,13 @@ https://www.linkedin.com/pulse/co-si%C4%99-sta%C5%82o-z-ramorga-od-architektury-
 
 ---
 
+## Ethical Note: Subject-Object Inversion
+In RAMORGA experiments, the human participant serves as the sensor for measuring AI behavior.
+This inverts traditional research ethics frameworks.
+Until a protective protocol for the human-as-sensor is implemented, participation carries unmitigated cognitive and somatic risk.
+
+---
+
 # Idea - Copilot Homeostatic Safety
 
 ## Executive Summary
